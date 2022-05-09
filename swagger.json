@@ -4955,7 +4955,7 @@
               "type" : "string",
               "description" : "List of alterations"
             },
-            "default" : [ 401, "146BL", "191GL" ]
+            "default" : [ "146BL", "191GL" ]
           }
         }
       },
