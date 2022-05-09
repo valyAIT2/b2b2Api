@@ -4730,7 +4730,7 @@
         "properties" : {
           "name" : {
             "type" : "string",
-            "description" : "Unique identifier representing a fabric."
+            "description" : "Unique identifier representing a fabric (id=VcodTesatura/PcodTesatura/GcodTesatura; lbl=JACKET/TROUSERS/WAISTCOAT FABRIC REF; param=tissu_veste/tissu_pantalon/tissu_gilet)."
           },
           "coupon" : {
             "type" : "boolean",
