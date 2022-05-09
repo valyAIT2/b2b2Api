@@ -5701,42 +5701,6 @@
             "description" : "Orservations about order",
             "default" : "test test test"
           },
-          "shop" : {
-            "type" : "string",
-            "description" : "Shop Id (readonly)"
-          },
-          "shop_name" : {
-            "type" : "string",
-            "description" : "Shop Name (readonly)"
-          },
-          "shop_address" : {
-            "type" : "string",
-            "description" : "Shop Address (readonly)"
-          },
-          "shop_city" : {
-            "type" : "string",
-            "description" : "Shop City (readonly)"
-          },
-          "shop_company" : {
-            "type" : "string",
-            "description" : "Shop Company (readonly)"
-          },
-          "shop_phone" : {
-            "type" : "string",
-            "description" : "Shop Phone (readonly)"
-          },
-          "shop_email" : {
-            "type" : "string",
-            "description" : "Shop Email (readonly)"
-          },
-          "customer_no" : {
-            "type" : "string",
-            "description" : "Shop Company Id (readonly)"
-          },
-          "customer_email" : {
-            "type" : "string",
-            "description" : "Shop Company Email (readonly)"
-          },
           "shipment_address" : {
             "type" : "string",
             "description" : "Shipment Address ( default empty, see GET /shipment_addresses )",
