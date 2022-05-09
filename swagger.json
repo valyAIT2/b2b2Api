@@ -5639,11 +5639,13 @@
           },
           "status" : {
             "type" : "string",
-            "description" : "Order status (readonly)"
+            "description" : "Order status",
+            "enum" : [ "standby", "new" ]
           },
           "mtm_type" : {
             "type" : "string",
-            "description" : "MTM | MTO"
+            "description" : "MTM | MTO",
+            "default" : "MTM"
           },
           "oldorderno" : {
             "type" : "integer",
