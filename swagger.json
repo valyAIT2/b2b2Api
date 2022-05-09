@@ -4383,6 +4383,12 @@
         "responses" : {
           "200" : {
             "description" : "Success"
+          },
+          "401" : {
+            "description" : "ApiKey is missing or invalid"
+          },
+          "500" : {
+            "description" : "Internal Server Error"
           }
         }
       }
@@ -4730,7 +4736,7 @@
         "properties" : {
           "name" : {
             "type" : "string",
-            "description" : "Unique identifier representing a fabric (id=VcodTesatura/PcodTesatura/GcodTesatura; lbl=JACKET/TROUSERS/WAISTCOAT FABRIC REF; param=tissu_veste/tissu_pantalon/tissu_gilet)."
+            "description" : "Unique identifier representing a fabric."
           },
           "coupon" : {
             "type" : "boolean",
@@ -4790,37 +4796,33 @@
           "quantity" : {
             "type" : "integer",
             "format" : "int32",
-            "default" : 1,
-            "description" : "Jacket quantity (id=Vcant; lbl=Qty; param=veste_qte)"
+            "default" : 1
           },
           "Shoulder_line" : {
             "type" : "string",
-            "description" : "Jacket Shoulder slope (id=VShSlope; lbl=SHOULDER LINE; param=VShSlope)",
+            "description" : "Jacket Shoulder slope",
             "enum" : [ "LIGHT", "STANDARD", "STRAIGHT" ],
             "default" : "STANDARD"
           },
           "construction_name" : {
             "type" : "string",
-            "description" : "Jacket Construction name (id=Vconstructie; lbl=CONSTRUCTION; param=construction)",
-            "enum" : [ "ZERO GRAVITY", "TESK", "PRESTIGE SOFT", "PRESTIGE", "SIES", "SEMI-TRAD SOFT", "SEMI-TRAD", "TRADITIONALA SOFT", "TESKW45", "TESKW25" ],
+            "description" : "Jacket Construction name",
             "default" : "PRESTIGE"
-          },
-          "sleeve_head_name" : {
-            "type" : "string",
-            "description" : "Jacket Sleeve Head name (id=VcapManeca; lbl=SLEEVE HEAD; param=capmaneca)",
-            "enum" : [ "NAS/K", "NAN/0", "NAX/0", "RO/E", "RE/E", "REX/E", "RO/A", "RE/A", "REX/A" ],
-            "default" : "RO/E"
           },
           "base_name" : {
             "type" : "string",
-            "description" : "Jacket Base name (id=VmodelIncercat; lbl=BASE; param=v_model_essaye)",
-            "enum" : [ "G", "GA", "GAD", "GD", "GT", "UG" ],
-            "default" : "G"
+            "description" : "Jacket Base name",
+            "default" : "SE"
           },
           "model_name" : {
             "type" : "string",
             "description" : "Jacket Model name",
             "default" : "SE16"
+          },
+          "sleeve_head_name" : {
+            "type" : "string",
+            "description" : "Jacket Sleeve Head name",
+            "default" : "RO"
           },
           "interior_name" : {
             "type" : "string",
