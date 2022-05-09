@@ -1,0 +1,6301 @@
+{
+  "openapi" : "3.0.0",
+  "info" : {
+    "title" : "Formens B2B2 API",
+    "description" : "Formens B2B2 API",
+    "version" : "103"
+  },
+  "security" : [ {
+    "api_key" : [ ]
+  } ],
+  "servers" : [ {
+    "url" : "https://node.formens.ro/b2b2/"
+  } ],
+  "paths" : {
+    "/fabrics_stock/{name}" : {
+      "get" : {
+        "summary" : "Fabric detail",
+        "description" : "Fabric detail",
+        "tags" : [ "Fabrics" ],
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "name",
+          "required" : true,
+          "schema" : {
+            "type" : "string",
+            "format" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/FabricStock"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid/incomplete Fabric reference supplied"
+          },
+          "404" : {
+            "description" : "Fabric reference not found"
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/jacket_bases" : {
+      "get" : {
+        "summary" : "Jacket Bases",
+        "description" : "List Jacket Bases",
+        "tags" : [ "Jacket" ],
+        "responses" : {
+          "200" : {
+            "description" : "An array of jacket bases",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/JacketBase"
+                  }
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/jacket_bases/{name}" : {
+      "get" : {
+        "summary" : "Jacket Base",
+        "description" : "List Jacket Base Types",
+        "tags" : [ "Jacket" ],
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "name",
+          "required" : true,
+          "schema" : {
+            "type" : "string",
+            "format" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/JacketBase"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid Base name supplied"
+          },
+          "404" : {
+            "description" : "Base name not found"
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/jacket_models" : {
+      "get" : {
+        "summary" : "Jacket Models",
+        "description" : "List Jacket Models",
+        "tags" : [ "Jacket" ],
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "base_name",
+          "description" : "Filter jacket models by base_name",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "An array of jacket models",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/JacketModel"
+                  }
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid Jacket base name supplied"
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/jacket_models/{name}" : {
+      "get" : {
+        "summary" : "Jacket Model",
+        "description" : "Jacket Model",
+        "tags" : [ "Jacket" ],
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "name",
+          "required" : true,
+          "schema" : {
+            "type" : "string",
+            "format" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/JacketModel"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid Jacket model name supplied"
+          },
+          "404" : {
+            "description" : "Jacket model name not found"
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/jacket_constructions" : {
+      "get" : {
+        "summary" : "Jacket Constructions",
+        "description" : "List Jacket Constructions",
+        "tags" : [ "Jacket" ],
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "base_name",
+          "description" : "Jacket constructions available for base_name",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "An array of jacket constructions",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/JacketConstruction"
+                  }
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid Jacket base name supplied"
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/jacket_constructions/{name}" : {
+      "get" : {
+        "summary" : "Jacket Construction",
+        "description" : "Jacket Construction",
+        "tags" : [ "Jacket" ],
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "name",
+          "required" : true,
+          "schema" : {
+            "type" : "string",
+            "format" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/JacketConstruction"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid Jacket Construction name supplied"
+          },
+          "404" : {
+            "description" : "Jacket Construction not found"
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/jacket_sleeveheads" : {
+      "get" : {
+        "summary" : "Jacket Sleeve Heads",
+        "description" : "List Jacket Sleeve Heads",
+        "tags" : [ "Jacket" ],
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "base_name",
+          "description" : "Jacket Sleeve Heads available for base_name",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "An array of jacket Sleeve Heads",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/JacketSleeveHead"
+                  }
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid Jacket base name supplied"
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/jacket_sleeveheads/{id}" : {
+      "get" : {
+        "summary" : "Jacket Sleeve Head",
+        "description" : "Jacket Sleeve Head",
+        "tags" : [ "Jacket" ],
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "id",
+          "required" : true,
+          "schema" : {
+            "type" : "string",
+            "format" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/JacketSleeveHead"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid Jacket Sleeve Head name supplied"
+          },
+          "404" : {
+            "description" : "Jacket Sleeve Head not found"
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/jacket_interiors" : {
+      "get" : {
+        "summary" : "Jacket Interiors",
+        "description" : "List Jacket Interiors",
+        "tags" : [ "Jacket" ],
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "base_name",
+          "description" : "Jacket Interiors available for base_name",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "sleevehead_id",
+          "description" : "Jacket Interiors available with sleevehead",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "An array of jacket Interiors",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/JacketInterior"
+                  }
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid Jacket base name supplied"
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/jacket_interiors/{id}" : {
+      "get" : {
+        "summary" : "Jacket Interior",
+        "description" : "Jacket Interior",
+        "tags" : [ "Jacket" ],
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "id",
+          "required" : true,
+          "schema" : {
+            "type" : "string",
+            "format" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/JacketInterior"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid Jacket Interior name supplied"
+          },
+          "404" : {
+            "description" : "Jacket Interiors not found"
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/jacket_linings" : {
+      "get" : {
+        "summary" : "Jacket Linings",
+        "description" : "List Jacket Linings",
+        "tags" : [ "Jacket" ],
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "interior_id",
+          "description" : "Jacket Linings available for suplied interior",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "An array of jacket Linings",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/JacketLining"
+                  }
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid Jacket Interior id supplied"
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/jacket_linings/{id}" : {
+      "get" : {
+        "summary" : "Jacket Lining",
+        "description" : "Jacket Lining",
+        "tags" : [ "Jacket" ],
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "id",
+          "required" : true,
+          "schema" : {
+            "type" : "string",
+            "format" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/JacketLining"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid Jacket Lining id supplied"
+          },
+          "404" : {
+            "description" : "Jacket Lining not found"
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/jacket_pockets" : {
+      "get" : {
+        "summary" : "Jacket Pockets",
+        "description" : "List Jacket Pockets",
+        "tags" : [ "Jacket" ],
+        "responses" : {
+          "200" : {
+            "description" : "An array of jacket Pockets",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/JacketPocket"
+                  }
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/jacket_pockets/{id}" : {
+      "get" : {
+        "summary" : "Jacket Pocket",
+        "description" : "Jacket Pocket",
+        "tags" : [ "Jacket" ],
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "id",
+          "required" : true,
+          "schema" : {
+            "type" : "string",
+            "format" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/JacketPocket"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid Jacket Pocket id supplied"
+          },
+          "404" : {
+            "description" : "Jacket Pocket not found"
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/jacket_vents" : {
+      "get" : {
+        "summary" : "Jacket Vents",
+        "description" : "List Jacket Vents",
+        "tags" : [ "Jacket" ],
+        "responses" : {
+          "200" : {
+            "description" : "An array of jacket Vents",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/JacketVent"
+                  }
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/jacket_vents/{id}" : {
+      "get" : {
+        "summary" : "Jacket Vent",
+        "description" : "Jacket Vent",
+        "tags" : [ "Jacket" ],
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "id",
+          "required" : true,
+          "schema" : {
+            "type" : "string",
+            "format" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/JacketVent"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid Jacket Vent id supplied"
+          },
+          "404" : {
+            "description" : "Jacket Vent not found"
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/jacket_lapel-buttonholes" : {
+      "get" : {
+        "summary" : "Jacket Lapelbuttonholes",
+        "description" : "List Jacket Lapelbuttonholes",
+        "tags" : [ "Jacket" ],
+        "responses" : {
+          "200" : {
+            "description" : "An array of jacket Lapelbuttonholes",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/JacketLapelbuttonhole"
+                  }
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/jacket_lapel-buttonholes/{id}" : {
+      "get" : {
+        "summary" : "Jacket Lapelbuttonhole",
+        "description" : "Jacket Lapelbuttonhole",
+        "tags" : [ "Jacket" ],
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "id",
+          "required" : true,
+          "schema" : {
+            "type" : "string",
+            "format" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/JacketLapelbuttonhole"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid Jacket Lapelbuttonhole id supplied"
+          },
+          "404" : {
+            "description" : "Jacket Lapelbuttonhole not found"
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/jacket_buttons" : {
+      "get" : {
+        "summary" : "Jacket Buttons",
+        "description" : "List Jacket Buttons",
+        "tags" : [ "Jacket" ],
+        "responses" : {
+          "200" : {
+            "description" : "An array of jacket Buttons",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/JacketButton"
+                  }
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/jacket_buttons/{id}" : {
+      "get" : {
+        "summary" : "Jacket Button",
+        "description" : "Jacket Button",
+        "tags" : [ "Jacket" ],
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "id",
+          "required" : true,
+          "schema" : {
+            "type" : "string",
+            "format" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/JacketButton"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid Jacket Button id supplied"
+          },
+          "404" : {
+            "description" : "Jacket Button not found"
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/jacket_collar-felts" : {
+      "get" : {
+        "summary" : "Jacket Collar Felts",
+        "description" : "List Jacket Collar Felts",
+        "tags" : [ "Jacket" ],
+        "responses" : {
+          "200" : {
+            "description" : "An array of jacket Collar Felts",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/JacketCollarFelt"
+                  }
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/jacket_collar-felts/{id}" : {
+      "get" : {
+        "summary" : "Jacket Collar Felt",
+        "description" : "Jacket Collar Felt",
+        "tags" : [ "Jacket" ],
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "id",
+          "required" : true,
+          "schema" : {
+            "type" : "string",
+            "format" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/JacketCollarFelt"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid Jacket Collar Felt id supplied"
+          },
+          "404" : {
+            "description" : "Jacket Collar Felt not found"
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/jacket_elbow-patches" : {
+      "get" : {
+        "summary" : "Jacket Elbow Patches",
+        "description" : "List Jacket Elbow Patches",
+        "tags" : [ "Jacket" ],
+        "responses" : {
+          "200" : {
+            "description" : "An array of jacket Elbow Patches",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/JacketElbowPatch"
+                  }
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/jacket_elbow-patches/{id}" : {
+      "get" : {
+        "summary" : "Jacket Elbow Patch",
+        "description" : "Jacket Elbow Patch",
+        "tags" : [ "Jacket" ],
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "id",
+          "required" : true,
+          "schema" : {
+            "type" : "string",
+            "format" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/JacketElbowPatch"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid Jacket Elbow Patch id supplied"
+          },
+          "404" : {
+            "description" : "Jacket Elbow Patch not found"
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/jacket_contrast-threads" : {
+      "get" : {
+        "summary" : "Jacket Contrast Threads",
+        "description" : "List Jacket Contrast Threads",
+        "tags" : [ "Jacket" ],
+        "responses" : {
+          "200" : {
+            "description" : "An array of jacket Contrast Threads",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/JacketContrastThread"
+                  }
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/jacket_contrast-threads/{id}" : {
+      "get" : {
+        "summary" : "Jacket Contrast Thread",
+        "description" : "Jacket Contrast Thread",
+        "tags" : [ "Jacket" ],
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "id",
+          "required" : true,
+          "schema" : {
+            "type" : "string",
+            "format" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/JacketContrastThread"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid Jacket Contrast Thread id supplied"
+          },
+          "404" : {
+            "description" : "Jacket Contrast Thread not found"
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/jacket_secondary-options" : {
+      "get" : {
+        "summary" : "Jacket Secondary Options",
+        "description" : "List Jacket Secondary Options",
+        "tags" : [ "Jacket" ],
+        "responses" : {
+          "200" : {
+            "description" : "An array of jacket Secondary Options",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/JacketSecondaryOption"
+                  }
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/jacket_secondary-options/{id}" : {
+      "get" : {
+        "summary" : "Jacket Secondary Option",
+        "description" : "Jacket Secondary Option",
+        "tags" : [ "Jacket" ],
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "id",
+          "required" : true,
+          "schema" : {
+            "type" : "string",
+            "format" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/JacketSecondaryOption"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid Jacket Secondary Option id supplied"
+          },
+          "404" : {
+            "description" : "Jacket Secondary Option not found"
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/jacket_related-secondary-options" : {
+      "get" : {
+        "summary" : "Jacket Related Secondary Options",
+        "description" : "List pairs of Jacket Secondary Options that can not be assigned to an order on the same time",
+        "tags" : [ "Jacket" ],
+        "responses" : {
+          "200" : {
+            "description" : "An array of jacket Secondary Options",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "type" : "object"
+                  }
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/jacket_related-secondary-options/{name}" : {
+      "get" : {
+        "summary" : "Jacket Related Secondary Options",
+        "description" : "Pairs of Jacket Secondary Option that are the same type and can't be defined on the same order",
+        "tags" : [ "Jacket" ],
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "name",
+          "required" : true,
+          "schema" : {
+            "type" : "string",
+            "format" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "type" : "string"
+                  }
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid Jacket Secondary Option id supplied"
+          },
+          "404" : {
+            "description" : "Jacket Secondary Option not found"
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/jacket_sizes" : {
+      "get" : {
+        "summary" : "Jacket Sizes",
+        "description" : "List Jacket Sizes",
+        "tags" : [ "Jacket" ],
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "base_name",
+          "description" : "Jacket sizes available for base_name",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "An array of jacket Sizes",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/JacketSize"
+                  }
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/jacket_default-measurements" : {
+      "get" : {
+        "summary" : "Jacket Default Measurements for model and size",
+        "description" : "List Jacket Default Measurements for model and size",
+        "tags" : [ "Jacket" ],
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "model_name",
+          "description" : "Jacket Model Name",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "size",
+          "description" : "Jacket Size",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "An array of jacket Default Measurements",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/JacketDefaultMeasurement"
+                  }
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/jacket_primary-alterations" : {
+      "get" : {
+        "summary" : "Jacket Primary Alterations",
+        "description" : "List Jacket Primary Alterations",
+        "tags" : [ "Jacket" ],
+        "responses" : {
+          "200" : {
+            "description" : "An array of jacket Primary Alterations",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/JacketPrimaryAlteration"
+                  }
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/jacket_primary-alterations/{id}" : {
+      "get" : {
+        "summary" : "Jacket Primary Alteration",
+        "description" : "Jacket Primary Alteration",
+        "tags" : [ "Jacket" ],
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "id",
+          "required" : true,
+          "schema" : {
+            "type" : "string",
+            "format" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/JacketPrimaryAlteration"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid Jacket Primary Alteration id supplied"
+          },
+          "404" : {
+            "description" : "Jacket Primary Alteration not found"
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/jacket_secondary-alterations" : {
+      "get" : {
+        "summary" : "Jacket Secondary Alterations",
+        "description" : "List Jacket Secondary Alterations",
+        "tags" : [ "Jacket" ],
+        "responses" : {
+          "200" : {
+            "description" : "An array of jacket Secondary Alterations",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/JacketSecondaryAlteration"
+                  }
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/jacket_secondary-alterations/{id}" : {
+      "get" : {
+        "summary" : "Jacket Secondary Alteration",
+        "description" : "Jacket Secondary Alteration",
+        "tags" : [ "Jacket" ],
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "id",
+          "required" : true,
+          "schema" : {
+            "type" : "string",
+            "format" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/JacketSecondaryAlteration"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid Jacket Secondary Alteration id supplied"
+          },
+          "404" : {
+            "description" : "Jacket Secondary Alteration not found"
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/jacket_related-alterations" : {
+      "get" : {
+        "summary" : "Jacket Related Alterations",
+        "description" : "List pairs of Jacket Alterations that can not be assigned to an order on the same time",
+        "tags" : [ "Jacket" ],
+        "responses" : {
+          "200" : {
+            "description" : "An array of jacket Alterations",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "type" : "object"
+                  }
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/jacket_related-alterations/{name}" : {
+      "get" : {
+        "summary" : "Jacket Related Alterations",
+        "description" : "Pairs of Jacket Alterations that are the same type and can't be defined on the same order",
+        "tags" : [ "Jacket" ],
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "name",
+          "required" : true,
+          "schema" : {
+            "type" : "string",
+            "format" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "type" : "string"
+                  }
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid Jacket Alteration id supplied"
+          },
+          "404" : {
+            "description" : "Jacket Alteration not found"
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/trouser_models" : {
+      "get" : {
+        "summary" : "Trouser Models",
+        "description" : "List Trouser Models",
+        "tags" : [ "Trouser" ],
+        "responses" : {
+          "200" : {
+            "description" : "An array of Trouser Models",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/TrouserModel"
+                  }
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/trouser_models/{id}" : {
+      "get" : {
+        "summary" : "Trouser Model",
+        "description" : "Trouser Model",
+        "tags" : [ "Trouser" ],
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "id",
+          "required" : true,
+          "schema" : {
+            "type" : "string",
+            "format" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/TrouserModel"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid Trouser Model id supplied"
+          },
+          "404" : {
+            "description" : "Trouser Model not found"
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/trouser_front-pockets" : {
+      "get" : {
+        "summary" : "Trouser Front Pockets",
+        "description" : "List Trouser Front Pockets",
+        "tags" : [ "Trouser" ],
+        "responses" : {
+          "200" : {
+            "description" : "An array of Trouser Front Pockets",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/TrouserFrontPocket"
+                  }
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/trouser_front-pockets/{id}" : {
+      "get" : {
+        "summary" : "Front Pocket",
+        "description" : "Front Pocket",
+        "tags" : [ "Trouser" ],
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "id",
+          "required" : true,
+          "schema" : {
+            "type" : "string",
+            "format" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/TrouserFrontPocket"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid Trouser Front Pocket id supplied"
+          },
+          "404" : {
+            "description" : "Trouser Front Pockets not found"
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/trouser_back-pockets" : {
+      "get" : {
+        "summary" : "Trouser Back Pockets",
+        "description" : "List Trouser Back Pockets",
+        "tags" : [ "Trouser" ],
+        "responses" : {
+          "200" : {
+            "description" : "An array of Trouser Back Pockets",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/TrouserBackPocket"
+                  }
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/trouser_back-pockets/{id}" : {
+      "get" : {
+        "summary" : "Back Pocket",
+        "description" : "Back Pocket",
+        "tags" : [ "Trouser" ],
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "id",
+          "required" : true,
+          "schema" : {
+            "type" : "string",
+            "format" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/TrouserBackPocket"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid Trouser Back Pocket id supplied"
+          },
+          "404" : {
+            "description" : "Trouser Back Pockets not found"
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/trouser_front-creases" : {
+      "get" : {
+        "summary" : "Trouser Front Creases",
+        "description" : "List Trouser Front Creases",
+        "tags" : [ "Trouser" ],
+        "responses" : {
+          "200" : {
+            "description" : "An array of Trouser Front Creases",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/TrouserFrontCrease"
+                  }
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/trouser_front-creases/{id}" : {
+      "get" : {
+        "summary" : "Front Crease",
+        "description" : "Front Crease",
+        "tags" : [ "Trouser" ],
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "id",
+          "required" : true,
+          "schema" : {
+            "type" : "string",
+            "format" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/TrouserFrontCrease"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid Trouser Front Crease id supplied"
+          },
+          "404" : {
+            "description" : "Trouser Front Crease not found"
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/trouser_linings" : {
+      "get" : {
+        "summary" : "Trouser Linings",
+        "description" : "List Trouser Linings",
+        "tags" : [ "Trouser" ],
+        "responses" : {
+          "200" : {
+            "description" : "An array of Trouser Linings",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/TrouserLining"
+                  }
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/trouser_linings/{id}" : {
+      "get" : {
+        "summary" : "Lining",
+        "description" : "Lining",
+        "tags" : [ "Trouser" ],
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "id",
+          "required" : true,
+          "schema" : {
+            "type" : "string",
+            "format" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/TrouserLining"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid Trouser Lining id supplied"
+          },
+          "404" : {
+            "description" : "Trouser Lining not found"
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/trouser_bottom-finishes" : {
+      "get" : {
+        "summary" : "Trouser Bottom Finishes",
+        "description" : "List Trouser Bottom Finishes",
+        "tags" : [ "Trouser" ],
+        "responses" : {
+          "200" : {
+            "description" : "An array of Trouser Bottom Finishes",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/TrouserBottomFinish"
+                  }
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/trouser_bottom-finishes/{id}" : {
+      "get" : {
+        "summary" : "Bottom Finish",
+        "description" : "Bottom Finish",
+        "tags" : [ "Trouser" ],
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "id",
+          "required" : true,
+          "schema" : {
+            "type" : "string",
+            "format" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/TrouserBottomFinish"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid Trouser Bottom Finish id supplied"
+          },
+          "404" : {
+            "description" : "Trouser Bottom Finish not found"
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/trouser_buttons" : {
+      "get" : {
+        "summary" : "Trouser Buttons",
+        "description" : "List Trouser Buttons",
+        "tags" : [ "Trouser" ],
+        "responses" : {
+          "200" : {
+            "description" : "An array of trouser Buttons",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/TrouserButton"
+                  }
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/trouser_buttons/{id}" : {
+      "get" : {
+        "summary" : "Trouser Button",
+        "description" : "Trouser Button",
+        "tags" : [ "Trouser" ],
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "id",
+          "required" : true,
+          "schema" : {
+            "type" : "string",
+            "format" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/TrouserButton"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid Trouser Button id supplied"
+          },
+          "404" : {
+            "description" : "Trouser Button not found"
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/trouser_secondary-options" : {
+      "get" : {
+        "summary" : "Trouser Secondary Options",
+        "description" : "List Trouser Secondary Options",
+        "tags" : [ "Trouser" ],
+        "responses" : {
+          "200" : {
+            "description" : "An array of Trouser Secondary Options",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/TrouserSecondaryOption"
+                  }
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/trouser_secondary-options/{id}" : {
+      "get" : {
+        "summary" : "Secondary Option",
+        "description" : "Secondary Option",
+        "tags" : [ "Trouser" ],
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "id",
+          "required" : true,
+          "schema" : {
+            "type" : "string",
+            "format" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/TrouserSecondaryOption"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid Trouser Secondary Option id supplied"
+          },
+          "404" : {
+            "description" : "Trouser Secondary Option not found"
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/trouser_related-secondary-options" : {
+      "get" : {
+        "summary" : "Trouser Related Secondary Options",
+        "description" : "List pairs of Trouser Secondary Options that can not be assigned to an order on the same time",
+        "tags" : [ "Trouser" ],
+        "responses" : {
+          "200" : {
+            "description" : "An array of Trouser Secondary Options",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "type" : "object"
+                  }
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/trouser_related-secondary-options/{name}" : {
+      "get" : {
+        "summary" : "Trouser Related Secondary Options",
+        "description" : "Pairs of Trouser Secondary Option that are the same type and can't be defined on the same order",
+        "tags" : [ "Trouser" ],
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "name",
+          "required" : true,
+          "schema" : {
+            "type" : "string",
+            "format" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "type" : "string"
+                  }
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid Trouser Secondary Option id supplied"
+          },
+          "404" : {
+            "description" : "Trouser Secondary Option not found"
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/trouser_sizes" : {
+      "get" : {
+        "summary" : "Trouser Sizes",
+        "description" : "List Trouser Sizes",
+        "tags" : [ "Trouser" ],
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "model_name",
+          "description" : "Trouser sizes available for model_name",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "An array of Trouser Sizes",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/TrouserSize"
+                  }
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/trouser_default-measurements" : {
+      "get" : {
+        "summary" : "Trouser Default Measurements",
+        "description" : "List Trouser Default Measurements",
+        "tags" : [ "Trouser" ],
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "model_name",
+          "description" : "Trouser Model Name",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "size",
+          "description" : "Trouser Size",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "An array of Trouser Default Measurements",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/TrouserDefaultMeasurement"
+                  }
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/trouser_default-measurements/{id}" : {
+      "get" : {
+        "summary" : "Size",
+        "description" : "Size",
+        "tags" : [ "Trouser" ],
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "id",
+          "required" : true,
+          "schema" : {
+            "type" : "string",
+            "format" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/TrouserDefaultMeasurement"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid Trouser Default Measurement id supplied"
+          },
+          "404" : {
+            "description" : "Trouser Default Measurement not found"
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/trouser_primary-alterations" : {
+      "get" : {
+        "summary" : "Trouser Primary Alterations",
+        "description" : "List Trouser Primary Alterations",
+        "tags" : [ "Trouser" ],
+        "responses" : {
+          "200" : {
+            "description" : "An array of Trouser Primary Alterations",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/TrouserPrimaryAlteration"
+                  }
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/trouser_primary-alterations/{id}" : {
+      "get" : {
+        "summary" : "Primary Alteration",
+        "description" : "Primary Alteration",
+        "tags" : [ "Trouser" ],
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "id",
+          "required" : true,
+          "schema" : {
+            "type" : "string",
+            "format" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/TrouserPrimaryAlteration"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid Trouser Primary Alteration id supplied"
+          },
+          "404" : {
+            "description" : "Trouser Primary Alteration not found"
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/trouser_secondary-alterations" : {
+      "get" : {
+        "summary" : "Trouser Secondary Alterations",
+        "description" : "List Trouser Secondary Alterations",
+        "tags" : [ "Trouser" ],
+        "responses" : {
+          "200" : {
+            "description" : "An array of Trouser Secondary Alterations",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/TrouserSecondaryAlteration"
+                  }
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/trouser_secondary-alterations/{id}" : {
+      "get" : {
+        "summary" : "Secondary Alteration",
+        "description" : "Secondary Alteration",
+        "tags" : [ "Trouser" ],
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "id",
+          "required" : true,
+          "schema" : {
+            "type" : "string",
+            "format" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/TrouserSecondaryAlteration"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid Trouser Secondary Alteration id supplied"
+          },
+          "404" : {
+            "description" : "Trouser Secondary Alteration not found"
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/waistcoat_models" : {
+      "get" : {
+        "summary" : "Waistcoat Models",
+        "description" : "List Waistcoat Models",
+        "tags" : [ "Waistcoat" ],
+        "responses" : {
+          "200" : {
+            "description" : "An array of Waistcoat Models",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/WaistcoatModel"
+                  }
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/waistcoat_models/{id}" : {
+      "get" : {
+        "summary" : "Waistcoat Model",
+        "description" : "Waistcoat Model",
+        "tags" : [ "Waistcoat" ],
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "id",
+          "required" : true,
+          "schema" : {
+            "type" : "string",
+            "format" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/WaistcoatModel"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid Waistcoat Model id supplied"
+          },
+          "404" : {
+            "description" : "Waistcoat Model not found"
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/waistcoat_pockets" : {
+      "get" : {
+        "summary" : "Waistcoat Pockets",
+        "description" : "List Waistcoat Pockets",
+        "tags" : [ "Waistcoat" ],
+        "responses" : {
+          "200" : {
+            "description" : "An array of Waistcoat Front Pockets",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/WaistcoatPocket"
+                  }
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/waistcoat_pockets/{id}" : {
+      "get" : {
+        "summary" : "Waistcoat Pocket",
+        "description" : "Waistcoat Pocket",
+        "tags" : [ "Waistcoat" ],
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "id",
+          "required" : true,
+          "schema" : {
+            "type" : "string",
+            "format" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/WaistcoatPocket"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid Waistcoat Pocket id supplied"
+          },
+          "404" : {
+            "description" : "Waistcoat Pocket not found"
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/waistcoat_buttons" : {
+      "get" : {
+        "summary" : "Waistcoat Buttons",
+        "description" : "List Waistcoat Buttons",
+        "tags" : [ "Waistcoat" ],
+        "responses" : {
+          "200" : {
+            "description" : "An array of Waistcoat Buttons",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/WaistcoatButton"
+                  }
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/waistcoat_buttons/{id}" : {
+      "get" : {
+        "summary" : "Waistcoat Button",
+        "description" : "Waistcoat Button",
+        "tags" : [ "Waistcoat" ],
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "id",
+          "required" : true,
+          "schema" : {
+            "type" : "string",
+            "format" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/WaistcoatButton"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid Waistcoat Button id supplied"
+          },
+          "404" : {
+            "description" : "Waistcoat Button not found"
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/waistcoat_secondary-options" : {
+      "get" : {
+        "summary" : "Waistcoat Secondary Options",
+        "description" : "List Waistcoat Secondary Options",
+        "tags" : [ "Waistcoat" ],
+        "responses" : {
+          "200" : {
+            "description" : "An array of Waistcoat Secondary Options",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/WaistcoatSecondaryOption"
+                  }
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/waistcoat_secondary-options/{id}" : {
+      "get" : {
+        "summary" : "Waistcoat Secondary Option",
+        "description" : "Waistcoat Secondary Option",
+        "tags" : [ "Waistcoat" ],
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "id",
+          "required" : true,
+          "schema" : {
+            "type" : "string",
+            "format" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/WaistcoatSecondaryOption"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid Waistcoat Secondary Option id supplied"
+          },
+          "404" : {
+            "description" : "Waistcoat Secondary Option not found"
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/waistcoat_related-secondary-options" : {
+      "get" : {
+        "summary" : "Waistcoat Related Secondary Options",
+        "description" : "List pairs of Waistcoat Secondary Options that can not be assigned to an order on the same time",
+        "tags" : [ "Waistcoat" ],
+        "responses" : {
+          "200" : {
+            "description" : "An array of Waistcoat Secondary Options",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "type" : "object"
+                  }
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/waistcoat_related-secondary-options/{name}" : {
+      "get" : {
+        "summary" : "Waistcoat Related Secondary Options",
+        "description" : "Pairs of Waistcoat Secondary Option that are the same type and can't be defined on the same order",
+        "tags" : [ "Waistcoat" ],
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "name",
+          "required" : true,
+          "schema" : {
+            "type" : "string",
+            "format" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "type" : "object"
+                  }
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid Waistcoat Secondary Option id supplied"
+          },
+          "404" : {
+            "description" : "Waistcoat Secondary Option not found"
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/waistcoat_sizes" : {
+      "get" : {
+        "summary" : "Waistcoat Sizes",
+        "description" : "List Waistcoat Sizes",
+        "tags" : [ "Waistcoat" ],
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "model_name",
+          "description" : "Waistcoat sizes available for model_name",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "An array of Waistcoat Sizes",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/WaistcoatSize"
+                  }
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/waistcoat_default-measurements" : {
+      "get" : {
+        "summary" : "Waistcoat Default Measurements",
+        "description" : "List Waistcoat Default Measurements",
+        "tags" : [ "Waistcoat" ],
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "model_name",
+          "description" : "Waistcoat Model Name",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "size",
+          "description" : "Waistcoat Size",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "An array of Waistcoat Default Measurements",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/WaistcoatDefaultMeasurement"
+                  }
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/waistcoat_primary-alterations" : {
+      "get" : {
+        "summary" : "Waistcoat Primary Alterations",
+        "description" : "List Waistcoat Primary Alterations",
+        "tags" : [ "Waistcoat" ],
+        "responses" : {
+          "200" : {
+            "description" : "An array of Waistcoat Primary Alterations",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/WaistcoatPrimaryAlteration"
+                  }
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/waistcoat_primary-alterations/{id}" : {
+      "get" : {
+        "summary" : "Primary Alteration",
+        "description" : "Primary Alteration",
+        "tags" : [ "Waistcoat" ],
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "id",
+          "required" : true,
+          "schema" : {
+            "type" : "string",
+            "format" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/WaistcoatPrimaryAlteration"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid Waistcoat Primary Alteration id supplied"
+          },
+          "404" : {
+            "description" : "Waistcoat Primary Alteration not found"
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/waistcoat_secondary-alterations" : {
+      "get" : {
+        "summary" : "Waistcoat Secondary Alterations",
+        "description" : "List Waistcoat Secondary Alterations",
+        "tags" : [ "Waistcoat" ],
+        "responses" : {
+          "200" : {
+            "description" : "An array of Waistcoat Secondary Alterations",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/WaistcoatSecondaryAlteration"
+                  }
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/waistcoat_secondary-alterations/{id}" : {
+      "get" : {
+        "summary" : "Secondary Alteration",
+        "description" : "Secondary Alteration",
+        "tags" : [ "Waistcoat" ],
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "id",
+          "required" : true,
+          "schema" : {
+            "type" : "string",
+            "format" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/WaistcoatSecondaryAlteration"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid Waistcoat Secondary Alteration id supplied"
+          },
+          "404" : {
+            "description" : "Waistcoat Secondary Alteration not found"
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/overcoat_bases" : {
+      "get" : {
+        "summary" : "Overcoat Bases",
+        "description" : "List Overcoat Bases",
+        "tags" : [ "Overcoat" ],
+        "responses" : {
+          "200" : {
+            "description" : "An array of overcoat bases",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/OvercoatBase"
+                  }
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/overcoat_bases/{name}" : {
+      "get" : {
+        "summary" : "Overcoat Base",
+        "description" : "List Overcoat Base Types",
+        "tags" : [ "Overcoat" ],
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "name",
+          "required" : true,
+          "schema" : {
+            "type" : "string",
+            "format" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/OvercoatBase"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid Base name supplied"
+          },
+          "404" : {
+            "description" : "Base name not found"
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/overcoat_models" : {
+      "get" : {
+        "summary" : "Overcoat Models",
+        "description" : "List Overcoat Models",
+        "tags" : [ "Overcoat" ],
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "base_name",
+          "description" : "Filter overcoat models by base_name",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "An array of overcoat models",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/OvercoatModel"
+                  }
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid Overcoat base name supplied"
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/overcoat_models/{name}" : {
+      "get" : {
+        "summary" : "Overcoat Model",
+        "description" : "Overcoat Model",
+        "tags" : [ "Overcoat" ],
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "name",
+          "required" : true,
+          "schema" : {
+            "type" : "string",
+            "format" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/OvercoatModel"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid Overcoat model name supplied"
+          },
+          "404" : {
+            "description" : "Overcoat model name not found"
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/overcoat_constructions" : {
+      "get" : {
+        "summary" : "Overcoat Constructions",
+        "description" : "List Overcoat Constructions",
+        "tags" : [ "Overcoat" ],
+        "responses" : {
+          "200" : {
+            "description" : "An array of overcoat constructions",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/OvercoatConstruction"
+                  }
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid Overcoat base name supplied"
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/overcoat_constructions/{name}" : {
+      "get" : {
+        "summary" : "Overcoat Construction",
+        "description" : "Overcoat Construction",
+        "tags" : [ "Overcoat" ],
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "name",
+          "required" : true,
+          "schema" : {
+            "type" : "string",
+            "format" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/OvercoatConstruction"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid Overcoat Construction name supplied"
+          },
+          "404" : {
+            "description" : "Overcoat Construction not found"
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/overcoat_linings" : {
+      "get" : {
+        "summary" : "Overcoat Linings",
+        "description" : "List Overcoat Linings",
+        "tags" : [ "Overcoat" ],
+        "responses" : {
+          "200" : {
+            "description" : "An array of overcoat Linings",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/OvercoatLining"
+                  }
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid Overcoat Interior id supplied"
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/overcoat_linings/{id}" : {
+      "get" : {
+        "summary" : "Overcoat Lining",
+        "description" : "Overcoat Lining",
+        "tags" : [ "Overcoat" ],
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "id",
+          "required" : true,
+          "schema" : {
+            "type" : "string",
+            "format" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/OvercoatLining"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid Overcoat Lining id supplied"
+          },
+          "404" : {
+            "description" : "Overcoat Lining not found"
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/overcoat_pockets" : {
+      "get" : {
+        "summary" : "Overcoat Pockets",
+        "description" : "List Overcoat Pockets",
+        "tags" : [ "Overcoat" ],
+        "responses" : {
+          "200" : {
+            "description" : "An array of overcoat Pockets",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/OvercoatPocket"
+                  }
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/overcoat_pockets/{id}" : {
+      "get" : {
+        "summary" : "Overcoat Pocket",
+        "description" : "Overcoat Pocket",
+        "tags" : [ "Overcoat" ],
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "id",
+          "required" : true,
+          "schema" : {
+            "type" : "string",
+            "format" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/OvercoatPocket"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid Overcoat Pocket id supplied"
+          },
+          "404" : {
+            "description" : "Overcoat Pocket not found"
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/overcoat_lapel-buttonholes" : {
+      "get" : {
+        "summary" : "Overcoat Lapelbuttonholes",
+        "description" : "List Overcoat Lapelbuttonholes",
+        "tags" : [ "Overcoat" ],
+        "responses" : {
+          "200" : {
+            "description" : "An array of overcoat Lapelbuttonholes",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/OvercoatLapelbuttonhole"
+                  }
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/overcoat_lapel-buttonholes/{id}" : {
+      "get" : {
+        "summary" : "Overcoat Lapelbuttonhole",
+        "description" : "Overcoat Lapelbuttonhole",
+        "tags" : [ "Overcoat" ],
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "id",
+          "required" : true,
+          "schema" : {
+            "type" : "string",
+            "format" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/OvercoatLapelbuttonhole"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid Overcoat Lapelbuttonhole id supplied"
+          },
+          "404" : {
+            "description" : "Overcoat Lapelbuttonhole not found"
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/overcoat_buttons" : {
+      "get" : {
+        "summary" : "Overcoat Buttons - TO DO",
+        "description" : "List Overcoat Buttons",
+        "tags" : [ "Overcoat" ],
+        "responses" : {
+          "200" : {
+            "description" : "An array of overcoat Buttons",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/OvercoatButton"
+                  }
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/overcoat_buttons/{id}" : {
+      "get" : {
+        "summary" : "Overcoat Button - TO DO",
+        "description" : "Overcoat Button",
+        "tags" : [ "Overcoat" ],
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "id",
+          "required" : true,
+          "schema" : {
+            "type" : "string",
+            "format" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/OvercoatButton"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid Overcoat Button id supplied"
+          },
+          "404" : {
+            "description" : "Overcoat Button not found"
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/overcoat_contrast-threads" : {
+      "get" : {
+        "summary" : "Overcoat Contrast Threads",
+        "description" : "List Overcoat Contrast Threads",
+        "tags" : [ "Overcoat" ],
+        "responses" : {
+          "200" : {
+            "description" : "An array of overcoat Contrast Threads",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/OvercoatContrastThread"
+                  }
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/overcoat_contrast-threads/{id}" : {
+      "get" : {
+        "summary" : "Overcoat Contrast Thread",
+        "description" : "Overcoat Contrast Thread",
+        "tags" : [ "Overcoat" ],
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "id",
+          "required" : true,
+          "schema" : {
+            "type" : "string",
+            "format" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/OvercoatContrastThread"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid Overcoat Contrast Thread id supplied"
+          },
+          "404" : {
+            "description" : "Overcoat Contrast Thread not found"
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/overcoat_secondary-options" : {
+      "get" : {
+        "summary" : "Overcoat Secondary Options",
+        "description" : "List Overcoat Secondary Options",
+        "tags" : [ "Overcoat" ],
+        "responses" : {
+          "200" : {
+            "description" : "An array of overcoat Secondary Options",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/OvercoatSecondaryOption"
+                  }
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/overcoat_secondary-options/{id}" : {
+      "get" : {
+        "summary" : "Overcoat Secondary Option",
+        "description" : "Overcoat Secondary Option",
+        "tags" : [ "Overcoat" ],
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "id",
+          "required" : true,
+          "schema" : {
+            "type" : "string",
+            "format" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/OvercoatSecondaryOption"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid Overcoat Secondary Option id supplied"
+          },
+          "404" : {
+            "description" : "Overcoat Secondary Option not found"
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/overcoat_related-secondary-options" : {
+      "get" : {
+        "summary" : "Overcoat Related Secondary Options",
+        "description" : "List pairs of Overcoat Secondary Options that can not be assigned to an order on the same time",
+        "tags" : [ "Overcoat" ],
+        "responses" : {
+          "200" : {
+            "description" : "An array of overcoat Secondary Options",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "type" : "object"
+                  }
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/overcoat_related-secondary-options/{name}" : {
+      "get" : {
+        "summary" : "Overcoat Related Secondary Options",
+        "description" : "Pairs of Overcoat Secondary Option that are the same type and can't be defined on the same order",
+        "tags" : [ "Overcoat" ],
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "name",
+          "required" : true,
+          "schema" : {
+            "type" : "string",
+            "format" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "type" : "string"
+                  }
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid Overcoat Secondary Option id supplied"
+          },
+          "404" : {
+            "description" : "Overcoat Secondary Option not found"
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/overcoat_sizes" : {
+      "get" : {
+        "summary" : "Overcoat SizesO",
+        "description" : "List Overcoat Sizes",
+        "tags" : [ "Overcoat" ],
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "base_name",
+          "description" : "Overcoat sizes available for base_name",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "An array of overcoat Sizes",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/OvercoatSize"
+                  }
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/overcoat_default-measurements" : {
+      "get" : {
+        "summary" : "Overcoat Default Measurements for model and size",
+        "description" : "List Overcoat Default Measurements for model and size",
+        "tags" : [ "Overcoat" ],
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "model_name",
+          "description" : "Overcoat Model Name",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "size",
+          "description" : "Overcoat Size",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "An array of overcoat Default Measurements",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/OvercoatDefaultMeasurement"
+                  }
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/overcoat_primary-alterations" : {
+      "get" : {
+        "summary" : "Overcoat Primary Alterations",
+        "description" : "List Overcoat Primary Alterations",
+        "tags" : [ "Overcoat" ],
+        "responses" : {
+          "200" : {
+            "description" : "An array of overcoat Primary Alterations",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/OvercoatPrimaryAlteration"
+                  }
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/overcoat_primary-alterations/{id}" : {
+      "get" : {
+        "summary" : "Overcoat Primary Alteration",
+        "description" : "Overcoat Primary Alteration",
+        "tags" : [ "Overcoat" ],
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "id",
+          "required" : true,
+          "schema" : {
+            "type" : "string",
+            "format" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/OvercoatPrimaryAlteration"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid Overcoat Primary Alteration id supplied"
+          },
+          "404" : {
+            "description" : "Overcoat Primary Alteration not found"
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/overcoat_secondary-alterations" : {
+      "get" : {
+        "summary" : "Overcoat Secondary Alterations",
+        "description" : "List Overcoat Secondary Alterations",
+        "tags" : [ "Overcoat" ],
+        "responses" : {
+          "200" : {
+            "description" : "An array of overcoat Secondary Alterations",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/OvercoatSecondaryAlteration"
+                  }
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/overcoat_secondary-alterations/{id}" : {
+      "get" : {
+        "summary" : "Overcoat Secondary Alteration",
+        "description" : "Overcoat Secondary Alteration",
+        "tags" : [ "Overcoat" ],
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "id",
+          "required" : true,
+          "schema" : {
+            "type" : "string",
+            "format" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/OvercoatSecondaryAlteration"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid Overcoat Secondary Alteration id supplied"
+          },
+          "404" : {
+            "description" : "Overcoat Secondary Alteration not found"
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/overcoat_related-alterations" : {
+      "get" : {
+        "summary" : "Overcoat Related Alterations",
+        "description" : "List pairs of Overcoat Alterations that can not be assigned to an order on the same time",
+        "tags" : [ "Overcoat" ],
+        "responses" : {
+          "200" : {
+            "description" : "An array of overcoat Alterations",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "type" : "object"
+                  }
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/overcoat_related-alterations/{name}" : {
+      "get" : {
+        "summary" : "Overcoat Related Alterations",
+        "description" : "Pairs of Overcoat Alterations that are the same type and can't be defined on the same order",
+        "tags" : [ "Overcoat" ],
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "name",
+          "required" : true,
+          "schema" : {
+            "type" : "string",
+            "format" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "type" : "string"
+                  }
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid Overcoat Alteration id supplied"
+          },
+          "404" : {
+            "description" : "Overcoat Alteration not found"
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/shirt_bases" : {
+      "get" : {
+        "summary" : "Shirt Bases",
+        "description" : "List Shirt Bases",
+        "tags" : [ "Shirt" ],
+        "responses" : {
+          "200" : {
+            "description" : "An array of Shirt bases",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/ShirtBase"
+                  }
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/shirt_bases/{name}" : {
+      "get" : {
+        "summary" : "Shirt Base",
+        "description" : "List Shirt Base Types",
+        "tags" : [ "Shirt" ],
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "name",
+          "required" : true,
+          "schema" : {
+            "type" : "string",
+            "format" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ShirtBase"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid Base name supplied"
+          },
+          "404" : {
+            "description" : "Base name not found"
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/order" : {
+      "post" : {
+        "tags" : [ "Order" ],
+        "summary" : "Add a new order",
+        "description" : "Add a new order",
+        "operationId" : "addOrder",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/Order"
+              }
+            }
+          },
+          "description" : "Order object that needs to be added"
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Success"
+          }
+        }
+      }
+    },
+    "/orders/{id}" : {
+      "get" : {
+        "summary" : "Order",
+        "description" : "Get Order with ID",
+        "tags" : [ "Order" ],
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "id",
+          "required" : true,
+          "schema" : {
+            "type" : "number",
+            "format" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Order"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid Base name supplied"
+          },
+          "404" : {
+            "description" : "Base name not found"
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/orders_tracking/{vte_order}" : {
+      "get" : {
+        "summary" : "Order tracking",
+        "description" : "Order tracking",
+        "tags" : [ "Order" ],
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "vte_order",
+          "required" : true,
+          "schema" : {
+            "type" : "string",
+            "format" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/PagedOrders"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid/incomplete Order reference supplied"
+          },
+          "404" : {
+            "description" : "Order reference not found"
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/orders_dateexport" : {
+      "post" : {
+        "tags" : [ "Order" ],
+        "summary" : "Estimate export date for a new order",
+        "description" : "",
+        "operationId" : "estimateOrder",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/Order"
+              }
+            }
+          },
+          "description" : "Order object that needs to be estimated"
+        },
+        "responses" : {
+          "405" : {
+            "description" : "Invalid input"
+          }
+        }
+      }
+    },
+    "/shipment_addresses" : {
+      "get" : {
+        "summary" : "Shipment Addresses",
+        "description" : "List Shipment Addresses",
+        "tags" : [ "Shipment Address" ],
+        "responses" : {
+          "200" : {
+            "description" : "An array of Shipment Addresses",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/ShipmentAddress"
+                  }
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "Shipment Address" ],
+        "summary" : "Add a new Shipment Address",
+        "description" : "",
+        "operationId" : "addShipmentAddress",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/ShipmentAddress"
+              }
+            }
+          },
+          "description" : "Shipment Address object that needs to be added"
+        },
+        "responses" : {
+          "405" : {
+            "description" : "Invalid input"
+          }
+        }
+      },
+      "put" : {
+        "tags" : [ "Shipment Address" ],
+        "summary" : "Update a Shipment Address",
+        "description" : "",
+        "operationId" : "editShipmentAddress",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/ShipmentAddress"
+              }
+            }
+          },
+          "description" : "Shipment Address object that needs to be updated"
+        },
+        "responses" : {
+          "405" : {
+            "description" : "Invalid input"
+          }
+        }
+      }
+    },
+    "/shipment_addresses/{code}" : {
+      "get" : {
+        "summary" : "Shipment Addresses",
+        "description" : "Shipment Address",
+        "tags" : [ "Shipment Address" ],
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "code",
+          "required" : true,
+          "schema" : {
+            "type" : "string",
+            "format" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ShipmentAddress"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid Shipment Address code supplied"
+          },
+          "404" : {
+            "description" : "Shipment Address code not found"
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/countries" : {
+      "get" : {
+        "summary" : "Countries",
+        "description" : "List Countries Codes",
+        "tags" : [ "Country" ],
+        "responses" : {
+          "200" : {
+            "description" : "An array of Country Codes",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/Country"
+                  }
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/countries/{code}" : {
+      "get" : {
+        "summary" : "Country",
+        "description" : "Country",
+        "tags" : [ "Country" ],
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "code",
+          "required" : true,
+          "schema" : {
+            "type" : "string",
+            "format" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Country"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid Country code supplied"
+          },
+          "404" : {
+            "description" : "Country code not found"
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components" : {
+    "parameters" : {
+      "pageSize" : {
+        "name" : "pageSize",
+        "in" : "query",
+        "description" : "Number of persons returned",
+        "required" : false,
+        "schema" : {
+          "type" : "integer",
+          "default" : 25
+        }
+      },
+      "pageNumber" : {
+        "name" : "pageNumber",
+        "in" : "query",
+        "description" : "Page number",
+        "required" : false,
+        "schema" : {
+          "type" : "integer",
+          "default" : 1
+        }
+      }
+    },
+    "securitySchemes" : {
+      "api_key" : {
+        "type" : "apiKey",
+        "name" : "api_key",
+        "in" : "header"
+      }
+    },
+    "schemas" : {
+      "Fabric" : {
+        "type" : "object",
+        "required" : [ "name" ],
+        "properties" : {
+          "name" : {
+            "type" : "string",
+            "description" : "Unique identifier representing a fabric."
+          },
+          "coupon" : {
+            "type" : "boolean",
+            "description" : "Fabric is ordered by coupon",
+            "default" : false
+          },
+          "coupon_client" : {
+            "type" : "boolean",
+            "description" : "Coupon is ordered by client, required if coupon = true",
+            "default" : false
+          },
+          "coupon_vendor" : {
+            "type" : "string",
+            "description" : "Vendor for fabric, required if coupon = true",
+            "default" : ""
+          },
+          "type" : {
+            "type" : "string",
+            "description" : "Fabric type : Plain|Stripes|Check, required if coupon = true",
+            "default" : "UNI"
+          },
+          "coupon_deliverydate" : {
+            "type" : "string",
+            "format" : "date",
+            "description" : "Delivery date for fabric if coupon provided by client"
+          },
+          "coupon_idcatalog" : {
+            "type" : "string",
+            "description" : "Fabric id catalog"
+          }
+        }
+      },
+      "FabricStock" : {
+        "type" : "object",
+        "properties" : {
+          "name" : {
+            "type" : "string",
+            "description" : "Unique identifier representing a fabric."
+          },
+          "stock_qty" : {
+            "type" : "number",
+            "description" : "Quantity in stock."
+          },
+          "status" : {
+            "type" : "string",
+            "description" : "Fabric status [available, out_of_stock, low_stock]"
+          }
+        }
+      },
+      "Jacket" : {
+        "type" : "object",
+        "required" : [ "quantity", "base_name", "model_name", "construction_name", "sleeve_head_name", "interior_name", "pockets_name", "vents_name", "linings", "size", "Shoulder_line" ],
+        "properties" : {
+          "fabric" : {
+            "$ref" : "#/components/schemas/Fabric"
+          },
+          "quantity" : {
+            "type" : "integer",
+            "format" : "int32",
+            "default" : 1
+          },
+          "Shoulder_line" : {
+            "type" : "string",
+            "description" : "Jacket Shoulder slope",
+            "enum" : [ "LIGHT", "STANDARD", "STRAIGHT" ],
+            "default" : "STANDARD"
+          },
+          "construction_name" : {
+            "type" : "string",
+            "description" : "Jacket Construction name",
+            "default" : "PRESTIGE"
+          },
+          "base_name" : {
+            "type" : "string",
+            "description" : "Jacket Base name",
+            "default" : "SE"
+          },
+          "model_name" : {
+            "type" : "string",
+            "description" : "Jacket Model name",
+            "default" : "SE16"
+          },
+          "sleeve_head_name" : {
+            "type" : "string",
+            "description" : "Jacket Sleeve Head name",
+            "default" : "RO"
+          },
+          "interior_name" : {
+            "type" : "string",
+            "description" : "Jacket interior name",
+            "default" : "CONTRAST"
+          },
+          "pockets_name" : {
+            "type" : "string",
+            "description" : "Jacket pockets",
+            "default" : "B"
+          },
+          "vents_name" : {
+            "type" : "string",
+            "description" : "Jacket vents",
+            "default" : "1"
+          },
+          "lapel_buttonhole_name" : {
+            "type" : "string",
+            "description" : "Jacket lapel buttonhole",
+            "default" : "70"
+          },
+          "cma1" : {
+            "type" : "boolean",
+            "description" : "Sleeves Contrast Buttonhole 1",
+            "default" : false
+          },
+          "cma2" : {
+            "type" : "boolean",
+            "description" : "Sleeves Contrast Buttonhole 2",
+            "default" : false
+          },
+          "cma3" : {
+            "type" : "boolean",
+            "description" : "Sleeves Contrast Buttonhole 3",
+            "default" : false
+          },
+          "cma4" : {
+            "type" : "boolean",
+            "description" : "Sleeves Contrast Buttonhole 4",
+            "default" : false
+          },
+          "cma5" : {
+            "type" : "boolean",
+            "description" : "Sleeves Contrast Buttonhole 5",
+            "default" : false
+          },
+          "cma6" : {
+            "type" : "boolean",
+            "description" : "Sleeves Contrast Buttonhole 6",
+            "default" : false
+          },
+          "cdv1" : {
+            "type" : "boolean",
+            "description" : "Front Contrast Buttonhole 1",
+            "default" : false
+          },
+          "cdv2" : {
+            "type" : "boolean",
+            "description" : "Front Contrast Buttonhole 2",
+            "default" : false
+          },
+          "cdv3" : {
+            "type" : "boolean",
+            "description" : "Front Contrast Buttonhole 3",
+            "default" : false
+          },
+          "cdv4" : {
+            "type" : "boolean",
+            "description" : "Front Contrast Buttonhole 4",
+            "default" : false
+          },
+          "cdv5" : {
+            "type" : "boolean",
+            "description" : "Front Contrast Buttonhole 5",
+            "default" : false
+          },
+          "cdv6" : {
+            "type" : "boolean",
+            "description" : "Front Contrast Buttonhole 6",
+            "default" : false
+          },
+          "linings" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/JacketLining"
+            },
+            "default" : [ {
+              "id" : "A",
+              "value" : "20"
+            }, {
+              "id" : "B",
+              "value" : "21"
+            }, {
+              "id" : "X",
+              "value" : "22"
+            } ]
+          },
+          "monogram" : {
+            "$ref" : "#/components/schemas/Monogram"
+          },
+          "buttons_name" : {
+            "type" : "string",
+            "description" : "Jacket Buttons type name"
+          },
+          "collar_felt_name" : {
+            "type" : "string",
+            "description" : "Jacket Collar Felt type name"
+          },
+          "elbow_patch_name" : {
+            "type" : "string",
+            "description" : "Jacket Collar Felt type name"
+          },
+          "contrast_thread_name" : {
+            "type" : "string",
+            "description" : "Jacket Contrast Thread type name"
+          },
+          "size" : {
+            "type" : "string",
+            "description" : "Jacket Size",
+            "default" : "44"
+          },
+          "measurements" : {
+            "$ref" : "#/components/schemas/JacketMeasurements"
+          },
+          "secondary_options" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "description" : "List of secondary options"
+            },
+            "default" : [ "A5", "BXC" ]
+          },
+          "alterations" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "description" : "List of alterations"
+            },
+            "default" : [ 401, "146BL", "191GL" ]
+          }
+        }
+      },
+      "JacketBase" : {
+        "type" : "object",
+        "properties" : {
+          "name" : {
+            "type" : "string",
+            "description" : "Unique identifier representing a jacket base."
+          }
+        }
+      },
+      "JacketModel" : {
+        "type" : "object",
+        "properties" : {
+          "name" : {
+            "type" : "string",
+            "description" : "Jacket model name."
+          },
+          "short_name" : {
+            "type" : "string",
+            "description" : "Short Jacket model name."
+          }
+        }
+      },
+      "JacketConstruction" : {
+        "type" : "object",
+        "properties" : {
+          "name" : {
+            "type" : "string",
+            "description" : "Unique identifier representing a jacket construction."
+          },
+          "translated_name" : {
+            "type" : "string",
+            "description" : "Translated jacket construction name."
+          }
+        }
+      },
+      "JacketSleeveHead" : {
+        "type" : "object",
+        "properties" : {
+          "name" : {
+            "type" : "string",
+            "description" : "Unique identifier representing a jacket sleeve head."
+          },
+          "translated_name" : {
+            "type" : "string",
+            "description" : "Translated jacket sleeve head name."
+          }
+        }
+      },
+      "JacketInterior" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "string",
+            "description" : "Unique identifier representing a jacket interior."
+          },
+          "name" : {
+            "type" : "string",
+            "description" : "Translated jacket interior name."
+          }
+        }
+      },
+      "JacketLining" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "string",
+            "description" : "Unique identifier representing a jacket lining."
+          },
+          "value" : {
+            "type" : "string",
+            "description" : "value for lining."
+          }
+        }
+      },
+      "JacketPocket" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "string",
+            "description" : "Unique identifier representing a jacket pocket."
+          },
+          "description" : {
+            "type" : "string",
+            "description" : "Description of jacket pocket."
+          }
+        }
+      },
+      "JacketVent" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "string",
+            "description" : "Unique identifier representing a jacket vent."
+          },
+          "description" : {
+            "type" : "string",
+            "description" : "Description of jacket vent."
+          }
+        }
+      },
+      "JacketButton" : {
+        "type" : "object",
+        "properties" : {
+          "name" : {
+            "type" : "string",
+            "description" : "Unique identifier representing a jacket button."
+          }
+        }
+      },
+      "JacketLapelbuttonhole" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "string",
+            "description" : "Unique identifier representing a jacket lapel buttonhole."
+          },
+          "description" : {
+            "type" : "string",
+            "description" : "Description of jacket lapel buttonhole."
+          }
+        }
+      },
+      "JacketCollarFelt" : {
+        "type" : "object",
+        "properties" : {
+          "name" : {
+            "type" : "string",
+            "description" : "Unique identifier representing a jacket collar felt."
+          }
+        }
+      },
+      "JacketElbowPatch" : {
+        "type" : "object",
+        "properties" : {
+          "name" : {
+            "type" : "string",
+            "description" : "Unique identifier representing a jacket elbow patch."
+          }
+        }
+      },
+      "JacketContrastThread" : {
+        "type" : "object",
+        "properties" : {
+          "name" : {
+            "type" : "string",
+            "description" : "Unique identifier representing a jacket contrast thread."
+          }
+        }
+      },
+      "JacketSecondaryOption" : {
+        "type" : "object",
+        "properties" : {
+          "description" : {
+            "type" : "string"
+          },
+          "name" : {
+            "type" : "string"
+          }
+        }
+      },
+      "JacketSize" : {
+        "type" : "object",
+        "properties" : {
+          "size" : {
+            "type" : "string",
+            "description" : "Jacket size name."
+          }
+        }
+      },
+      "JacketMeasurements" : {
+        "type" : "object",
+        "properties" : {
+          "total_length" : {
+            "type" : "number",
+            "description" : "Jacket Total Length"
+          },
+          "left_sleeve_length" : {
+            "type" : "number",
+            "description" : "Jacket Left Sleeve Length"
+          },
+          "right_sleeve_length" : {
+            "type" : "number",
+            "description" : "Jacket Right Sleeve Length"
+          },
+          "left_sleeve_interior_length" : {
+            "type" : "number",
+            "description" : "(Optional) Jacket Left Sleeve Inside Length"
+          },
+          "right_sleeve_interior_length" : {
+            "type" : "number",
+            "description" : "(Optional) Jacket Right Sleeve Inside Length"
+          },
+          "first_button_position" : {
+            "type" : "number",
+            "description" : "Jacket first button position"
+          },
+          "vents" : {
+            "type" : "number",
+            "description" : "Jacket vents length"
+          },
+          "half_waist" : {
+            "type" : "number",
+            "description" : "Jacket 1/2 waist"
+          }
+        }
+      },
+      "JacketPrimaryAlteration" : {
+        "type" : "object",
+        "properties" : {
+          "description" : {
+            "type" : "string"
+          },
+          "code" : {
+            "type" : "string"
+          },
+          "alterations" : {
+            "description" : "List of variations",
+            "type" : "array",
+            "items" : {
+              "type" : "object"
+            }
+          }
+        }
+      },
+      "JacketSecondaryAlteration" : {
+        "type" : "object",
+        "properties" : {
+          "description" : {
+            "type" : "string"
+          },
+          "code" : {
+            "type" : "string"
+          },
+          "alterations" : {
+            "description" : "List of variations",
+            "type" : "array",
+            "items" : {
+              "type" : "object"
+            }
+          }
+        }
+      },
+      "JacketDefaultMeasurement" : {
+        "type" : "object",
+        "properties" : {
+          "TAILLE" : {
+            "$ref" : "#/components/schemas/Measurement"
+          },
+          "LONG.MAN" : {
+            "$ref" : "#/components/schemas/Measurement"
+          },
+          "H.MIL.DOS" : {
+            "$ref" : "#/components/schemas/Measurement"
+          },
+          "TRAPEZ" : {
+            "$ref" : "#/components/schemas/Measurement"
+          },
+          "CARRURE" : {
+            "$ref" : "#/components/schemas/Measurement"
+          },
+          "FENTE" : {
+            "$ref" : "#/components/schemas/Measurement"
+          },
+          "POITRINE" : {
+            "$ref" : "#/components/schemas/Measurement"
+          },
+          "1ER BOUT" : {
+            "$ref" : "#/components/schemas/Measurement"
+          },
+          "LatRever" : {
+            "$ref" : "#/components/schemas/Measurement"
+          }
+        }
+      },
+      "Trousers" : {
+        "type" : "object",
+        "required" : [ "quantity", "model_name", "front_pockets_name", "back_pockets_name", "front_crease_name", "lining_name", "bottom_finish_name", "size" ],
+        "properties" : {
+          "fabric" : {
+            "$ref" : "#/components/schemas/Fabric"
+          },
+          "quantity" : {
+            "type" : "integer",
+            "format" : "int32",
+            "default" : 1
+          },
+          "model_name" : {
+            "type" : "string",
+            "description" : "Trouser Model name",
+            "default" : "P05"
+          },
+          "front_pockets_name" : {
+            "type" : "string",
+            "description" : "Trouser front pockets",
+            "default" : "B"
+          },
+          "back_pockets_name" : {
+            "type" : "string",
+            "description" : "Trouser back pockets",
+            "default" : "2"
+          },
+          "front_crease_name" : {
+            "type" : "string",
+            "description" : "Trouser front crease name",
+            "default" : "P1"
+          },
+          "lining_name" : {
+            "type" : "string",
+            "description" : "Trouser lining",
+            "default" : "A"
+          },
+          "bottom_finish_name" : {
+            "type" : "string",
+            "description" : "Trouser bottom finish",
+            "default" : "PF3"
+          },
+          "buttons_name" : {
+            "type" : "string",
+            "description" : "Trouser Buttons type name"
+          },
+          "monogram" : {
+            "$ref" : "#/components/schemas/Monogram"
+          },
+          "size" : {
+            "type" : "string",
+            "description" : "Trouser Size",
+            "default" : "42"
+          },
+          "measurements" : {
+            "$ref" : "#/components/schemas/TrouserMeasurements"
+          },
+          "secondary_options" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "description" : "List of secondary options"
+            },
+            "default" : [ "AMF", "P0D" ]
+          },
+          "alterations" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "description" : "List of alterations"
+            },
+            "default" : [ "381L", "306M", "391GL" ]
+          }
+        }
+      },
+      "TrouserModel" : {
+        "type" : "object",
+        "properties" : {
+          "name" : {
+            "type" : "string",
+            "description" : "Trouser model name."
+          }
+        }
+      },
+      "TrouserFrontPocket" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "string",
+            "description" : "Unique identifier representing a trouser front pocket."
+          },
+          "description" : {
+            "type" : "string",
+            "description" : "Description of trouser pocket."
+          }
+        }
+      },
+      "TrouserBackPocket" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "string",
+            "description" : "Unique identifier representing a trouser back pocket."
+          },
+          "description" : {
+            "type" : "string",
+            "description" : "Description of trouser pocket."
+          }
+        }
+      },
+      "TrouserFrontCrease" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "string",
+            "description" : "Unique identifier representing a trouser front crease."
+          },
+          "description" : {
+            "type" : "string",
+            "description" : "Description of trouser front crease."
+          }
+        }
+      },
+      "TrouserLining" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "string",
+            "description" : "Unique identifier representing a trouser lining."
+          },
+          "description" : {
+            "type" : "string",
+            "description" : "Description of trouser lining."
+          }
+        }
+      },
+      "TrouserBottomFinish" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "string",
+            "description" : "Unique identifier representing a trouser bottom finish."
+          },
+          "description" : {
+            "type" : "string",
+            "description" : "Description of trouser finish."
+          }
+        }
+      },
+      "TrouserButton" : {
+        "type" : "object",
+        "properties" : {
+          "name" : {
+            "type" : "string",
+            "description" : "Unique identifier representing a trouser button."
+          }
+        }
+      },
+      "TrouserSecondaryOption" : {
+        "type" : "object",
+        "properties" : {
+          "description" : {
+            "type" : "string"
+          },
+          "name" : {
+            "type" : "string"
+          }
+        }
+      },
+      "TrouserSize" : {
+        "type" : "object",
+        "properties" : {
+          "size" : {
+            "type" : "string",
+            "description" : "Trouser size name."
+          }
+        }
+      },
+      "TrouserMeasurements" : {
+        "type" : "object",
+        "properties" : {
+          "half_waist" : {
+            "type" : "number",
+            "description" : "Trouser 1/2 waist",
+            "default" : 38.5
+          },
+          "finished_inseam" : {
+            "type" : "number",
+            "description" : "Trouser Finished Inseam",
+            "default" : 1
+          },
+          "half_bottom_width" : {
+            "type" : "number",
+            "description" : "Trouser 1/2 Bottom Width",
+            "default" : 1
+          }
+        }
+      },
+      "TrouserPrimaryAlteration" : {
+        "type" : "object",
+        "properties" : {
+          "description" : {
+            "type" : "string"
+          },
+          "code" : {
+            "type" : "string"
+          },
+          "alterations" : {
+            "description" : "List of variations",
+            "type" : "array",
+            "items" : {
+              "type" : "object"
+            }
+          }
+        }
+      },
+      "TrouserSecondaryAlteration" : {
+        "type" : "object",
+        "properties" : {
+          "description" : {
+            "type" : "string"
+          },
+          "code" : {
+            "type" : "string"
+          },
+          "alterations" : {
+            "description" : "List of variations",
+            "type" : "array",
+            "items" : {
+              "type" : "object"
+            }
+          }
+        }
+      },
+      "TrouserDefaultMeasurement" : {
+        "type" : "object",
+        "properties" : {
+          "TAILLE" : {
+            "$ref" : "#/components/schemas/Measurement"
+          },
+          "BASSIN" : {
+            "$ref" : "#/components/schemas/Measurement"
+          },
+          "CUISSE" : {
+            "$ref" : "#/components/schemas/Measurement"
+          },
+          "BAS" : {
+            "$ref" : "#/components/schemas/Measurement"
+          },
+          "ENTREJAMBE" : {
+            "$ref" : "#/components/schemas/Measurement"
+          },
+          "GENOU" : {
+            "$ref" : "#/components/schemas/Measurement"
+          },
+          "FDEVANT" : {
+            "$ref" : "#/components/schemas/Measurement"
+          },
+          "FDOS" : {
+            "$ref" : "#/components/schemas/Measurement"
+          }
+        }
+      },
+      "Waistcoat" : {
+        "type" : "object",
+        "required" : [ "quantity", "model_name", "pockets_name", "back_lining_name", "inside_lining_name", "buttons_name", "size" ],
+        "properties" : {
+          "fabric" : {
+            "$ref" : "#/components/schemas/Fabric"
+          },
+          "quantity" : {
+            "type" : "integer",
+            "format" : "int32",
+            "default" : 1
+          },
+          "model_name" : {
+            "type" : "string",
+            "description" : "Waistcoat Model name",
+            "default" : "G10"
+          },
+          "pockets_name" : {
+            "type" : "string",
+            "description" : "Waistcoat pockets",
+            "default" : "70"
+          },
+          "back_lining_name" : {
+            "type" : "string",
+            "description" : "Waistcoat back lining fabric",
+            "default" : "20"
+          },
+          "inside_lining_name" : {
+            "type" : "string",
+            "description" : "Waistcoat inside lining fabric",
+            "default" : "21"
+          },
+          "buttons_name" : {
+            "type" : "string",
+            "description" : "Trouser bottom finish",
+            "default" : 142
+          },
+          "monogram" : {
+            "$ref" : "#/components/schemas/Monogram"
+          },
+          "size" : {
+            "type" : "string",
+            "description" : "Waistcoat Size",
+            "default" : "42"
+          },
+          "measurements" : {
+            "$ref" : "#/components/schemas/WaistcoatMeasurements"
+          },
+          "secondary_options" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "description" : "List of secondary options"
+            },
+            "default" : [ "A11", "PVS" ]
+          },
+          "alterations" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "description" : "List of primary alterations"
+            },
+            "default" : [ "910A", "941B", "930L" ]
+          }
+        }
+      },
+      "WaistcoatModel" : {
+        "type" : "object",
+        "properties" : {
+          "name" : {
+            "type" : "string",
+            "description" : "Waistcoat model name."
+          }
+        }
+      },
+      "WaistcoatPocket" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "string",
+            "description" : "Unique identifier representing a Waistcoat pocket."
+          },
+          "description" : {
+            "type" : "string",
+            "description" : "Description of Waistcoat pocket."
+          }
+        }
+      },
+      "WaistcoatButton" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "string",
+            "description" : "Unique identifier representing a Waistcoat button."
+          },
+          "description" : {
+            "type" : "string",
+            "description" : "Description of Waistcoat button."
+          }
+        }
+      },
+      "WaistcoatSecondaryOption" : {
+        "type" : "object",
+        "properties" : {
+          "description" : {
+            "type" : "string"
+          },
+          "name" : {
+            "type" : "string"
+          }
+        }
+      },
+      "WaistcoatSize" : {
+        "type" : "object",
+        "properties" : {
+          "size" : {
+            "type" : "string",
+            "description" : "Waistcoat size name."
+          }
+        }
+      },
+      "WaistcoatMeasurements" : {
+        "type" : "object",
+        "properties" : {
+          "total_length" : {
+            "type" : "number",
+            "description" : "Waistcoat total length",
+            "default" : 56
+          },
+          "opening" : {
+            "type" : "number",
+            "description" : "Waistcoat Opening",
+            "default" : 34.9
+          },
+          "half_waist" : {
+            "type" : "number",
+            "description" : "Waistcoat 1/2 waist"
+          }
+        }
+      },
+      "WaistcoatPrimaryAlteration" : {
+        "type" : "object",
+        "properties" : {
+          "description" : {
+            "type" : "string"
+          },
+          "code" : {
+            "type" : "string"
+          },
+          "alterations" : {
+            "description" : "List of variations",
+            "type" : "array",
+            "items" : {
+              "type" : "object"
+            }
+          }
+        }
+      },
+      "WaistcoatSecondaryAlteration" : {
+        "type" : "object",
+        "properties" : {
+          "description" : {
+            "type" : "string"
+          },
+          "code" : {
+            "type" : "string"
+          },
+          "alterations" : {
+            "description" : "List of variations",
+            "type" : "array",
+            "items" : {
+              "type" : "object"
+            }
+          }
+        }
+      },
+      "WaistcoatDefaultMeasurement" : {
+        "type" : "object",
+        "properties" : {
+          "TAILLE" : {
+            "$ref" : "#/components/schemas/Measurement"
+          },
+          "POITRINE" : {
+            "$ref" : "#/components/schemas/Measurement"
+          },
+          "HMILDOS" : {
+            "$ref" : "#/components/schemas/Measurement"
+          },
+          "OUVERTURE" : {
+            "$ref" : "#/components/schemas/Measurement"
+          },
+          "LDEVANT" : {
+            "$ref" : "#/components/schemas/Measurement"
+          }
+        }
+      },
+      "Order" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "status" : {
+            "type" : "string",
+            "description" : "Order status (readonly)"
+          },
+          "mtm_type" : {
+            "type" : "string",
+            "description" : "MTM | MTO"
+          },
+          "oldorderno" : {
+            "type" : "integer",
+            "format" : "int64",
+            "description" : "use this id to modify an existing order"
+          },
+          "client_firstname" : {
+            "type" : "string",
+            "description" : "Client First Name",
+            "default" : "Test"
+          },
+          "client_lastname" : {
+            "type" : "string",
+            "description" : "Client Last Name",
+            "default" : "Test"
+          },
+          "client_email" : {
+            "type" : "string",
+            "description" : "Client email",
+            "default" : ""
+          },
+          "client_phone" : {
+            "type" : "string",
+            "description" : "Client Phone",
+            "default" : ""
+          },
+          "internal_order_no" : {
+            "type" : "string",
+            "description" : "Customer Internal Order Id",
+            "default" : "test00"
+          },
+          "order_date" : {
+            "type" : "string",
+            "format" : "date"
+          },
+          "body_measurements" : {
+            "$ref" : "#/components/schemas/BodyMeasurements"
+          },
+          "jacket" : {
+            "$ref" : "#/components/schemas/Jacket"
+          },
+          "trousers" : {
+            "$ref" : "#/components/schemas/Trousers"
+          },
+          "waistcoat" : {
+            "$ref" : "#/components/schemas/Waistcoat"
+          },
+          "overcoat" : {
+            "$ref" : "#/components/schemas/Overcoat"
+          },
+          "observations" : {
+            "type" : "string",
+            "description" : "Orservations about order",
+            "default" : "test test test"
+          },
+          "shop" : {
+            "type" : "string",
+            "description" : "Shop Id (readonly)"
+          },
+          "shop_name" : {
+            "type" : "string",
+            "description" : "Shop Name (readonly)"
+          },
+          "shop_address" : {
+            "type" : "string",
+            "description" : "Shop Address (readonly)"
+          },
+          "shop_city" : {
+            "type" : "string",
+            "description" : "Shop City (readonly)"
+          },
+          "shop_company" : {
+            "type" : "string",
+            "description" : "Shop Company (readonly)"
+          },
+          "shop_phone" : {
+            "type" : "string",
+            "description" : "Shop Phone (readonly)"
+          },
+          "shop_email" : {
+            "type" : "string",
+            "description" : "Shop Email (readonly)"
+          },
+          "customer_no" : {
+            "type" : "string",
+            "description" : "Shop Company Id (readonly)"
+          },
+          "customer_email" : {
+            "type" : "string",
+            "description" : "Shop Company Email (readonly)"
+          },
+          "shipment_address" : {
+            "type" : "string",
+            "description" : "Shipment Address ( default empty, see GET /shipment_addresses )",
+            "default" : ""
+          }
+        }
+      },
+      "Orders" : {
+        "type" : "object",
+        "properties" : {
+          "orders" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Order"
+            }
+          }
+        }
+      },
+      "PagedOrders" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/Orders"
+        }, {
+          "$ref" : "#/components/schemas/Paging"
+        } ]
+      },
+      "Monogram" : {
+        "type" : "object",
+        "properties" : {
+          "text" : {
+            "type" : "string",
+            "description" : "Monogram Text"
+          },
+          "color" : {
+            "type" : "string",
+            "description" : "Monogram Color"
+          }
+        }
+      },
+      "BodyMeasurements" : {
+        "type" : "object",
+        "properties" : {
+          "chest" : {
+            "type" : "number",
+            "description" : "Chest measurement"
+          },
+          "waist" : {
+            "type" : "number",
+            "description" : "Waist measurement"
+          },
+          "belt" : {
+            "type" : "number",
+            "description" : "Belt measurement"
+          },
+          "seat" : {
+            "type" : "number",
+            "description" : "Seat measurement"
+          }
+        }
+      },
+      "Measurement" : {
+        "type" : "object",
+        "properties" : {
+          "measurement" : {
+            "type" : "number"
+          },
+          "tolerance" : {
+            "type" : "number"
+          }
+        }
+      },
+      "Overcoat" : {
+        "type" : "object",
+        "required" : [ "quantity", "base_name", "model_name", "construction_name", "pockets_name", "linings", "size" ],
+        "properties" : {
+          "fabric" : {
+            "$ref" : "#/components/schemas/Fabric"
+          },
+          "quantity" : {
+            "type" : "integer",
+            "format" : "int32",
+            "default" : 1
+          },
+          "base_name" : {
+            "type" : "string",
+            "description" : "Overcoat Base name",
+            "default" : "MGS"
+          },
+          "model_name" : {
+            "type" : "string",
+            "description" : "Overcoat Model name",
+            "default" : "MGS101"
+          },
+          "construction_name" : {
+            "type" : "string",
+            "description" : "Overcoat Construction name",
+            "default" : "PRESTIGE SOFT"
+          },
+          "pockets_name" : {
+            "type" : "string",
+            "description" : "Overcoat pockets",
+            "default" : "B"
+          },
+          "lapel_buttonhole_name" : {
+            "type" : "string",
+            "description" : "Overcoat lapel buttonhole",
+            "default" : "70"
+          },
+          "linings" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/OvercoatLining"
+            },
+            "default" : [ {
+              "id" : "A",
+              "value" : "20"
+            }, {
+              "id" : "B",
+              "value" : "21"
+            }, {
+              "id" : "X",
+              "value" : "22"
+            } ]
+          },
+          "monogram" : {
+            "$ref" : "#/components/schemas/Monogram"
+          },
+          "buttons_name" : {
+            "type" : "string",
+            "description" : "Overcoat Buttons type name"
+          },
+          "collar_contrast_name" : {
+            "type" : "string",
+            "description" : "Overcoat Collar contrast fabric name",
+            "default" : "21"
+          },
+          "under_collar_contrast_name" : {
+            "type" : "string",
+            "description" : "Overcoat Under collar contrast fabric name"
+          },
+          "contrast_thread_name" : {
+            "type" : "string",
+            "description" : "Overcoat Contrast Thread type name",
+            "default" : "20"
+          },
+          "size" : {
+            "type" : "string",
+            "description" : "Overcoat Size",
+            "default" : "44"
+          },
+          "measurements" : {
+            "$ref" : "#/components/schemas/OvercoatMeasurements"
+          },
+          "secondary_options" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "description" : "List of secondary options"
+            },
+            "default" : [ "A5", "BXC" ]
+          },
+          "alterations" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "description" : "List of primary alterations"
+            },
+            "default" : [ 401, "146BL", "191GL" ]
+          }
+        }
+      },
+      "OvercoatBase" : {
+        "type" : "object",
+        "properties" : {
+          "name" : {
+            "type" : "string",
+            "description" : "Unique identifier representing an overcoat base."
+          }
+        }
+      },
+      "OvercoatModel" : {
+        "type" : "object",
+        "properties" : {
+          "name" : {
+            "type" : "string",
+            "description" : "Overcoat model name."
+          },
+          "short_name" : {
+            "type" : "string",
+            "description" : "Short Overcoat model name."
+          }
+        }
+      },
+      "OvercoatConstruction" : {
+        "type" : "object",
+        "properties" : {
+          "name" : {
+            "type" : "string",
+            "description" : "Unique identifier representing an overcoat construction."
+          },
+          "translated_name" : {
+            "type" : "string",
+            "description" : "Translated overcoat construction name."
+          }
+        }
+      },
+      "OvercoatLining" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "string",
+            "description" : "Unique identifier representing an overcoat lining."
+          },
+          "value" : {
+            "type" : "string",
+            "description" : "value for lining."
+          }
+        }
+      },
+      "OvercoatPocket" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "string",
+            "description" : "Unique identifier representing an overcoat pocket."
+          },
+          "description" : {
+            "type" : "string",
+            "description" : "Description of overcoat pocket."
+          }
+        }
+      },
+      "OvercoatButton" : {
+        "type" : "object",
+        "properties" : {
+          "name" : {
+            "type" : "string",
+            "description" : "Unique identifier representing an overcoat button."
+          }
+        }
+      },
+      "OvercoatLapelbuttonhole" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "string",
+            "description" : "Unique identifier representing an overcoat lapel buttonhole."
+          },
+          "description" : {
+            "type" : "string",
+            "description" : "Description of overcoat lapel buttonhole."
+          }
+        }
+      },
+      "OvercoatContrastThread" : {
+        "type" : "object",
+        "properties" : {
+          "name" : {
+            "type" : "string",
+            "description" : "Unique identifier representing an overcoat contrast thread."
+          }
+        }
+      },
+      "OvercoatSecondaryOption" : {
+        "type" : "object",
+        "properties" : {
+          "description" : {
+            "type" : "string"
+          },
+          "name" : {
+            "type" : "string"
+          }
+        }
+      },
+      "OvercoatSize" : {
+        "type" : "object",
+        "properties" : {
+          "size" : {
+            "type" : "string",
+            "description" : "Overcoat size name."
+          }
+        }
+      },
+      "OvercoatMeasurements" : {
+        "type" : "object",
+        "properties" : {
+          "total_length" : {
+            "type" : "number",
+            "description" : "Overcoat Total Length"
+          },
+          "left_sleeve_length" : {
+            "type" : "number",
+            "description" : "Overcoat Left Sleeve Length"
+          },
+          "right_sleeve_length" : {
+            "type" : "number",
+            "description" : "Overcoat Right Sleeve Length"
+          },
+          "pockets_position" : {
+            "type" : "number",
+            "description" : "Overcoat pockets position"
+          }
+        }
+      },
+      "OvercoatPrimaryAlteration" : {
+        "type" : "object",
+        "properties" : {
+          "description" : {
+            "type" : "string"
+          },
+          "code" : {
+            "type" : "string"
+          },
+          "alterations" : {
+            "description" : "List of variations",
+            "type" : "array",
+            "items" : {
+              "type" : "object"
+            }
+          }
+        }
+      },
+      "OvercoatSecondaryAlteration" : {
+        "type" : "object",
+        "properties" : {
+          "description" : {
+            "type" : "string"
+          },
+          "code" : {
+            "type" : "string"
+          },
+          "alterations" : {
+            "description" : "List of variations",
+            "type" : "array",
+            "items" : {
+              "type" : "object"
+            }
+          }
+        }
+      },
+      "OvercoatDefaultMeasurement" : {
+        "type" : "object",
+        "properties" : {
+          "TAILLE" : {
+            "$ref" : "#/components/schemas/Measurement"
+          },
+          "LONG.MAN" : {
+            "$ref" : "#/components/schemas/Measurement"
+          },
+          "H.MIL.DOS" : {
+            "$ref" : "#/components/schemas/Measurement"
+          },
+          "TRAPEZ" : {
+            "$ref" : "#/components/schemas/Measurement"
+          },
+          "CARRURE" : {
+            "$ref" : "#/components/schemas/Measurement"
+          },
+          "FENTE" : {
+            "$ref" : "#/components/schemas/Measurement"
+          },
+          "POITRINE" : {
+            "$ref" : "#/components/schemas/Measurement"
+          },
+          "1ER BOUT" : {
+            "$ref" : "#/components/schemas/Measurement"
+          },
+          "LatRever" : {
+            "$ref" : "#/components/schemas/Measurement"
+          }
+        }
+      },
+      "ShirtBase" : {
+        "type" : "object",
+        "properties" : {
+          "name" : {
+            "type" : "string",
+            "description" : "Unique identifier representing a shirt base."
+          },
+          "description" : {
+            "type" : "string",
+            "description" : "Descrption of a shirt base."
+          }
+        }
+      },
+      "ShipmentAddress" : {
+        "type" : "object",
+        "required" : [ "code", "name", "address" ],
+        "properties" : {
+          "code" : {
+            "type" : "string",
+            "description" : "Unique identifier representing a Shipment Address.",
+            "default" : "Test",
+            "maxLength" : 8
+          },
+          "name" : {
+            "type" : "string",
+            "description" : "Shipment Address name.",
+            "default" : "Test",
+            "maxLength" : 50
+          },
+          "contact_person" : {
+            "type" : "string",
+            "description" : "Contact person.",
+            "default" : "",
+            "maxLength" : 50
+          },
+          "customer_no" : {
+            "type" : "string",
+            "description" : "NAV Customer No to which Shipment Address is allocated (readonly)."
+          },
+          "address" : {
+            "type" : "string",
+            "description" : "Address.",
+            "maxLength" : 50
+          },
+          "address2" : {
+            "type" : "string",
+            "description" : "Address2.",
+            "maxLength" : 50
+          },
+          "post_code" : {
+            "type" : "string",
+            "description" : "Post Code.",
+            "default" : "",
+            "maxLength" : 20
+          },
+          "city" : {
+            "type" : "string",
+            "description" : "city.",
+            "default" : "",
+            "maxLength" : 30
+          },
+          "country_code" : {
+            "type" : "string",
+            "description" : "Country Code ( see GET /countries ).",
+            "default" : "RO",
+            "maxLength" : 10
+          },
+          "phone" : {
+            "type" : "string",
+            "description" : "Phone number.",
+            "default" : "",
+            "maxLength" : 30
+          },
+          "email" : {
+            "type" : "string",
+            "description" : "Email address.",
+            "default" : "",
+            "maxLength" : 80
+          }
+        }
+      },
+      "Country" : {
+        "type" : "object",
+        "properties" : {
+          "code" : {
+            "type" : "string",
+            "description" : "Unique identifier representing a Country/Region.",
+            "maxLength" : 10
+          },
+          "name" : {
+            "type" : "string",
+            "description" : "Country/Region name.",
+            "maxLength" : 50
+          }
+        }
+      },
+      "Paging" : {
+        "properties" : {
+          "totalItems" : {
+            "type" : "integer",
+            "default" : 0
+          },
+          "totalPages" : {
+            "type" : "integer"
+          },
+          "pageSize" : {
+            "type" : "integer"
+          },
+          "currentPage" : {
+            "type" : "integer"
+          }
+        }
+      },
+      "Error" : {
+        "type" : "object",
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "message" : {
+            "type" : "string"
+          },
+          "fields" : {
+            "type" : "string"
+          }
+        }
+      }
+    }
+  }
+}
