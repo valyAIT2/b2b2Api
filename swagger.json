@@ -4865,9 +4865,6 @@
               "value" : "22"
             } ]
           },
-          "monogram" : {
-            "$ref" : "#/components/schemas/Monogram"
-          },
           "buttons_name" : {
             "type" : "string",
             "description" : "Jacket Buttons type name"
@@ -4876,18 +4873,8 @@
             "type" : "string",
             "description" : "Jacket Collar Felt type name"
           },
-          "elbow_patch_name" : {
-            "type" : "string",
-            "description" : "Jacket Collar Felt type name"
-          },
-          "contrast_thread_name" : {
-            "type" : "string",
-            "description" : "Jacket Contrast Thread type name"
-          },
-          "size" : {
-            "type" : "string",
-            "description" : "Jacket Size",
-            "default" : "44"
+          "monogram" : {
+            "$ref" : "#/components/schemas/Monogram"
           },
           "measurements" : {
             "$ref" : "#/components/schemas/JacketMeasurements"
