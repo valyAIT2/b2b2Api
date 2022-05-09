@@ -1,0 +1,4469 @@
+openapi: 3.0.0
+info:
+  title: Formens B2B2 API
+  description: Formens B2B2 API
+  version: "103"
+servers:
+- url: https://node.formens.ro/b2b2
+security:
+- api_key: []
+paths:
+  /fabrics_stock/{name}:
+    get:
+      tags:
+      - Fabrics
+      summary: Fabric detail
+      description: Fabric detail
+      parameters:
+      - name: name
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          format: string
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FabricStock'
+        "400":
+          description: Invalid/incomplete Fabric reference supplied
+        "404":
+          description: Fabric reference not found
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /jacket_bases:
+    get:
+      tags:
+      - Jacket
+      summary: Jacket Bases
+      description: List Jacket Bases
+      responses:
+        "200":
+          description: An array of jacket bases
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/JacketBase'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /jacket_bases/{name}:
+    get:
+      tags:
+      - Jacket
+      summary: Jacket Base
+      description: List Jacket Base Types
+      parameters:
+      - name: name
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          format: string
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JacketBase'
+        "400":
+          description: Invalid Base name supplied
+        "404":
+          description: Base name not found
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /jacket_models:
+    get:
+      tags:
+      - Jacket
+      summary: Jacket Models
+      description: List Jacket Models
+      parameters:
+      - name: base_name
+        in: query
+        description: Filter jacket models by base_name
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: An array of jacket models
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/JacketModel'
+        "400":
+          description: Invalid Jacket base name supplied
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /jacket_models/{name}:
+    get:
+      tags:
+      - Jacket
+      summary: Jacket Model
+      description: Jacket Model
+      parameters:
+      - name: name
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          format: string
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JacketModel'
+        "400":
+          description: Invalid Jacket model name supplied
+        "404":
+          description: Jacket model name not found
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /jacket_constructions:
+    get:
+      tags:
+      - Jacket
+      summary: Jacket Constructions
+      description: List Jacket Constructions
+      parameters:
+      - name: base_name
+        in: query
+        description: Jacket constructions available for base_name
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: An array of jacket constructions
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/JacketConstruction'
+        "400":
+          description: Invalid Jacket base name supplied
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /jacket_constructions/{name}:
+    get:
+      tags:
+      - Jacket
+      summary: Jacket Construction
+      description: Jacket Construction
+      parameters:
+      - name: name
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          format: string
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JacketConstruction'
+        "400":
+          description: Invalid Jacket Construction name supplied
+        "404":
+          description: Jacket Construction not found
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /jacket_sleeveheads:
+    get:
+      tags:
+      - Jacket
+      summary: Jacket Sleeve Heads
+      description: List Jacket Sleeve Heads
+      parameters:
+      - name: base_name
+        in: query
+        description: Jacket Sleeve Heads available for base_name
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: An array of jacket Sleeve Heads
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/JacketSleeveHead'
+        "400":
+          description: Invalid Jacket base name supplied
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /jacket_sleeveheads/{id}:
+    get:
+      tags:
+      - Jacket
+      summary: Jacket Sleeve Head
+      description: Jacket Sleeve Head
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          format: string
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JacketSleeveHead'
+        "400":
+          description: Invalid Jacket Sleeve Head name supplied
+        "404":
+          description: Jacket Sleeve Head not found
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /jacket_interiors:
+    get:
+      tags:
+      - Jacket
+      summary: Jacket Interiors
+      description: List Jacket Interiors
+      parameters:
+      - name: base_name
+        in: query
+        description: Jacket Interiors available for base_name
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: sleevehead_id
+        in: query
+        description: Jacket Interiors available with sleevehead
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: An array of jacket Interiors
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/JacketInterior'
+        "400":
+          description: Invalid Jacket base name supplied
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /jacket_interiors/{id}:
+    get:
+      tags:
+      - Jacket
+      summary: Jacket Interior
+      description: Jacket Interior
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          format: string
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JacketInterior'
+        "400":
+          description: Invalid Jacket Interior name supplied
+        "404":
+          description: Jacket Interiors not found
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /jacket_linings:
+    get:
+      tags:
+      - Jacket
+      summary: Jacket Linings
+      description: List Jacket Linings
+      parameters:
+      - name: interior_id
+        in: query
+        description: Jacket Linings available for suplied interior
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: An array of jacket Linings
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/JacketLining'
+        "400":
+          description: Invalid Jacket Interior id supplied
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /jacket_linings/{id}:
+    get:
+      tags:
+      - Jacket
+      summary: Jacket Lining
+      description: Jacket Lining
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          format: string
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JacketLining'
+        "400":
+          description: Invalid Jacket Lining id supplied
+        "404":
+          description: Jacket Lining not found
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /jacket_pockets:
+    get:
+      tags:
+      - Jacket
+      summary: Jacket Pockets
+      description: List Jacket Pockets
+      responses:
+        "200":
+          description: An array of jacket Pockets
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/JacketPocket'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /jacket_pockets/{id}:
+    get:
+      tags:
+      - Jacket
+      summary: Jacket Pocket
+      description: Jacket Pocket
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          format: string
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JacketPocket'
+        "400":
+          description: Invalid Jacket Pocket id supplied
+        "404":
+          description: Jacket Pocket not found
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /jacket_vents:
+    get:
+      tags:
+      - Jacket
+      summary: Jacket Vents
+      description: List Jacket Vents
+      responses:
+        "200":
+          description: An array of jacket Vents
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/JacketVent'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /jacket_vents/{id}:
+    get:
+      tags:
+      - Jacket
+      summary: Jacket Vent
+      description: Jacket Vent
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          format: string
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JacketVent'
+        "400":
+          description: Invalid Jacket Vent id supplied
+        "404":
+          description: Jacket Vent not found
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /jacket_lapel-buttonholes:
+    get:
+      tags:
+      - Jacket
+      summary: Jacket Lapelbuttonholes
+      description: List Jacket Lapelbuttonholes
+      responses:
+        "200":
+          description: An array of jacket Lapelbuttonholes
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/JacketLapelbuttonhole'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /jacket_lapel-buttonholes/{id}:
+    get:
+      tags:
+      - Jacket
+      summary: Jacket Lapelbuttonhole
+      description: Jacket Lapelbuttonhole
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          format: string
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JacketLapelbuttonhole'
+        "400":
+          description: Invalid Jacket Lapelbuttonhole id supplied
+        "404":
+          description: Jacket Lapelbuttonhole not found
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /jacket_buttons:
+    get:
+      tags:
+      - Jacket
+      summary: Jacket Buttons
+      description: List Jacket Buttons
+      responses:
+        "200":
+          description: An array of jacket Buttons
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/JacketButton'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /jacket_buttons/{id}:
+    get:
+      tags:
+      - Jacket
+      summary: Jacket Button
+      description: Jacket Button
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          format: string
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JacketButton'
+        "400":
+          description: Invalid Jacket Button id supplied
+        "404":
+          description: Jacket Button not found
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /jacket_collar-felts:
+    get:
+      tags:
+      - Jacket
+      summary: Jacket Collar Felts
+      description: List Jacket Collar Felts
+      responses:
+        "200":
+          description: An array of jacket Collar Felts
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/JacketCollarFelt'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /jacket_collar-felts/{id}:
+    get:
+      tags:
+      - Jacket
+      summary: Jacket Collar Felt
+      description: Jacket Collar Felt
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          format: string
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JacketCollarFelt'
+        "400":
+          description: Invalid Jacket Collar Felt id supplied
+        "404":
+          description: Jacket Collar Felt not found
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /jacket_elbow-patches:
+    get:
+      tags:
+      - Jacket
+      summary: Jacket Elbow Patches
+      description: List Jacket Elbow Patches
+      responses:
+        "200":
+          description: An array of jacket Elbow Patches
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/JacketElbowPatch'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /jacket_elbow-patches/{id}:
+    get:
+      tags:
+      - Jacket
+      summary: Jacket Elbow Patch
+      description: Jacket Elbow Patch
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          format: string
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JacketElbowPatch'
+        "400":
+          description: Invalid Jacket Elbow Patch id supplied
+        "404":
+          description: Jacket Elbow Patch not found
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /jacket_contrast-threads:
+    get:
+      tags:
+      - Jacket
+      summary: Jacket Contrast Threads
+      description: List Jacket Contrast Threads
+      responses:
+        "200":
+          description: An array of jacket Contrast Threads
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/JacketContrastThread'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /jacket_contrast-threads/{id}:
+    get:
+      tags:
+      - Jacket
+      summary: Jacket Contrast Thread
+      description: Jacket Contrast Thread
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          format: string
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JacketContrastThread'
+        "400":
+          description: Invalid Jacket Contrast Thread id supplied
+        "404":
+          description: Jacket Contrast Thread not found
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /jacket_secondary-options:
+    get:
+      tags:
+      - Jacket
+      summary: Jacket Secondary Options
+      description: List Jacket Secondary Options
+      responses:
+        "200":
+          description: An array of jacket Secondary Options
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/JacketSecondaryOption'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /jacket_secondary-options/{id}:
+    get:
+      tags:
+      - Jacket
+      summary: Jacket Secondary Option
+      description: Jacket Secondary Option
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          format: string
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JacketSecondaryOption'
+        "400":
+          description: Invalid Jacket Secondary Option id supplied
+        "404":
+          description: Jacket Secondary Option not found
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /jacket_related-secondary-options:
+    get:
+      tags:
+      - Jacket
+      summary: Jacket Related Secondary Options
+      description: List pairs of Jacket Secondary Options that can not be assigned
+        to an order on the same time
+      responses:
+        "200":
+          description: An array of jacket Secondary Options
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /jacket_related-secondary-options/{name}:
+    get:
+      tags:
+      - Jacket
+      summary: Jacket Related Secondary Options
+      description: Pairs of Jacket Secondary Option that are the same type and can't
+        be defined on the same order
+      parameters:
+      - name: name
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          format: string
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+        "400":
+          description: Invalid Jacket Secondary Option id supplied
+        "404":
+          description: Jacket Secondary Option not found
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /jacket_sizes:
+    get:
+      tags:
+      - Jacket
+      summary: Jacket Sizes
+      description: List Jacket Sizes
+      parameters:
+      - name: base_name
+        in: query
+        description: Jacket sizes available for base_name
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: An array of jacket Sizes
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/JacketSize'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /jacket_default-measurements:
+    get:
+      tags:
+      - Jacket
+      summary: Jacket Default Measurements for model and size
+      description: List Jacket Default Measurements for model and size
+      parameters:
+      - name: model_name
+        in: query
+        description: Jacket Model Name
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: size
+        in: query
+        description: Jacket Size
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: An array of jacket Default Measurements
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/JacketDefaultMeasurement'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /jacket_primary-alterations:
+    get:
+      tags:
+      - Jacket
+      summary: Jacket Primary Alterations
+      description: List Jacket Primary Alterations
+      responses:
+        "200":
+          description: An array of jacket Primary Alterations
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/JacketPrimaryAlteration'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /jacket_primary-alterations/{id}:
+    get:
+      tags:
+      - Jacket
+      summary: Jacket Primary Alteration
+      description: Jacket Primary Alteration
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          format: string
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JacketPrimaryAlteration'
+        "400":
+          description: Invalid Jacket Primary Alteration id supplied
+        "404":
+          description: Jacket Primary Alteration not found
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /jacket_secondary-alterations:
+    get:
+      tags:
+      - Jacket
+      summary: Jacket Secondary Alterations
+      description: List Jacket Secondary Alterations
+      responses:
+        "200":
+          description: An array of jacket Secondary Alterations
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/JacketSecondaryAlteration'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /jacket_secondary-alterations/{id}:
+    get:
+      tags:
+      - Jacket
+      summary: Jacket Secondary Alteration
+      description: Jacket Secondary Alteration
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          format: string
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JacketSecondaryAlteration'
+        "400":
+          description: Invalid Jacket Secondary Alteration id supplied
+        "404":
+          description: Jacket Secondary Alteration not found
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /jacket_related-alterations:
+    get:
+      tags:
+      - Jacket
+      summary: Jacket Related Alterations
+      description: List pairs of Jacket Alterations that can not be assigned to an
+        order on the same time
+      responses:
+        "200":
+          description: An array of jacket Alterations
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /jacket_related-alterations/{name}:
+    get:
+      tags:
+      - Jacket
+      summary: Jacket Related Alterations
+      description: Pairs of Jacket Alterations that are the same type and can't be
+        defined on the same order
+      parameters:
+      - name: name
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          format: string
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+        "400":
+          description: Invalid Jacket Alteration id supplied
+        "404":
+          description: Jacket Alteration not found
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /trouser_models:
+    get:
+      tags:
+      - Trouser
+      summary: Trouser Models
+      description: List Trouser Models
+      responses:
+        "200":
+          description: An array of Trouser Models
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TrouserModel'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /trouser_models/{id}:
+    get:
+      tags:
+      - Trouser
+      summary: Trouser Model
+      description: Trouser Model
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          format: string
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TrouserModel'
+        "400":
+          description: Invalid Trouser Model id supplied
+        "404":
+          description: Trouser Model not found
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /trouser_front-pockets:
+    get:
+      tags:
+      - Trouser
+      summary: Trouser Front Pockets
+      description: List Trouser Front Pockets
+      responses:
+        "200":
+          description: An array of Trouser Front Pockets
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TrouserFrontPocket'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /trouser_front-pockets/{id}:
+    get:
+      tags:
+      - Trouser
+      summary: Front Pocket
+      description: Front Pocket
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          format: string
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TrouserFrontPocket'
+        "400":
+          description: Invalid Trouser Front Pocket id supplied
+        "404":
+          description: Trouser Front Pockets not found
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /trouser_back-pockets:
+    get:
+      tags:
+      - Trouser
+      summary: Trouser Back Pockets
+      description: List Trouser Back Pockets
+      responses:
+        "200":
+          description: An array of Trouser Back Pockets
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TrouserBackPocket'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /trouser_back-pockets/{id}:
+    get:
+      tags:
+      - Trouser
+      summary: Back Pocket
+      description: Back Pocket
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          format: string
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TrouserBackPocket'
+        "400":
+          description: Invalid Trouser Back Pocket id supplied
+        "404":
+          description: Trouser Back Pockets not found
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /trouser_front-creases:
+    get:
+      tags:
+      - Trouser
+      summary: Trouser Front Creases
+      description: List Trouser Front Creases
+      responses:
+        "200":
+          description: An array of Trouser Front Creases
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TrouserFrontCrease'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /trouser_front-creases/{id}:
+    get:
+      tags:
+      - Trouser
+      summary: Front Crease
+      description: Front Crease
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          format: string
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TrouserFrontCrease'
+        "400":
+          description: Invalid Trouser Front Crease id supplied
+        "404":
+          description: Trouser Front Crease not found
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /trouser_linings:
+    get:
+      tags:
+      - Trouser
+      summary: Trouser Linings
+      description: List Trouser Linings
+      responses:
+        "200":
+          description: An array of Trouser Linings
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TrouserLining'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /trouser_linings/{id}:
+    get:
+      tags:
+      - Trouser
+      summary: Lining
+      description: Lining
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          format: string
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TrouserLining'
+        "400":
+          description: Invalid Trouser Lining id supplied
+        "404":
+          description: Trouser Lining not found
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /trouser_bottom-finishes:
+    get:
+      tags:
+      - Trouser
+      summary: Trouser Bottom Finishes
+      description: List Trouser Bottom Finishes
+      responses:
+        "200":
+          description: An array of Trouser Bottom Finishes
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TrouserBottomFinish'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /trouser_bottom-finishes/{id}:
+    get:
+      tags:
+      - Trouser
+      summary: Bottom Finish
+      description: Bottom Finish
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          format: string
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TrouserBottomFinish'
+        "400":
+          description: Invalid Trouser Bottom Finish id supplied
+        "404":
+          description: Trouser Bottom Finish not found
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /trouser_buttons:
+    get:
+      tags:
+      - Trouser
+      summary: Trouser Buttons
+      description: List Trouser Buttons
+      responses:
+        "200":
+          description: An array of trouser Buttons
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TrouserButton'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /trouser_buttons/{id}:
+    get:
+      tags:
+      - Trouser
+      summary: Trouser Button
+      description: Trouser Button
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          format: string
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TrouserButton'
+        "400":
+          description: Invalid Trouser Button id supplied
+        "404":
+          description: Trouser Button not found
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /trouser_secondary-options:
+    get:
+      tags:
+      - Trouser
+      summary: Trouser Secondary Options
+      description: List Trouser Secondary Options
+      responses:
+        "200":
+          description: An array of Trouser Secondary Options
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TrouserSecondaryOption'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /trouser_secondary-options/{id}:
+    get:
+      tags:
+      - Trouser
+      summary: Secondary Option
+      description: Secondary Option
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          format: string
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TrouserSecondaryOption'
+        "400":
+          description: Invalid Trouser Secondary Option id supplied
+        "404":
+          description: Trouser Secondary Option not found
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /trouser_related-secondary-options:
+    get:
+      tags:
+      - Trouser
+      summary: Trouser Related Secondary Options
+      description: List pairs of Trouser Secondary Options that can not be assigned
+        to an order on the same time
+      responses:
+        "200":
+          description: An array of Trouser Secondary Options
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /trouser_related-secondary-options/{name}:
+    get:
+      tags:
+      - Trouser
+      summary: Trouser Related Secondary Options
+      description: Pairs of Trouser Secondary Option that are the same type and can't
+        be defined on the same order
+      parameters:
+      - name: name
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          format: string
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+        "400":
+          description: Invalid Trouser Secondary Option id supplied
+        "404":
+          description: Trouser Secondary Option not found
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /trouser_sizes:
+    get:
+      tags:
+      - Trouser
+      summary: Trouser Sizes
+      description: List Trouser Sizes
+      parameters:
+      - name: model_name
+        in: query
+        description: Trouser sizes available for model_name
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: An array of Trouser Sizes
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TrouserSize'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /trouser_default-measurements:
+    get:
+      tags:
+      - Trouser
+      summary: Trouser Default Measurements
+      description: List Trouser Default Measurements
+      parameters:
+      - name: model_name
+        in: query
+        description: Trouser Model Name
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: size
+        in: query
+        description: Trouser Size
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: An array of Trouser Default Measurements
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TrouserDefaultMeasurement'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /trouser_default-measurements/{id}:
+    get:
+      tags:
+      - Trouser
+      summary: Size
+      description: Size
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          format: string
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TrouserDefaultMeasurement'
+        "400":
+          description: Invalid Trouser Default Measurement id supplied
+        "404":
+          description: Trouser Default Measurement not found
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /trouser_primary-alterations:
+    get:
+      tags:
+      - Trouser
+      summary: Trouser Primary Alterations
+      description: List Trouser Primary Alterations
+      responses:
+        "200":
+          description: An array of Trouser Primary Alterations
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TrouserPrimaryAlteration'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /trouser_primary-alterations/{id}:
+    get:
+      tags:
+      - Trouser
+      summary: Primary Alteration
+      description: Primary Alteration
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          format: string
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TrouserPrimaryAlteration'
+        "400":
+          description: Invalid Trouser Primary Alteration id supplied
+        "404":
+          description: Trouser Primary Alteration not found
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /trouser_secondary-alterations:
+    get:
+      tags:
+      - Trouser
+      summary: Trouser Secondary Alterations
+      description: List Trouser Secondary Alterations
+      responses:
+        "200":
+          description: An array of Trouser Secondary Alterations
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TrouserSecondaryAlteration'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /trouser_secondary-alterations/{id}:
+    get:
+      tags:
+      - Trouser
+      summary: Secondary Alteration
+      description: Secondary Alteration
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          format: string
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TrouserSecondaryAlteration'
+        "400":
+          description: Invalid Trouser Secondary Alteration id supplied
+        "404":
+          description: Trouser Secondary Alteration not found
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /waistcoat_models:
+    get:
+      tags:
+      - Waistcoat
+      summary: Waistcoat Models
+      description: List Waistcoat Models
+      responses:
+        "200":
+          description: An array of Waistcoat Models
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/WaistcoatModel'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /waistcoat_models/{id}:
+    get:
+      tags:
+      - Waistcoat
+      summary: Waistcoat Model
+      description: Waistcoat Model
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          format: string
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WaistcoatModel'
+        "400":
+          description: Invalid Waistcoat Model id supplied
+        "404":
+          description: Waistcoat Model not found
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /waistcoat_pockets:
+    get:
+      tags:
+      - Waistcoat
+      summary: Waistcoat Pockets
+      description: List Waistcoat Pockets
+      responses:
+        "200":
+          description: An array of Waistcoat Front Pockets
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/WaistcoatPocket'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /waistcoat_pockets/{id}:
+    get:
+      tags:
+      - Waistcoat
+      summary: Waistcoat Pocket
+      description: Waistcoat Pocket
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          format: string
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WaistcoatPocket'
+        "400":
+          description: Invalid Waistcoat Pocket id supplied
+        "404":
+          description: Waistcoat Pocket not found
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /waistcoat_buttons:
+    get:
+      tags:
+      - Waistcoat
+      summary: Waistcoat Buttons
+      description: List Waistcoat Buttons
+      responses:
+        "200":
+          description: An array of Waistcoat Buttons
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/WaistcoatButton'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /waistcoat_buttons/{id}:
+    get:
+      tags:
+      - Waistcoat
+      summary: Waistcoat Button
+      description: Waistcoat Button
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          format: string
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WaistcoatButton'
+        "400":
+          description: Invalid Waistcoat Button id supplied
+        "404":
+          description: Waistcoat Button not found
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /waistcoat_secondary-options:
+    get:
+      tags:
+      - Waistcoat
+      summary: Waistcoat Secondary Options
+      description: List Waistcoat Secondary Options
+      responses:
+        "200":
+          description: An array of Waistcoat Secondary Options
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/WaistcoatSecondaryOption'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /waistcoat_secondary-options/{id}:
+    get:
+      tags:
+      - Waistcoat
+      summary: Waistcoat Secondary Option
+      description: Waistcoat Secondary Option
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          format: string
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WaistcoatSecondaryOption'
+        "400":
+          description: Invalid Waistcoat Secondary Option id supplied
+        "404":
+          description: Waistcoat Secondary Option not found
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /waistcoat_related-secondary-options:
+    get:
+      tags:
+      - Waistcoat
+      summary: Waistcoat Related Secondary Options
+      description: List pairs of Waistcoat Secondary Options that can not be assigned
+        to an order on the same time
+      responses:
+        "200":
+          description: An array of Waistcoat Secondary Options
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /waistcoat_related-secondary-options/{name}:
+    get:
+      tags:
+      - Waistcoat
+      summary: Waistcoat Related Secondary Options
+      description: Pairs of Waistcoat Secondary Option that are the same type and
+        can't be defined on the same order
+      parameters:
+      - name: name
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          format: string
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+        "400":
+          description: Invalid Waistcoat Secondary Option id supplied
+        "404":
+          description: Waistcoat Secondary Option not found
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /waistcoat_sizes:
+    get:
+      tags:
+      - Waistcoat
+      summary: Waistcoat Sizes
+      description: List Waistcoat Sizes
+      parameters:
+      - name: model_name
+        in: query
+        description: Waistcoat sizes available for model_name
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: An array of Waistcoat Sizes
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/WaistcoatSize'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /waistcoat_default-measurements:
+    get:
+      tags:
+      - Waistcoat
+      summary: Waistcoat Default Measurements
+      description: List Waistcoat Default Measurements
+      parameters:
+      - name: model_name
+        in: query
+        description: Waistcoat Model Name
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: size
+        in: query
+        description: Waistcoat Size
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: An array of Waistcoat Default Measurements
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/WaistcoatDefaultMeasurement'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /waistcoat_primary-alterations:
+    get:
+      tags:
+      - Waistcoat
+      summary: Waistcoat Primary Alterations
+      description: List Waistcoat Primary Alterations
+      responses:
+        "200":
+          description: An array of Waistcoat Primary Alterations
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/WaistcoatPrimaryAlteration'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /waistcoat_primary-alterations/{id}:
+    get:
+      tags:
+      - Waistcoat
+      summary: Primary Alteration
+      description: Primary Alteration
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          format: string
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WaistcoatPrimaryAlteration'
+        "400":
+          description: Invalid Waistcoat Primary Alteration id supplied
+        "404":
+          description: Waistcoat Primary Alteration not found
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /waistcoat_secondary-alterations:
+    get:
+      tags:
+      - Waistcoat
+      summary: Waistcoat Secondary Alterations
+      description: List Waistcoat Secondary Alterations
+      responses:
+        "200":
+          description: An array of Waistcoat Secondary Alterations
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/WaistcoatSecondaryAlteration'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /waistcoat_secondary-alterations/{id}:
+    get:
+      tags:
+      - Waistcoat
+      summary: Secondary Alteration
+      description: Secondary Alteration
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          format: string
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WaistcoatSecondaryAlteration'
+        "400":
+          description: Invalid Waistcoat Secondary Alteration id supplied
+        "404":
+          description: Waistcoat Secondary Alteration not found
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /overcoat_bases:
+    get:
+      tags:
+      - Overcoat
+      summary: Overcoat Bases
+      description: List Overcoat Bases
+      responses:
+        "200":
+          description: An array of overcoat bases
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/OvercoatBase'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /overcoat_bases/{name}:
+    get:
+      tags:
+      - Overcoat
+      summary: Overcoat Base
+      description: List Overcoat Base Types
+      parameters:
+      - name: name
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          format: string
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OvercoatBase'
+        "400":
+          description: Invalid Base name supplied
+        "404":
+          description: Base name not found
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /overcoat_models:
+    get:
+      tags:
+      - Overcoat
+      summary: Overcoat Models
+      description: List Overcoat Models
+      parameters:
+      - name: base_name
+        in: query
+        description: Filter overcoat models by base_name
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: An array of overcoat models
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/OvercoatModel'
+        "400":
+          description: Invalid Overcoat base name supplied
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /overcoat_models/{name}:
+    get:
+      tags:
+      - Overcoat
+      summary: Overcoat Model
+      description: Overcoat Model
+      parameters:
+      - name: name
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          format: string
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OvercoatModel'
+        "400":
+          description: Invalid Overcoat model name supplied
+        "404":
+          description: Overcoat model name not found
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /overcoat_constructions:
+    get:
+      tags:
+      - Overcoat
+      summary: Overcoat Constructions
+      description: List Overcoat Constructions
+      responses:
+        "200":
+          description: An array of overcoat constructions
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/OvercoatConstruction'
+        "400":
+          description: Invalid Overcoat base name supplied
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /overcoat_constructions/{name}:
+    get:
+      tags:
+      - Overcoat
+      summary: Overcoat Construction
+      description: Overcoat Construction
+      parameters:
+      - name: name
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          format: string
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OvercoatConstruction'
+        "400":
+          description: Invalid Overcoat Construction name supplied
+        "404":
+          description: Overcoat Construction not found
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /overcoat_linings:
+    get:
+      tags:
+      - Overcoat
+      summary: Overcoat Linings
+      description: List Overcoat Linings
+      responses:
+        "200":
+          description: An array of overcoat Linings
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/OvercoatLining'
+        "400":
+          description: Invalid Overcoat Interior id supplied
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /overcoat_linings/{id}:
+    get:
+      tags:
+      - Overcoat
+      summary: Overcoat Lining
+      description: Overcoat Lining
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          format: string
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OvercoatLining'
+        "400":
+          description: Invalid Overcoat Lining id supplied
+        "404":
+          description: Overcoat Lining not found
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /overcoat_pockets:
+    get:
+      tags:
+      - Overcoat
+      summary: Overcoat Pockets
+      description: List Overcoat Pockets
+      responses:
+        "200":
+          description: An array of overcoat Pockets
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/OvercoatPocket'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /overcoat_pockets/{id}:
+    get:
+      tags:
+      - Overcoat
+      summary: Overcoat Pocket
+      description: Overcoat Pocket
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          format: string
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OvercoatPocket'
+        "400":
+          description: Invalid Overcoat Pocket id supplied
+        "404":
+          description: Overcoat Pocket not found
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /overcoat_lapel-buttonholes:
+    get:
+      tags:
+      - Overcoat
+      summary: Overcoat Lapelbuttonholes
+      description: List Overcoat Lapelbuttonholes
+      responses:
+        "200":
+          description: An array of overcoat Lapelbuttonholes
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/OvercoatLapelbuttonhole'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /overcoat_lapel-buttonholes/{id}:
+    get:
+      tags:
+      - Overcoat
+      summary: Overcoat Lapelbuttonhole
+      description: Overcoat Lapelbuttonhole
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          format: string
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OvercoatLapelbuttonhole'
+        "400":
+          description: Invalid Overcoat Lapelbuttonhole id supplied
+        "404":
+          description: Overcoat Lapelbuttonhole not found
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /overcoat_buttons:
+    get:
+      tags:
+      - Overcoat
+      summary: Overcoat Buttons - TO DO
+      description: List Overcoat Buttons
+      responses:
+        "200":
+          description: An array of overcoat Buttons
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/OvercoatButton'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /overcoat_buttons/{id}:
+    get:
+      tags:
+      - Overcoat
+      summary: Overcoat Button - TO DO
+      description: Overcoat Button
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          format: string
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OvercoatButton'
+        "400":
+          description: Invalid Overcoat Button id supplied
+        "404":
+          description: Overcoat Button not found
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /overcoat_contrast-threads:
+    get:
+      tags:
+      - Overcoat
+      summary: Overcoat Contrast Threads
+      description: List Overcoat Contrast Threads
+      responses:
+        "200":
+          description: An array of overcoat Contrast Threads
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/OvercoatContrastThread'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /overcoat_contrast-threads/{id}:
+    get:
+      tags:
+      - Overcoat
+      summary: Overcoat Contrast Thread
+      description: Overcoat Contrast Thread
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          format: string
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OvercoatContrastThread'
+        "400":
+          description: Invalid Overcoat Contrast Thread id supplied
+        "404":
+          description: Overcoat Contrast Thread not found
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /overcoat_secondary-options:
+    get:
+      tags:
+      - Overcoat
+      summary: Overcoat Secondary Options
+      description: List Overcoat Secondary Options
+      responses:
+        "200":
+          description: An array of overcoat Secondary Options
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/OvercoatSecondaryOption'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /overcoat_secondary-options/{id}:
+    get:
+      tags:
+      - Overcoat
+      summary: Overcoat Secondary Option
+      description: Overcoat Secondary Option
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          format: string
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OvercoatSecondaryOption'
+        "400":
+          description: Invalid Overcoat Secondary Option id supplied
+        "404":
+          description: Overcoat Secondary Option not found
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /overcoat_related-secondary-options:
+    get:
+      tags:
+      - Overcoat
+      summary: Overcoat Related Secondary Options
+      description: List pairs of Overcoat Secondary Options that can not be assigned
+        to an order on the same time
+      responses:
+        "200":
+          description: An array of overcoat Secondary Options
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /overcoat_related-secondary-options/{name}:
+    get:
+      tags:
+      - Overcoat
+      summary: Overcoat Related Secondary Options
+      description: Pairs of Overcoat Secondary Option that are the same type and can't
+        be defined on the same order
+      parameters:
+      - name: name
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          format: string
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+        "400":
+          description: Invalid Overcoat Secondary Option id supplied
+        "404":
+          description: Overcoat Secondary Option not found
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /overcoat_sizes:
+    get:
+      tags:
+      - Overcoat
+      summary: Overcoat SizesO
+      description: List Overcoat Sizes
+      parameters:
+      - name: base_name
+        in: query
+        description: Overcoat sizes available for base_name
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: An array of overcoat Sizes
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/OvercoatSize'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /overcoat_default-measurements:
+    get:
+      tags:
+      - Overcoat
+      summary: Overcoat Default Measurements for model and size
+      description: List Overcoat Default Measurements for model and size
+      parameters:
+      - name: model_name
+        in: query
+        description: Overcoat Model Name
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: size
+        in: query
+        description: Overcoat Size
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: An array of overcoat Default Measurements
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/OvercoatDefaultMeasurement'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /overcoat_primary-alterations:
+    get:
+      tags:
+      - Overcoat
+      summary: Overcoat Primary Alterations
+      description: List Overcoat Primary Alterations
+      responses:
+        "200":
+          description: An array of overcoat Primary Alterations
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/OvercoatPrimaryAlteration'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /overcoat_primary-alterations/{id}:
+    get:
+      tags:
+      - Overcoat
+      summary: Overcoat Primary Alteration
+      description: Overcoat Primary Alteration
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          format: string
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OvercoatPrimaryAlteration'
+        "400":
+          description: Invalid Overcoat Primary Alteration id supplied
+        "404":
+          description: Overcoat Primary Alteration not found
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /overcoat_secondary-alterations:
+    get:
+      tags:
+      - Overcoat
+      summary: Overcoat Secondary Alterations
+      description: List Overcoat Secondary Alterations
+      responses:
+        "200":
+          description: An array of overcoat Secondary Alterations
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/OvercoatSecondaryAlteration'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /overcoat_secondary-alterations/{id}:
+    get:
+      tags:
+      - Overcoat
+      summary: Overcoat Secondary Alteration
+      description: Overcoat Secondary Alteration
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          format: string
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OvercoatSecondaryAlteration'
+        "400":
+          description: Invalid Overcoat Secondary Alteration id supplied
+        "404":
+          description: Overcoat Secondary Alteration not found
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /overcoat_related-alterations:
+    get:
+      tags:
+      - Overcoat
+      summary: Overcoat Related Alterations
+      description: List pairs of Overcoat Alterations that can not be assigned to
+        an order on the same time
+      responses:
+        "200":
+          description: An array of overcoat Alterations
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /overcoat_related-alterations/{name}:
+    get:
+      tags:
+      - Overcoat
+      summary: Overcoat Related Alterations
+      description: Pairs of Overcoat Alterations that are the same type and can't
+        be defined on the same order
+      parameters:
+      - name: name
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          format: string
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+        "400":
+          description: Invalid Overcoat Alteration id supplied
+        "404":
+          description: Overcoat Alteration not found
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /shirt_bases:
+    get:
+      tags:
+      - Shirt
+      summary: Shirt Bases
+      description: List Shirt Bases
+      responses:
+        "200":
+          description: An array of Shirt bases
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ShirtBase'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /shirt_bases/{name}:
+    get:
+      tags:
+      - Shirt
+      summary: Shirt Base
+      description: List Shirt Base Types
+      parameters:
+      - name: name
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          format: string
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ShirtBase'
+        "400":
+          description: Invalid Base name supplied
+        "404":
+          description: Base name not found
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /order:
+    post:
+      tags:
+      - Order
+      summary: Add a new order
+      description: Add a new order
+      operationId: addOrder
+      requestBody:
+        description: Order object that needs to be added
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Order'
+      responses:
+        "201":
+          description: item created
+        "400":
+          description: "invalid input, object invalid"
+        "409":
+          description: an existing item already exists
+  /orders/{id}:
+    get:
+      tags:
+      - Order
+      summary: Order
+      description: Get Order with ID
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: number
+          format: integer
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+        "400":
+          description: Invalid Base name supplied
+        "404":
+          description: Base name not found
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /orders_tracking/{vte_order}:
+    get:
+      tags:
+      - Order
+      summary: Order tracking
+      description: Order tracking
+      parameters:
+      - name: vte_order
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          format: string
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PagedOrders'
+        "400":
+          description: Invalid/incomplete Order reference supplied
+        "404":
+          description: Order reference not found
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /orders_dateexport:
+    post:
+      tags:
+      - Order
+      summary: Estimate export date for a new order
+      description: ""
+      operationId: estimateOrder
+      requestBody:
+        description: Order object that needs to be estimated
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Order'
+      responses:
+        "405":
+          description: Invalid input
+  /shipment_addresses:
+    get:
+      tags:
+      - Shipment Address
+      summary: Shipment Addresses
+      description: List Shipment Addresses
+      responses:
+        "200":
+          description: An array of Shipment Addresses
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ShipmentAddress'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    put:
+      tags:
+      - Shipment Address
+      summary: Update a Shipment Address
+      description: ""
+      operationId: editShipmentAddress
+      requestBody:
+        description: Shipment Address object that needs to be updated
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ShipmentAddress'
+      responses:
+        "405":
+          description: Invalid input
+    post:
+      tags:
+      - Shipment Address
+      summary: Add a new Shipment Address
+      description: ""
+      operationId: addShipmentAddress
+      requestBody:
+        description: Shipment Address object that needs to be added
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ShipmentAddress'
+      responses:
+        "405":
+          description: Invalid input
+  /shipment_addresses/{code}:
+    get:
+      tags:
+      - Shipment Address
+      summary: Shipment Addresses
+      description: Shipment Address
+      parameters:
+      - name: code
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          format: string
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ShipmentAddress'
+        "400":
+          description: Invalid Shipment Address code supplied
+        "404":
+          description: Shipment Address code not found
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /countries:
+    get:
+      tags:
+      - Country
+      summary: Countries
+      description: List Countries Codes
+      responses:
+        "200":
+          description: An array of Country Codes
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Country'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /countries/{code}:
+    get:
+      tags:
+      - Country
+      summary: Country
+      description: Country
+      parameters:
+      - name: code
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          format: string
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Country'
+        "400":
+          description: Invalid Country code supplied
+        "404":
+          description: Country code not found
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+components:
+  schemas:
+    Fabric:
+      required:
+      - name
+      type: object
+      properties:
+        name:
+          type: string
+          description: Unique identifier representing a fabric.
+        coupon:
+          type: boolean
+          description: Fabric is ordered by coupon
+          default: false
+        coupon_client:
+          type: boolean
+          description: "Coupon is ordered by client, required if coupon = true"
+          default: false
+        coupon_vendor:
+          type: string
+          description: "Vendor for fabric, required if coupon = true"
+          default: ""
+        type:
+          type: string
+          description: "Fabric type : Plain|Stripes|Check, required if coupon = true"
+          default: UNI
+        coupon_deliverydate:
+          type: string
+          description: Delivery date for fabric if coupon provided by client
+          format: date
+        coupon_idcatalog:
+          type: string
+          description: Fabric id catalog
+    FabricStock:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Unique identifier representing a fabric.
+        stock_qty:
+          type: number
+          description: Quantity in stock.
+        status:
+          type: string
+          description: "Fabric status [available, out_of_stock, low_stock]"
+    Jacket:
+      required:
+      - Shoulder_line
+      - base_name
+      - construction_name
+      - interior_name
+      - linings
+      - model_name
+      - pockets_name
+      - quantity
+      - size
+      - sleeve_head_name
+      - vents_name
+      type: object
+      properties:
+        fabric:
+          $ref: '#/components/schemas/Fabric'
+        quantity:
+          type: integer
+          format: int32
+          default: 1
+        Shoulder_line:
+          type: string
+          description: Jacket Shoulder slope
+          enum:
+          - LIGHT
+          - STANDARD
+          - STRAIGHT
+          default: STANDARD
+        construction_name:
+          type: string
+          description: Jacket Construction name
+          default: PRESTIGE
+        sleeve_head_name:
+          type: string
+          description: Jacket Sleeve Head name
+          default: RO
+        base_name:
+          type: string
+          description: Jacket Base name
+          default: SE
+        front_name:
+          type: string
+          description: Jacket Base name
+          default: SE
+        interior_name:
+          type: string
+          description: Jacket interior name
+          default: CONTRAST
+        pockets_name:
+          type: string
+          description: "Jacket pockets (id=test, label=vdgd, param=pockets)"
+          default: B
+        vents_name:
+          type: string
+          description: Jacket vents
+          default: "1"
+        cuffs_name:
+          type: string
+          description: Jacket cuffs
+          default: "-"
+        amf_name:
+          type: string
+          description: Jacket amf
+          default: WITHOUT
+        linings:
+          type: array
+          items:
+            $ref: '#/components/schemas/JacketLining'
+          default:
+          - id: A
+            value: "20"
+          - id: B
+            value: "21"
+          - id: X
+            value: "22"
+        buttons_name:
+          type: string
+          description: Jacket Buttons type name
+        collar_felt_name:
+          type: string
+          description: Jacket Collar Felt type name
+        monogram:
+          $ref: '#/components/schemas/Monogram'
+        measurements:
+          $ref: '#/components/schemas/JacketMeasurements'
+        secondary_options:
+          type: array
+          items:
+            type: string
+            description: List of secondary options
+          default:
+          - A5
+          - BXC
+        alterations:
+          type: array
+          items:
+            type: string
+            description: List of alterations
+          default:
+          - 401
+          - 146BL
+          - 191GL
+    JacketBase:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Unique identifier representing a jacket base.
+    JacketModel:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Jacket model name.
+        short_name:
+          type: string
+          description: Short Jacket model name.
+    JacketConstruction:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Unique identifier representing a jacket construction.
+        translated_name:
+          type: string
+          description: Translated jacket construction name.
+    JacketSleeveHead:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Unique identifier representing a jacket sleeve head.
+        translated_name:
+          type: string
+          description: Translated jacket sleeve head name.
+    JacketInterior:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier representing a jacket interior.
+        name:
+          type: string
+          description: Translated jacket interior name.
+    JacketLining:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier representing a jacket lining.
+        value:
+          type: string
+          description: value for lining.
+    JacketPocket:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier representing a jacket pocket.
+        description:
+          type: string
+          description: Description of jacket pocket.
+    JacketVent:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier representing a jacket vent.
+        description:
+          type: string
+          description: Description of jacket vent.
+    JacketButton:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Unique identifier representing a jacket button.
+    JacketLapelbuttonhole:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier representing a jacket lapel buttonhole.
+        description:
+          type: string
+          description: Description of jacket lapel buttonhole.
+    JacketCollarFelt:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Unique identifier representing a jacket collar felt.
+    JacketElbowPatch:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Unique identifier representing a jacket elbow patch.
+    JacketContrastThread:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Unique identifier representing a jacket contrast thread.
+    JacketSecondaryOption:
+      type: object
+      properties:
+        description:
+          type: string
+        name:
+          type: string
+    JacketSize:
+      type: object
+      properties:
+        size:
+          type: string
+          description: Jacket size name.
+    JacketMeasurements:
+      type: object
+      properties:
+        total_length:
+          type: number
+          description: Jacket Total Length
+        left_sleeve_length:
+          type: number
+          description: Jacket Left Sleeve Length
+        right_sleeve_length:
+          type: number
+          description: Jacket Right Sleeve Length
+        left_sleeve_interior_length:
+          type: number
+          description: (Optional) Jacket Left Sleeve Inside Length
+        right_sleeve_interior_length:
+          type: number
+          description: (Optional) Jacket Right Sleeve Inside Length
+        first_button_position:
+          type: number
+          description: Jacket first button position
+        vents:
+          type: number
+          description: Jacket vents length
+        half_waist:
+          type: number
+          description: Jacket 1/2 waist
+    JacketPrimaryAlteration:
+      type: object
+      properties:
+        description:
+          type: string
+        code:
+          type: string
+        alterations:
+          type: array
+          description: List of variations
+          items:
+            type: object
+    JacketSecondaryAlteration:
+      type: object
+      properties:
+        description:
+          type: string
+        code:
+          type: string
+        alterations:
+          type: array
+          description: List of variations
+          items:
+            type: object
+    JacketDefaultMeasurement:
+      type: object
+      properties:
+        TAILLE:
+          $ref: '#/components/schemas/Measurement'
+        LONG.MAN:
+          $ref: '#/components/schemas/Measurement'
+        H.MIL.DOS:
+          $ref: '#/components/schemas/Measurement'
+        TRAPEZ:
+          $ref: '#/components/schemas/Measurement'
+        CARRURE:
+          $ref: '#/components/schemas/Measurement'
+        FENTE:
+          $ref: '#/components/schemas/Measurement'
+        POITRINE:
+          $ref: '#/components/schemas/Measurement'
+        "1ER BOUT":
+          $ref: '#/components/schemas/Measurement'
+        LatRever:
+          $ref: '#/components/schemas/Measurement'
+    Trousers:
+      required:
+      - back_pockets_name
+      - bottom_finish_name
+      - front_crease_name
+      - front_pockets_name
+      - lining_name
+      - model_name
+      - quantity
+      - size
+      type: object
+      properties:
+        fabric:
+          $ref: '#/components/schemas/Fabric'
+        quantity:
+          type: integer
+          format: int32
+          default: 1
+        model_name:
+          type: string
+          description: Trouser Model name
+          default: P05
+        front_pockets_name:
+          type: string
+          description: Trouser front pockets
+          default: B
+        back_pockets_name:
+          type: string
+          description: Trouser back pockets
+          default: "2"
+        front_crease_name:
+          type: string
+          description: Trouser front crease name
+          default: P1
+        lining_name:
+          type: string
+          description: Trouser lining
+          default: A
+        bottom_finish_name:
+          type: string
+          description: Trouser bottom finish
+          default: PF3
+        buttons_name:
+          type: string
+          description: Trouser Buttons type name
+        monogram:
+          $ref: '#/components/schemas/Monogram'
+        size:
+          type: string
+          description: Trouser Size
+          default: "42"
+        measurements:
+          $ref: '#/components/schemas/TrouserMeasurements'
+        secondary_options:
+          type: array
+          items:
+            type: string
+            description: List of secondary options
+          default:
+          - AMF
+          - P0D
+        alterations:
+          type: array
+          items:
+            type: string
+            description: List of alterations
+          default:
+          - 381L
+          - 306M
+          - 391GL
+    TrouserModel:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Trouser model name.
+    TrouserFrontPocket:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier representing a trouser front pocket.
+        description:
+          type: string
+          description: Description of trouser pocket.
+    TrouserBackPocket:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier representing a trouser back pocket.
+        description:
+          type: string
+          description: Description of trouser pocket.
+    TrouserFrontCrease:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier representing a trouser front crease.
+        description:
+          type: string
+          description: Description of trouser front crease.
+    TrouserLining:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier representing a trouser lining.
+        description:
+          type: string
+          description: Description of trouser lining.
+    TrouserBottomFinish:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier representing a trouser bottom finish.
+        description:
+          type: string
+          description: Description of trouser finish.
+    TrouserButton:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Unique identifier representing a trouser button.
+    TrouserSecondaryOption:
+      type: object
+      properties:
+        description:
+          type: string
+        name:
+          type: string
+    TrouserSize:
+      type: object
+      properties:
+        size:
+          type: string
+          description: Trouser size name.
+    TrouserMeasurements:
+      type: object
+      properties:
+        half_waist:
+          type: number
+          description: Trouser 1/2 waist
+          default: 38.5
+        finished_inseam:
+          type: number
+          description: Trouser Finished Inseam
+          default: 1
+        half_bottom_width:
+          type: number
+          description: Trouser 1/2 Bottom Width
+          default: 1
+    TrouserPrimaryAlteration:
+      type: object
+      properties:
+        description:
+          type: string
+        code:
+          type: string
+        alterations:
+          type: array
+          description: List of variations
+          items:
+            type: object
+    TrouserSecondaryAlteration:
+      type: object
+      properties:
+        description:
+          type: string
+        code:
+          type: string
+        alterations:
+          type: array
+          description: List of variations
+          items:
+            type: object
+    TrouserDefaultMeasurement:
+      type: object
+      properties:
+        TAILLE:
+          $ref: '#/components/schemas/Measurement'
+        BASSIN:
+          $ref: '#/components/schemas/Measurement'
+        CUISSE:
+          $ref: '#/components/schemas/Measurement'
+        BAS:
+          $ref: '#/components/schemas/Measurement'
+        ENTREJAMBE:
+          $ref: '#/components/schemas/Measurement'
+        GENOU:
+          $ref: '#/components/schemas/Measurement'
+        FDEVANT:
+          $ref: '#/components/schemas/Measurement'
+        FDOS:
+          $ref: '#/components/schemas/Measurement'
+    Waistcoat:
+      required:
+      - back_lining_name
+      - buttons_name
+      - inside_lining_name
+      - model_name
+      - pockets_name
+      - quantity
+      - size
+      type: object
+      properties:
+        fabric:
+          $ref: '#/components/schemas/Fabric'
+        quantity:
+          type: integer
+          format: int32
+          default: 1
+        model_name:
+          type: string
+          description: Waistcoat Model name
+          default: G10
+        pockets_name:
+          type: string
+          description: Waistcoat pockets
+          default: "70"
+        back_lining_name:
+          type: string
+          description: Waistcoat back lining fabric
+          default: "20"
+        inside_lining_name:
+          type: string
+          description: Waistcoat inside lining fabric
+          default: "21"
+        buttons_name:
+          type: string
+          description: Trouser bottom finish
+          default: "142"
+        monogram:
+          $ref: '#/components/schemas/Monogram'
+        size:
+          type: string
+          description: Waistcoat Size
+          default: "42"
+        measurements:
+          $ref: '#/components/schemas/WaistcoatMeasurements'
+        secondary_options:
+          type: array
+          items:
+            type: string
+            description: List of secondary options
+          default:
+          - A11
+          - PVS
+        alterations:
+          type: array
+          items:
+            type: string
+            description: List of primary alterations
+          default:
+          - 910A
+          - 941B
+          - 930L
+    WaistcoatModel:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Waistcoat model name.
+    WaistcoatPocket:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier representing a Waistcoat pocket.
+        description:
+          type: string
+          description: Description of Waistcoat pocket.
+    WaistcoatButton:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier representing a Waistcoat button.
+        description:
+          type: string
+          description: Description of Waistcoat button.
+    WaistcoatSecondaryOption:
+      type: object
+      properties:
+        description:
+          type: string
+        name:
+          type: string
+    WaistcoatSize:
+      type: object
+      properties:
+        size:
+          type: string
+          description: Waistcoat size name.
+    WaistcoatMeasurements:
+      type: object
+      properties:
+        total_length:
+          type: number
+          description: Waistcoat total length
+          default: 56
+        opening:
+          type: number
+          description: Waistcoat Opening
+          default: 34.9
+        half_waist:
+          type: number
+          description: Waistcoat 1/2 waist
+    WaistcoatPrimaryAlteration:
+      type: object
+      properties:
+        description:
+          type: string
+        code:
+          type: string
+        alterations:
+          type: array
+          description: List of variations
+          items:
+            type: object
+    WaistcoatSecondaryAlteration:
+      type: object
+      properties:
+        description:
+          type: string
+        code:
+          type: string
+        alterations:
+          type: array
+          description: List of variations
+          items:
+            type: object
+    WaistcoatDefaultMeasurement:
+      type: object
+      properties:
+        TAILLE:
+          $ref: '#/components/schemas/Measurement'
+        POITRINE:
+          $ref: '#/components/schemas/Measurement'
+        HMILDOS:
+          $ref: '#/components/schemas/Measurement'
+        OUVERTURE:
+          $ref: '#/components/schemas/Measurement'
+        LDEVANT:
+          $ref: '#/components/schemas/Measurement'
+    Order:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        status:
+          type: string
+          description: Order status
+          enum:
+          - standby
+          - new
+        mtm_type:
+          type: string
+          description: MTM | MTO
+          default: MTM
+        oldorderno:
+          type: integer
+          description: use this id to modify an existing order
+          format: int64
+        client_firstname:
+          type: string
+          description: Client First Name
+          default: Test
+        client_lastname:
+          type: string
+          description: Client Last Name
+          default: Test
+        client_email:
+          type: string
+          description: Client email
+          default: ""
+        client_phone:
+          type: string
+          description: Client Phone
+          default: ""
+        internal_order_no:
+          type: string
+          description: Customer Internal Order Id
+          default: test00
+        order_date:
+          type: string
+          format: date
+        body_measurements:
+          $ref: '#/components/schemas/BodyMeasurements'
+        jacket:
+          $ref: '#/components/schemas/Jacket'
+        trousers:
+          $ref: '#/components/schemas/Trousers'
+        waistcoat:
+          $ref: '#/components/schemas/Waistcoat'
+        overcoat:
+          $ref: '#/components/schemas/Overcoat'
+        observations:
+          type: string
+          description: Orservations about order
+          default: test test test
+        shipment_address:
+          type: string
+          description: "Shipment Address ( default empty, see GET /shipment_addresses\
+            \ )"
+          default: ""
+    Orders:
+      type: object
+      properties:
+        orders:
+          type: array
+          items:
+            $ref: '#/components/schemas/Order'
+    PagedOrders:
+      allOf:
+      - $ref: '#/components/schemas/Orders'
+      - $ref: '#/components/schemas/Paging'
+    Monogram:
+      type: object
+      properties:
+        text:
+          type: string
+          description: Monogram Text
+        color:
+          type: string
+          description: Monogram Color
+    BodyMeasurements:
+      type: object
+      properties:
+        chest:
+          type: number
+          description: Chest measurement
+        waist:
+          type: number
+          description: Waist measurement
+        belt:
+          type: number
+          description: Belt measurement
+        seat:
+          type: number
+          description: Seat measurement
+    Measurement:
+      type: object
+      properties:
+        measurement:
+          type: number
+        tolerance:
+          type: number
+    Overcoat:
+      required:
+      - base_name
+      - construction_name
+      - linings
+      - model_name
+      - pockets_name
+      - quantity
+      - size
+      type: object
+      properties:
+        fabric:
+          $ref: '#/components/schemas/Fabric'
+        quantity:
+          type: integer
+          format: int32
+          default: 1
+        base_name:
+          type: string
+          description: Overcoat Base name
+          default: MGS
+        model_name:
+          type: string
+          description: Overcoat Model name
+          default: MGS101
+        construction_name:
+          type: string
+          description: Overcoat Construction name
+          default: PRESTIGE SOFT
+        pockets_name:
+          type: string
+          description: Overcoat pockets
+          default: B
+        lapel_buttonhole_name:
+          type: string
+          description: Overcoat lapel buttonhole
+          default: "70"
+        linings:
+          type: array
+          items:
+            $ref: '#/components/schemas/OvercoatLining'
+          default:
+          - id: A
+            value: "20"
+          - id: B
+            value: "21"
+          - id: X
+            value: "22"
+        monogram:
+          $ref: '#/components/schemas/Monogram'
+        buttons_name:
+          type: string
+          description: Overcoat Buttons type name
+        collar_contrast_name:
+          type: string
+          description: Overcoat Collar contrast fabric name
+          default: "21"
+        under_collar_contrast_name:
+          type: string
+          description: Overcoat Under collar contrast fabric name
+        contrast_thread_name:
+          type: string
+          description: Overcoat Contrast Thread type name
+          default: "20"
+        size:
+          type: string
+          description: Overcoat Size
+          default: "44"
+        measurements:
+          $ref: '#/components/schemas/OvercoatMeasurements'
+        secondary_options:
+          type: array
+          items:
+            type: string
+            description: List of secondary options
+          default:
+          - A5
+          - BXC
+        alterations:
+          type: array
+          items:
+            type: string
+            description: List of primary alterations
+          default:
+          - 401
+          - 146BL
+          - 191GL
+    OvercoatBase:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Unique identifier representing an overcoat base.
+    OvercoatModel:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Overcoat model name.
+        short_name:
+          type: string
+          description: Short Overcoat model name.
+    OvercoatConstruction:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Unique identifier representing an overcoat construction.
+        translated_name:
+          type: string
+          description: Translated overcoat construction name.
+    OvercoatLining:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier representing an overcoat lining.
+        value:
+          type: string
+          description: value for lining.
+    OvercoatPocket:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier representing an overcoat pocket.
+        description:
+          type: string
+          description: Description of overcoat pocket.
+    OvercoatButton:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Unique identifier representing an overcoat button.
+    OvercoatLapelbuttonhole:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier representing an overcoat lapel buttonhole.
+        description:
+          type: string
+          description: Description of overcoat lapel buttonhole.
+    OvercoatContrastThread:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Unique identifier representing an overcoat contrast thread.
+    OvercoatSecondaryOption:
+      type: object
+      properties:
+        description:
+          type: string
+        name:
+          type: string
+    OvercoatSize:
+      type: object
+      properties:
+        size:
+          type: string
+          description: Overcoat size name.
+    OvercoatMeasurements:
+      type: object
+      properties:
+        total_length:
+          type: number
+          description: Overcoat Total Length
+        left_sleeve_length:
+          type: number
+          description: Overcoat Left Sleeve Length
+        right_sleeve_length:
+          type: number
+          description: Overcoat Right Sleeve Length
+        pockets_position:
+          type: number
+          description: Overcoat pockets position
+    OvercoatPrimaryAlteration:
+      type: object
+      properties:
+        description:
+          type: string
+        code:
+          type: string
+        alterations:
+          type: array
+          description: List of variations
+          items:
+            type: object
+    OvercoatSecondaryAlteration:
+      type: object
+      properties:
+        description:
+          type: string
+        code:
+          type: string
+        alterations:
+          type: array
+          description: List of variations
+          items:
+            type: object
+    OvercoatDefaultMeasurement:
+      type: object
+      properties:
+        TAILLE:
+          $ref: '#/components/schemas/Measurement'
+        LONG.MAN:
+          $ref: '#/components/schemas/Measurement'
+        H.MIL.DOS:
+          $ref: '#/components/schemas/Measurement'
+        TRAPEZ:
+          $ref: '#/components/schemas/Measurement'
+        CARRURE:
+          $ref: '#/components/schemas/Measurement'
+        FENTE:
+          $ref: '#/components/schemas/Measurement'
+        POITRINE:
+          $ref: '#/components/schemas/Measurement'
+        "1ER BOUT":
+          $ref: '#/components/schemas/Measurement'
+        LatRever:
+          $ref: '#/components/schemas/Measurement'
+    ShirtBase:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Unique identifier representing a shirt base.
+        description:
+          type: string
+          description: Descrption of a shirt base.
+    ShipmentAddress:
+      required:
+      - address
+      - code
+      - name
+      type: object
+      properties:
+        code:
+          maxLength: 8
+          type: string
+          description: Unique identifier representing a Shipment Address.
+          default: Test
+        name:
+          maxLength: 50
+          type: string
+          description: Shipment Address name.
+          default: Test
+        contact_person:
+          maxLength: 50
+          type: string
+          description: Contact person.
+          default: ""
+        customer_no:
+          type: string
+          description: NAV Customer No to which Shipment Address is allocated (readonly).
+        address:
+          maxLength: 50
+          type: string
+          description: Address.
+        address2:
+          maxLength: 50
+          type: string
+          description: Address2.
+        post_code:
+          maxLength: 20
+          type: string
+          description: Post Code.
+          default: ""
+        city:
+          maxLength: 30
+          type: string
+          description: city.
+          default: ""
+        country_code:
+          maxLength: 10
+          type: string
+          description: Country Code ( see GET /countries ).
+          default: RO
+        phone:
+          maxLength: 30
+          type: string
+          description: Phone number.
+          default: ""
+        email:
+          maxLength: 80
+          type: string
+          description: Email address.
+          default: ""
+    Country:
+      type: object
+      properties:
+        code:
+          maxLength: 10
+          type: string
+          description: Unique identifier representing a Country/Region.
+        name:
+          maxLength: 50
+          type: string
+          description: Country/Region name.
+    Paging:
+      properties:
+        totalItems:
+          type: integer
+          default: 0
+        totalPages:
+          type: integer
+        pageSize:
+          type: integer
+        currentPage:
+          type: integer
+    Error:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+        fields:
+          type: string
+  parameters:
+    pageSize:
+      name: pageSize
+      in: query
+      description: Number of persons returned
+      required: false
+      style: form
+      explode: true
+      schema:
+        type: integer
+        default: 25
+    pageNumber:
+      name: pageNumber
+      in: query
+      description: Page number
+      required: false
+      style: form
+      explode: true
+      schema:
+        type: integer
+        default: 1
+  securitySchemes:
+    api_key:
+      type: apiKey
+      name: api_key
+      in: header
