@@ -4790,17 +4790,18 @@
           "quantity" : {
             "type" : "integer",
             "format" : "int32",
-            "default" : 1
+            "default" : 1,
+            "description" : "Jacket quantity (id=Vcant; lbl=Qty; param=veste_qte)"
           },
           "Shoulder_line" : {
             "type" : "string",
-            "description" : "Jacket Shoulder slope",
+            "description" : "Jacket Shoulder slope (id=VShSlope; lbl=SHOULDER LINE; param=VShSlope)",
             "enum" : [ "LIGHT", "STANDARD", "STRAIGHT" ],
             "default" : "STANDARD"
           },
           "construction_name" : {
             "type" : "string",
-            "description" : "Jacket Construction name",
+            "description" : "Jacket Construction name (id=Vconstructie; lbl=CONSTRUCTION; param=construction)",
             "default" : "PRESTIGE"
           },
           "base_name" : {
