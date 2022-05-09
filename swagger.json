@@ -4802,22 +4802,25 @@
           "construction_name" : {
             "type" : "string",
             "description" : "Jacket Construction name (id=Vconstructie; lbl=CONSTRUCTION; param=construction)",
+            "enum" : [ "ZERO GRAVITY", "TESK", "PRESTIGE SOFT", "PRESTIGE", "SIES", "SEMI-TRAD SOFT", "SEMI-TRAD", "TRADITIONALA SOFT", "TESKW45", "TESKW25" ],
             "default" : "PRESTIGE"
+          },
+          "sleeve_head_name" : {
+            "type" : "string",
+            "description" : "Jacket Sleeve Head name (id=VcapManeca; lbl=SLEEVE HEAD; param=capmaneca)",
+            "enum" : [ "NAS/K", "NAN/0", "NAX/0", "RO/E", "RE/E", "REX/E", "RO/A", "RE/A", "REX/A" ],
+            "default" : "RO/E"
           },
           "base_name" : {
             "type" : "string",
-            "description" : "Jacket Base name",
-            "default" : "SE"
+            "description" : "Jacket Base name (id=VmodelIncercat; lbl=BASE; param=v_model_essaye)",
+            "enum" : [ "G", "GA", "GAD", "GD", "GT", "UG" ],
+            "default" : "G"
           },
           "model_name" : {
             "type" : "string",
             "description" : "Jacket Model name",
             "default" : "SE16"
-          },
-          "sleeve_head_name" : {
-            "type" : "string",
-            "description" : "Jacket Sleeve Head name",
-            "default" : "RO"
           },
           "interior_name" : {
             "type" : "string",
