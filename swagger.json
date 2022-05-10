@@ -4886,9 +4886,17 @@
             "type" : "array",
             "items" : {
               "type" : "string",
-              "description" : "List of secondary options"
+              "description" : "List of secondary options  (id=Voptions; lbl=; param=v_options)"
             },
             "default" : [ "A5", "BXC" ]
+          },
+          "alterations" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "description" : "List of primary alterations  (id=Valterations; lbl=; param=v_alterations)"
+            },
+            "default" : [ 401, "146BL", "191GL" ]
           },
           "bow_tie_fabric_ref_name" : {
             "type" : "string",
