@@ -3448,7 +3448,7 @@ components:
           - UG
         front_name:
           type: string
-          description: Jacket Front name (id=Vmodel; lbl=FRONT; param=Vmodel si modele)
+          description: Jacket Front name (id=Vmodel; lbl=FRONT; param=Vmodel)
           enum:
           - "402"
           - "499"
