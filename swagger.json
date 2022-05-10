@@ -4886,7 +4886,7 @@
             "type" : "array",
             "items" : {
               "type" : "string",
-              "description" : "List of secondary options  (id=Voptions; lbl=; param=v_options)"
+              "description" : "List of secondary options  (id=Voptions; lbl=secondary_options; param=v_options)"
             },
             "default" : [ "A5", "BXC" ]
           },
@@ -4894,7 +4894,7 @@
             "type" : "array",
             "items" : {
               "type" : "string",
-              "description" : "List of primary alterations  (id=Valterations; lbl=; param=v_alterations)"
+              "description" : "List of primary alterations  (id=Valterations; lbl=alterations; param=v_alterations)"
             },
             "default" : [ 401, "146BL", "191GL" ]
           },
