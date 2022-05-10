@@ -3396,11 +3396,12 @@ components:
           $ref: '#/components/schemas/Fabric'
         quantity:
           type: integer
+          description: fabric quantity (id=Vcant; lbl=QTY; param=veste_qt)
           format: int32
           default: 1
         Shoulder_line:
           type: string
-          description: Jacket Shoulder slope
+          description: Jacket Shoulder slope  (id=VShSlope; lbl=SHOULDER LINE; param=VShSlope)
           enum:
           - LIGHT
           - STANDARD
@@ -3412,27 +3413,27 @@ components:
           default: PRESTIGE
         sleeve_head_name:
           type: string
-          description: Jacket Sleeve Head name
+          description: Jacket Sleeve Head name  (id=VcapManeca; lbl=SLEEVE HEAD; param=capmaneca)
           default: RO
         base_name:
           type: string
-          description: Jacket Base name
+          description: Jacket Base name (id=VmodelIncercat; lbl=BASE; param=modele)
           default: SE
         front_name:
           type: string
-          description: Jacket Base name
+          description: Jacket Front name (id=Vmodel; lbl=FRONT; param=Vmodel si modele)
           default: SE
         interior_name:
           type: string
-          description: Jacket interior name
+          description: Jacket interior name  (id=Vinterior; lbl=INTERIOR; param=interieur)
           default: CONTRAST
         pockets_name:
           type: string
-          description: "Jacket pockets (id=test, label=vdgd, param=pockets)"
+          description: "Jacket pockets (id=VbuzunareFata, label=POCKETS, param=poches)"
           default: B
         vents_name:
           type: string
-          description: Jacket vents
+          description: Jacket vents  (id=Vslit; lbl=VENTS; param=fentes)
           default: "1"
         cuffs_name:
           type: string
@@ -3449,20 +3450,21 @@ components:
           default:
           - id: A
             value: "20"
+            description: main lining  (id=VdoublA; lbl=MAIN LINING - A; param=doublure_a)
           - id: B
             value: "21"
+            description: sleeve lining  (id=VdoublA; lbl=SLEEVE LINING - B; param=doublure_b)
           - id: X
             value: "22"
         buttons_name:
           type: string
-          description: Jacket Buttons type name
+          description: Jacket Buttons type name  (id=Vnasturi; lbl=BUTTONS; param=boutons)
         collar_felt_name:
           type: string
-          description: Jacket Collar Felt type name
+          description: Jacket Collar Felt type name  (id=Vguler; lbl=COLLAR FELT;
+            param=feutre)
         monogram:
           $ref: '#/components/schemas/Monogram'
-        measurements:
-          $ref: '#/components/schemas/JacketMeasurements'
         secondary_options:
           type: array
           items:
@@ -3471,15 +3473,70 @@ components:
           default:
           - A5
           - BXC
-        alterations:
-          type: array
-          items:
-            type: string
-            description: List of alterations
-          default:
-          - 401
-          - 146BL
-          - 191GL
+        bow_tie_fabric_ref_name:
+          type: string
+          description: Bow tie frabic reference  (id=PpcodTesatura; lbl=BOWTIE FABRIC
+            REF; param=tissu_papion)
+        bow_tie_quantity:
+          type: integer
+          description: Bow tie quantity(id=Ppcant; lbl=QTY; param=papion_qte)
+          format: int32
+          default: 0
+        lavaliere_ref_name:
+          type: string
+          description: Lavaliere reference  (id=CcodTesatura; lbl=LAVARIERE REF; param=tissu_cravaliere)
+        lavaliere_quantity:
+          type: integer
+          description: Lavaliere quantity  (id=Ccant; lbl=QTY; param=cravaliere_qte)
+          format: int32
+          default: 0
+        handkerchief_fabric_name:
+          type: string
+          description: Handkerchief frabic reference  (id=BcodTesatura; lbl=HANDKERCHIEF
+            FABRIC; param=tissu_pochette)
+        handkerchief_quantity:
+          type: integer
+          description: Handkerchief quantity  (id=Bcant; lbl=QTY; param=pochette_qte)
+          format: int32
+          default: 0
+        measurements:
+          $ref: '#/components/schemas/JacketMeasurements'
+        size_tried:
+          type: integer
+          description: size tried (id=VmarimeIncercata; lbl=SIZE TRIED; param=taillev)
+          format: int32
+          default: 0
+        total length:
+          type: integer
+          description: (id=VlungimeSpate; lbl=TOTAL LENGTH; param=longueur_dos)
+          format: int32
+          default: 0
+        sleeve_length_left_size:
+          type: integer
+          description: sleeve length left size  (id=VlungimeManecaStanga; lbl=SLEEVE
+            LENGTH / LEFT; param=manche_gauche)
+          format: int32
+          default: 0
+        sleeve_length_right_size:
+          type: integer
+          description: sleeve right left size  (id=VlungimeManecaDreapta; lbl=SLEEVE
+            LENGTH / RIGHT; param=manche_droite)
+          format: int32
+          default: 0
+        construction:
+          type: string
+          description: (id=Vconstructie; lbl=CONSTRUCTION; param=construction)
+          enum:
+          - UNCONSTRUCTED
+          - FLOATING CHEST PIECE EXTRA SOFT
+          - FLOATING CHEST PIECE SOFT
+          - FLOATING CHEST PIECE STANDARD
+          - HALF CANVAS EXTRA SOFT
+          - HALF CANVAS SOFT
+          - FULL CANVAS SOFT
+          - FULL CANVAS STANDARD
+          - FLOATING CHEST PIECE SOFT WASHABLE
+          - FOATING CHEST PIECE EXTRA SOFT WASHABLE
     JacketBase:
       type: object
       properties:
@@ -3880,33 +3937,36 @@ components:
           $ref: '#/components/schemas/Fabric'
         quantity:
           type: integer
+          description: Waistcoat quantity (id=Gcant; lbl=QTY; param=gilet_qte)
           format: int32
           default: 1
         model_name:
           type: string
-          description: Waistcoat Model name
+          description: Waistcoat Model name (id=Gmodel; lbl=MODEL; param=Gmodel)
           default: G10
         pockets_name:
           type: string
-          description: Waistcoat pockets
+          description: Waistcoat pockets (id=GbuzunareFata; lbl=POCKETS; param=poches_gilet)
           default: "70"
         back_lining_name:
           type: string
-          description: Waistcoat back lining fabric
+          description: Waistcoat back lining fabric (id=GdoublDos; lbl=BACK LINING;
+            param=doublure_dos)
           default: "20"
         inside_lining_name:
           type: string
-          description: Waistcoat inside lining fabric
+          description: Waistcoat inside lining fabric (id=GdoublInterior; lbl=INSIDE
+            LINING; param=doublure_interieur)
           default: "21"
         buttons_name:
           type: string
-          description: Trouser bottom finish
+          description: Trouser bottom finish (id=Gnasturi; lbl=BUTTONS; param=boutons_gilet)
           default: "142"
         monogram:
           $ref: '#/components/schemas/Monogram'
         size:
           type: string
-          description: Waistcoat Size
+          description: Waistcoat Size (id=GmarimeIncercata; lbl=SIZE TRIED; param=taille_gilet)
           default: "42"
         measurements:
           $ref: '#/components/schemas/WaistcoatMeasurements'
@@ -3914,7 +3974,8 @@ components:
           type: array
           items:
             type: string
-            description: List of secondary options
+            description: List of secondary options (id=Goptions; lbl=SECONDARY OPTIONS;
+              param=g_options)
           default:
           - A11
           - PVS
@@ -3922,7 +3983,8 @@ components:
           type: array
           items:
             type: string
-            description: List of primary alterations
+            description: List of primary alterations (id=Galterations; lbl=ALTERATIONS;
+              param=g_alterations)
           default:
           - 910A
           - 941B
@@ -3932,13 +3994,13 @@ components:
       properties:
         name:
           type: string
-          description: Waistcoat model name.
+          description: Waistcoat model name
     WaistcoatPocket:
       type: object
       properties:
         id:
           type: string
-          description: Unique identifier representing a Waistcoat pocket.
+          description: Unique identifier representing a Waistcoat pocket
         description:
           type: string
           description: Description of Waistcoat pocket.
@@ -3947,7 +4009,7 @@ components:
       properties:
         id:
           type: string
-          description: Unique identifier representing a Waistcoat button.
+          description: Unique identifier representing a Waistcoat button
         description:
           type: string
           description: Description of Waistcoat button.
@@ -4093,10 +4155,10 @@ components:
       properties:
         text:
           type: string
-          description: Monogram Text
+          description: Monogram Text  (id=monograma; lbl=MONOGRAM; param=monograme)
         color:
           type: string
-          description: Monogram Color
+          description: Monogram Color  (id=McodContrast; lbl=COLOR; param=cul_monogr)
     BodyMeasurements:
       type: object
       properties:
