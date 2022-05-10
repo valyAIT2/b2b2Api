@@ -5263,24 +5263,36 @@
           },
           "lining" : {
             "type" : "string",
-            "description" : "Trouser lining",
+            "description" : "Trousers lining (id=Pdoubl; lbl=LINING; param=doublure)",
             "default" : "A"
           },
           "bottom_finish" : {
             "type" : "string",
-            "description" : "Trouser bottom finish",
+            "description" : "Trousers bottom finish (id=Pterminatie; lbl=BOTTOM; param=finition_bas)",
             "default" : "PF3"
           },
           "buttons" : {
             "type" : "string",
-            "description" : "Trouser Buttons type name"
+            "description" : "Trousers Buttons type (id=Pnasturi; lbl=BUTTONS; param=boutons_pant)"
+          },
+          "amf" : {
+            "type" : "string",
+            "description" : "Trousers AMF (id=Pamf; lbl=AMF/TOPSTITCH; param=Pamf)"
+          },
+          "closure_type" : {
+            "type" : "string",
+            "description" : "Trousers Closure type (id=Pclosure; lbl=CLOSURE TYPE; param=Pclosure)"
+          },
+          "waistband" : {
+            "type" : "string",
+            "description" : "Trousers Waistband (id=PWaistband; lbl=WAISTBAND; param=Waistband)"
           },
           "monogram" : {
             "$ref" : "#/components/schemas/Monogram"
           },
           "size" : {
             "type" : "string",
-            "description" : "Trouser Size",
+            "description" : "Trouser Size (id=PmarimeIncercata; lbl=SIZE TRIED; param=taillep)",
             "default" : "42"
           },
           "measurements" : {
@@ -5290,7 +5302,7 @@
             "type" : "array",
             "items" : {
               "type" : "string",
-              "description" : "List of secondary options"
+              "description" : "List of secondary options (id=Poptions; lbl=SECONDARY OPTIONS; param=p_options)"
             },
             "default" : [ "AMF", "P0D" ]
           },
@@ -5298,7 +5310,7 @@
             "type" : "array",
             "items" : {
               "type" : "string",
-              "description" : "List of alterations"
+              "description" : "List of alterations (id=Palterations; lbl=ALTERATIONS; param=p_alterations)"
             },
             "default" : [ "381L", "306M", "391GL" ]
           }
@@ -5412,17 +5424,22 @@
         "properties" : {
           "half_waist" : {
             "type" : "number",
-            "description" : "Trouser 1/2 waist",
+            "description" : "Trouser 1/2 waist (id=PdemiTaille; lbl=1/2 WAIST; param=demi_taille)",
             "default" : 38.5
           },
-          "finished_inseam" : {
+          "finished_inseam_right" : {
             "type" : "number",
-            "description" : "Trouser Finished Inseam",
+            "description" : "Trouser Finished Inseam Right (id=Pentrejambe; lbl=FINISHED INSEAM / RIGHT; param=entrejambe)",
+            "default" : 1
+          },
+          "finished_inseam_left" : {
+            "type" : "number",
+            "description" : "Trouser Finished Inseam Left (id=Pentrejambe_st; lbl=FINISHED INSEAM / LEFT; param=entrejambe_st)",
             "default" : 1
           },
           "half_bottom_width" : {
             "type" : "number",
-            "description" : "Trouser 1/2 Bottom Width",
+            "description" : "Trouser 1/2 Bottom Width (id=PdemiBas; lbl=1/2 BOTTOM WIDTH; param=demi_bas)",
             "default" : 1
           }
         }
