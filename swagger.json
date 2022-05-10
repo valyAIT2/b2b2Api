@@ -5536,7 +5536,7 @@
           },
           "fit" : {
             "type" : "string",
-            "description" : "Waistcoat fit (id=Gfit; lbl=FIT; param=modele_gilet)",
+            "description" : "Waistcoat fit (id=Gfit; lbl=FIT; param=g_model_essaye)",
             "default" : "10"
           },
           "pockets" : {
