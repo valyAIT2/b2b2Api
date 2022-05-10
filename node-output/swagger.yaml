@@ -3535,6 +3535,10 @@ components:
             param=feutre)
         monogram:
           $ref: '#/components/schemas/Monogram'
+        lapel_buttonhole:
+          type: string
+          description: lapel buttonhole (id=VnasturiReversel; lbl= CONTRAST BUTTONHOLES
+            / LAPEL BUTTONHOLE; param=boutonniere_revers)
         cma1:
           type: boolean
           description: Sleeves Contrast Buttonhole 1 (id=cma1; lbl=CONTRAST BUTTONHOLES
