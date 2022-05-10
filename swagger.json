@@ -4823,7 +4823,7 @@
           },
           "front_name" : {
             "type" : "string",
-            "description" : "Jacket Front name (id=Vmodel; lbl=FRONT; param=Vmodel)",
+            "description" : "Jacket Front name (id=Vmodel; lbl=FRONT; param=Vmodel si modele)",
             "enum" : [ "402", "499", "515", "523", "326", "328", "426", "428", "592", "593", "DB592", "DB542R", "DB541R", "83", "82", "73", "16", "6016", "05", "053", "32", "6032", "58", "581", "42", "59", "591", "DB54", "96", "968", "06", "DB", "WI", "CYR", "IPA", "FR", "42R", "OF", "FO", "TAIL", "CUT", "SHORTER-CUT", "LUCAS", "MAX", "LUCAS59", "MO" ]
           },
           "interior" : {
@@ -4879,6 +4879,30 @@
               "description" : "List of secondary options"
             },
             "default" : [ "A5", "BXC" ]
+          },
+          "satin_color" : {
+            "type" : "string",
+            "description" : "satin color (id=Vsatinsel; lbl=SATIN COLOR; param=Vsatin)"
+          },
+          "detachable_inlay_color" : {
+            "type" : "string",
+            "description" : "detachable inlay color (id=Vpippingsel; lbl=DETACHABLE INLAY COLOR; param=Vinlay)"
+          },
+          "color_contrast_color" : {
+            "type" : "string",
+            "description" : "color contrast color (id=Vcollarcontrsel; lbl=COLLAR CONTRAST COLOR; param=Vcollar)"
+          },
+          "piping_color" : {
+            "type" : "string",
+            "description" : "piping color (id=Vpippingsel; lbl=COLLAR CONTRAST COLOR; param=Vpipping)"
+          },
+          "cuff_contrasted" : {
+            "type" : "string",
+            "description" : "cuff constrasted (id=Vccxsel; lbl=CUFF CONTRASTED; param=VcuffColor)"
+          },
+          "fake_handkerchief" : {
+            "type" : "string",
+            "description" : "fake handkerchief (id=Vfpsel; lbl= FAKE HANDKERCHIEF; param=VfpColor)"
           },
           "bow_tie_fabric" : {
             "type" : "string",
