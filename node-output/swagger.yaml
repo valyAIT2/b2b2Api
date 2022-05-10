@@ -3896,8 +3896,6 @@ components:
         waistband:
           type: string
           description: Trousers Waistband (id=PWaistband; lbl=WAISTBAND; param=Waistband)
-        monogram:
-          $ref: '#/components/schemas/Monogram'
         size:
           type: string
           description: Trousers Size (id=PmarimeIncercata; lbl=SIZE TRIED; param=taillep)
@@ -4086,33 +4084,33 @@ components:
           default: 1
         model:
           type: string
-          description: Waistcoat Model (id=Gmodel; lbl=MODEL; param=Gmodel si modele_gilet)
+          description: Waistcoat model (id=Gmodel; lbl=MODEL; param=Gmodel si modele_gilet)
           default: "10"
         fit:
           type: string
-          description: Waistcoat Fit (id=Gfit; lbl=FIT; param=modele_gilet)
+          description: Waistcoat fit (id=Gfit; lbl=FIT; param=modele_gilet)
           default: "10"
-        pockets_name:
+        pockets:
           type: string
-          description: Waistcoat pockets
+          description: Waistcoat pockets (id=GbuzunareFata; lbl=POCKETS; param=poches_gilet)
           default: "70"
-        back_lining_name:
+        back_lining:
           type: string
-          description: Waistcoat back lining fabric
+          description: Waistcoat back lining fabric (id=GdoublDos; lbl=BACK LINING;
+            param=doublure_dos)
           default: "20"
-        inside_lining_name:
+        inside_lining:
           type: string
-          description: Waistcoat inside lining fabric
+          description: Waistcoat inside lining fabric (id=GdoublInterior; lbl=INSIDE
+            LINING; param=doublure_interieur)
           default: "21"
-        buttons_name:
+        buttons:
           type: string
-          description: Trouser bottom finish
+          description: Waistcoat buttons (id=Gnasturi; lbl=BUTTONS; param=boutons_gilet)
           default: "142"
-        monogram:
-          $ref: '#/components/schemas/Monogram'
         size:
           type: string
-          description: Waistcoat Size
+          description: Waistcoat size (id=GmarimeIncercata; lbl=SIZE TRIED; param=taille_gilet)
           default: "42"
         measurements:
           $ref: '#/components/schemas/WaistcoatMeasurements'
@@ -4120,7 +4118,8 @@ components:
           type: array
           items:
             type: string
-            description: List of secondary options
+            description: List of secondary options (id=Goptions; lbl=SECONDARY OPTIONS;
+              param=g_options)
           default:
           - A11
           - PVS
@@ -4128,7 +4127,8 @@ components:
           type: array
           items:
             type: string
-            description: List of primary alterations
+            description: List of primary alterations (id=Galterations; lbl=ALTERATIONS;
+              param=g_alterations)
           default:
           - 910A
           - 941B
@@ -4175,15 +4175,13 @@ components:
       properties:
         total_length:
           type: number
-          description: Waistcoat total length
+          description: Waistcoat total length (id=GlungimeSpate; lbl=TOTAL LENGTH;
+            param=longueur_dos_gilet)
           default: 56
         opening:
           type: number
-          description: Waistcoat Opening
+          description: Waistcoat Opening (id=Gouverture; lbl=OPENING; param=ouverture_gilet)
           default: 34.9
-        half_waist:
-          type: number
-          description: Waistcoat 1/2 waist
     WaistcoatPrimaryAlteration:
       type: object
       properties:
