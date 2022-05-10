@@ -3854,7 +3854,7 @@ components:
           default: 1
         model:
           type: string
-          description: Trouser Model name
+          description: Trousers Model name
           default: P05
         front_pockets:
           type: string
