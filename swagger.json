@@ -4876,9 +4876,6 @@
           "monogram" : {
             "$ref" : "#/components/schemas/Monogram"
           },
-          "measurements" : {
-            "$ref" : "#/components/schemas/JacketMeasurements"
-          },
           "secondary_options" : {
             "type" : "array",
             "items" : {
@@ -4913,6 +4910,9 @@
             "type" : "integer",
             "format" : "int32",
             "default" : 0
+          },
+          "measurements" : {
+            "$ref" : "#/components/schemas/JacketMeasurements"
           }
         }
       },
