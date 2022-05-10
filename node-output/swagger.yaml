@@ -3877,15 +3877,17 @@ components:
       properties:
         half_waist:
           type: number
-          description: Trouser 1/2 waist
+          description: Trouser 1/2 waist (id=PdemiTaille; lbl=1/2 WAIST; param=demi_taille)
           default: 38.5
         finished_inseam:
           type: number
-          description: Trouser Finished Inseam
+          description: Trouser Finished Inseam (id=Pentrejambe; lbl=FINISHED INSEAM;
+            param=entrejambe)
           default: 1
         half_bottom_width:
           type: number
-          description: Trouser 1/2 Bottom Width
+          description: Trouser 1/2 Bottom Width (id=PdemiBas; lbl=1/2 BOTTOM WIDTH;
+            param=demi_bas)
           default: 1
     TrouserPrimaryAlteration:
       type: object
@@ -4035,6 +4037,7 @@ components:
         size:
           type: string
           description: Waistcoat size (id=GmarimeIncercata; lbl=SIZE TRIED; param=taille_gilet)
+          default: "42"
     WaistcoatMeasurements:
       type: object
       properties:
