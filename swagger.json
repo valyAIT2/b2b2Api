@@ -4890,6 +4890,29 @@
           "bow_tie_fabric_ref_name" : {
             "type" : "string",
             "description" : "Bow tie frabic reference"
+          },
+          "bow_tie_quantity" : {
+            "type" : "integer",
+            "format" : "int32",
+            "default" : 0
+          },
+          "lavaliere_ref_name" : {
+            "type" : "string",
+            "description" : "lavaliere reference"
+          },
+          "lavaliere_quantity" : {
+            "type" : "integer",
+            "format" : "int32",
+            "default" : 0
+          },
+          "handkerchief_fabric_ref_name" : {
+            "type" : "string",
+            "description" : "handkerchief frabic reference"
+          },
+          "handkerchief_quantity" : {
+            "type" : "integer",
+            "format" : "int32",
+            "default" : 0
           }
         }
       },
