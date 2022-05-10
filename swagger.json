@@ -4895,16 +4895,16 @@
           },
           "lavaliere_ref_name" : {
             "type" : "string",
-            "description" : "lavaliere reference"
+            "description" : "Lavaliere reference"
           },
           "lavaliere_quantity" : {
             "type" : "integer",
             "format" : "int32",
             "default" : 0
           },
-          "handkerchief_fabric_ref_name" : {
+          "handkerchief_fabric_name" : {
             "type" : "string",
-            "description" : "handkerchief frabic reference"
+            "description" : "Handkerchief frabic reference"
           },
           "handkerchief_quantity" : {
             "type" : "integer",
