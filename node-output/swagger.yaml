@@ -3968,6 +3968,13 @@ components:
           type: string
           description: Waistcoat Size (id=GmarimeIncercata; lbl=SIZE TRIED; param=taille_gilet)
           default: "42"
+        back_length:
+          type: string
+          description: Waistcoat back length (id=GlungimeSpate; lbl=TOTAL LENGTH;
+            param=longueur_dos_gilet)
+        opening:
+          type: string
+          description: Waistcoat opening (id=Gouverture; lbl=OPENING; param=ouverture_gilet)
         measurements:
           $ref: '#/components/schemas/WaistcoatMeasurements'
         secondary_options:
