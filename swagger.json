@@ -4807,7 +4807,8 @@
           },
           "construction_name" : {
             "type" : "string",
-            "description" : "Jacket Construction name",
+            "description" : "(id=Vconstructie; lbl=CONSTRUCTION; param=construction)",
+            "enum" : [ "ZERO GRAVITY", "TESK", "PRESTIGE SOFT", "PRESTIGE", "SIES", "SEMI-TRAD SOFT", "SEMI-TRAD", "TRADITIONALA SOFT", "TRADITIONALA", "TESKW45", "TESKW25" ],
             "default" : "PRESTIGE"
           },
           "sleeve_head_name" : {
@@ -4943,11 +4944,6 @@
             "description" : "sleeve right left size  (id=VlungimeManecaDreapta; lbl=SLEEVE LENGTH / RIGHT; param=manche_droite)",
             "format" : "int32",
             "default" : 0
-          },
-          "construction" : {
-            "type" : "string",
-            "description" : "(id=Vconstructie; lbl=CONSTRUCTION; param=construction)",
-            "enum" : [ "UNCONSTRUCTED", "FLOATING CHEST PIECE EXTRA SOFT", "FLOATING CHEST PIECE SOFT", "FLOATING CHEST PIECE STANDARD", "HALF CANVAS EXTRA SOFT", "HALF CANVAS SOFT", "FULL CANVAS SOFT", "FULL CANVAS STANDARD", "FLOATING CHEST PIECE SOFT WASHABLE", "FOATING CHEST PIECE EXTRA SOFT WASHABLE" ]
           }
         }
       },
