@@ -4795,12 +4795,13 @@
           },
           "quantity" : {
             "type" : "integer",
+            "description" : "fabric quantity (id=Vcant; lbl=QTY; param=veste_qt)",
             "format" : "int32",
             "default" : 1
           },
           "Shoulder_line" : {
             "type" : "string",
-            "description" : "Jacket Shoulder slope",
+            "description" : "Jacket Shoulder slope  (id=VShSlope; lbl=SHOULDER LINE; param=VShSlope)",
             "enum" : [ "LIGHT", "STANDARD", "STRAIGHT" ],
             "default" : "STANDARD"
           },
@@ -4816,12 +4817,12 @@
           },
           "base_name" : {
             "type" : "string",
-            "description" : "Jacket Base name",
+            "description" : "Jacket Base name (id=VmodelIncercat; lbl=BASE; param=modele)",
             "default" : "SE"
           },
           "front_name" : {
             "type" : "string",
-            "description" : "Jacket Base name",
+            "description" : "Jacket Front name (id=Vmodel; lbl=FRONT; param=Vmodel si modele)",
             "default" : "SE"
           },
           "interior_name" : {
@@ -4831,12 +4832,12 @@
           },
           "pockets_name" : {
             "type" : "string",
-            "description" : "Jacket pockets (id=test, label=vdgd, param=pockets)",
+            "description" : "Jacket pockets (id=VbuzunareFata, label=POCKETS, param=poches)",
             "default" : "B"
           },
           "vents_name" : {
             "type" : "string",
-            "description" : "Jacket vents",
+            "description" : "Jacket vents  (id=Vslit; lbl=VENTS; param=fentes)",
             "default" : "1"
           },
           "cuffs_name" : {
@@ -4867,11 +4868,11 @@
           },
           "buttons_name" : {
             "type" : "string",
-            "description" : "Jacket Buttons type name"
+            "description" : "Jacket Buttons type name  (id=Vnasturi; lbl=BUTTONS; param=boutons)"
           },
           "collar_felt_name" : {
             "type" : "string",
-            "description" : "Jacket Collar Felt type name"
+            "description" : "Jacket Collar Felt type name  (id=Vguler; lbl=COLLAR FELT; param=feutre)"
           },
           "monogram" : {
             "$ref" : "#/components/schemas/Monogram"
@@ -4890,6 +4891,7 @@
           },
           "bow_tie_quantity" : {
             "type" : "integer",
+            "description" : "Bow tie quantity(id=Ppcant; lbl=QTY; param=papion_qte)",
             "format" : "int32",
             "default" : 0
           },
@@ -4899,6 +4901,7 @@
           },
           "lavaliere_quantity" : {
             "type" : "integer",
+            "description" : "Lavaliere quantity  (id=Ccant; lbl=QTY; param=cravaliere_qte)",
             "format" : "int32",
             "default" : 0
           },
@@ -4908,11 +4911,22 @@
           },
           "handkerchief_quantity" : {
             "type" : "integer",
+            "description" : "Handkerchief quantity  (id=Bcant; lbl=QTY; param=pochette_qte)",
             "format" : "int32",
             "default" : 0
           },
           "measurements" : {
             "$ref" : "#/components/schemas/JacketMeasurements"
+          },
+          "size_tried" : {
+            "type" : "integer",
+            "format" : "int32",
+            "default" : 0
+          },
+          "total length" : {
+            "type" : "integer",
+            "format" : "int32",
+            "default" : 0
           }
         }
       },
