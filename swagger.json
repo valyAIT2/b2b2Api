@@ -5523,7 +5523,7 @@
           },
           "buttons_name" : {
             "type" : "string",
-            "description" : "Trouser bottom finish (id=Gnasturi; lbl=BUTTONS; param=boutons_gilet)",
+            "description" : "Waistcoat buttons (id=Gnasturi; lbl=BUTTONS; param=boutons_gilet)",
             "default" : 142
           },
           "monogram" : {
@@ -5541,6 +5541,10 @@
           "opening" : {
             "type" : "string",
             "description" : "Waistcoat opening (id=Gouverture; lbl=OPENING; param=ouverture_gilet)"
+          },
+          "satin_color" : {
+            "type" : "string",
+            "description" : "Waistcoat satin color (id=Gsatinhidden; lbl=SATIN COLOR; param=Gsatin)"
           },
           "measurements" : {
             "$ref" : "#/components/schemas/WaistcoatMeasurements"
