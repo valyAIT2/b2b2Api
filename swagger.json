@@ -4364,7 +4364,7 @@
         }
       }
     },
-    "/order" : {
+    "/orderTailoring" : {
       "post" : {
         "tags" : [ "Order" ],
         "summary" : "Add a new order",
