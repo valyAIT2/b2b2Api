@@ -139,7 +139,7 @@
         "tags" : [ "Jacket" ],
         "parameters" : [ {
           "in" : "query",
-          "name" : "base",
+          "name" : "base_name",
           "description" : "Filter jacket models by base_name",
           "required" : false,
           "schema" : {
@@ -227,8 +227,8 @@
         "tags" : [ "Jacket" ],
         "parameters" : [ {
           "in" : "query",
-          "name" : "base",
-          "description" : "Jacket constructions available for base",
+          "name" : "base_name",
+          "description" : "Jacket constructions available for base_name",
           "required" : false,
           "schema" : {
             "type" : "string"
@@ -4853,13 +4853,23 @@
             "description" : "Jacket amf",
             "enum" : [ "A1", "A11", "A12", "A5", "A51", "A52", "S2", "S5" ]
           },
-          "main_lining" : {
-            "type" : "string",
-            "description" : "main lining (id=VdoublA; lbl=MAIN LINING - A; param=doublure_a)"
-          },
-          "sleeve_lining" : {
-            "type" : "string",
-            "description" : "sleeve_lining (id=VdoublA; lbl=SLEEVE LINING - B; param=doublure_b)"
+          "linings" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/JacketLining"
+            },
+            "default" : [ {
+              "id" : "A",
+              "value" : "20",
+              "description" : "main lining  (id=VdoublA; lbl=MAIN LINING - A; param=doublure_a)"
+            }, {
+              "id" : "B",
+              "value" : "21",
+              "description" : "sleeve lining  (id=VdoublA; lbl=SLEEVE LINING - B; param=doublure_b)"
+            }, {
+              "id" : "X",
+              "value" : "22"
+            } ]
           },
           "buttons" : {
             "type" : "string",
@@ -5225,37 +5235,37 @@
             "format" : "int32",
             "default" : 1
           },
-          "model_name" : {
+          "model" : {
             "type" : "string",
             "description" : "Trouser Model name",
             "default" : "P05"
           },
-          "front_pockets_name" : {
+          "front_pockets" : {
             "type" : "string",
             "description" : "Trouser front pockets",
             "default" : "B"
           },
-          "back_pockets_name" : {
+          "back_pockets" : {
             "type" : "string",
             "description" : "Trouser back pockets",
             "default" : "2"
           },
-          "front_crease_name" : {
+          "front_crease" : {
             "type" : "string",
             "description" : "Trouser front crease name",
             "default" : "P1"
           },
-          "lining_name" : {
+          "lining" : {
             "type" : "string",
             "description" : "Trouser lining",
             "default" : "A"
           },
-          "bottom_finish_name" : {
+          "bottom_finish" : {
             "type" : "string",
             "description" : "Trouser bottom finish",
             "default" : "PF3"
           },
-          "buttons_name" : {
+          "buttons" : {
             "type" : "string",
             "description" : "Trouser Buttons type name"
           },
