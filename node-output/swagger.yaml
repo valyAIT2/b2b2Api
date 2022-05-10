@@ -3776,6 +3776,15 @@ components:
         buttons_name:
           type: string
           description: Trousers Buttons type name (id=Pnasturi; lbl=BUTTONS; param=boutons_pant)
+        waistband_name:
+          type: string
+          description: Trousers Waistband name (id=PWaistband; lbl=WAISTBAND; param=Waistband)
+        closure_name:
+          type: string
+          description: Trousers Closure name (id=Pclosure; lbl=CLOSURE TYPE; param=Pclosure)
+        amf_name:
+          type: string
+          description: Trousers Closure name (id=Pamf; lbl=AMF / TOPSTITCH; param=Pamf)
         monogram:
           $ref: '#/components/schemas/Monogram'
         size:
@@ -3975,7 +3984,9 @@ components:
         monogram:
           $ref: '#/components/schemas/Monogram'
         size:
-          $ref: '#/components/schemas/WaistcoatSize'
+          type: string
+          description: Waistcoat Size (id=GmarimeIncercata; lbl=SIZE TRIED; param=taille_gilet)
+          default: "42"
         satin_color:
           type: string
           description: Waistcoat satin color (id=Gsatinhidden; lbl=SATIN COLOR; param=Gsatin)
@@ -4036,7 +4047,7 @@ components:
       properties:
         size:
           type: string
-          description: Waistcoat size (id=GmarimeIncercata; lbl=SIZE TRIED; param=taille_gilet)
+          description: Waistcoat size
           default: "42"
     WaistcoatMeasurements:
       type: object
