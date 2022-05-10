@@ -3900,8 +3900,17 @@ components:
           $ref: '#/components/schemas/Monogram'
         size:
           type: string
-          description: Trouser Size (id=PmarimeIncercata; lbl=SIZE TRIED; param=taillep)
+          description: Trousers Size (id=PmarimeIncercata; lbl=SIZE TRIED; param=taillep)
           default: "42"
+        satin_color:
+          type: string
+          description: Trousers Satin Color (id=Psatinhidden; lbl=SATIN COLOR; param=Psatin)
+          default: ""
+        piping_color:
+          type: string
+          description: Trousers Piping Color (id=Ppippinghidden; lbl=PIPING COLOR;
+            param=Ppipping)
+          default: ""
         measurements:
           $ref: '#/components/schemas/TrouserMeasurements'
         secondary_options:
@@ -4072,12 +4081,17 @@ components:
           $ref: '#/components/schemas/Fabric'
         quantity:
           type: integer
+          description: Waistcoat quantity (id=Gcant; lbl=QTY; param=gilet_qte)
           format: int32
           default: 1
-        model_name:
+        model:
           type: string
-          description: Waistcoat Model name
-          default: G10
+          description: Waistcoat Model (id=Gmodel; lbl=MODEL; param=Gmodel si modele_gilet)
+          default: "10"
+        fit:
+          type: string
+          description: Waistcoat Fit (id=Gfit; lbl=FIT; param=modele_gilet)
+          default: "10"
         pockets_name:
           type: string
           description: Waistcoat pockets
