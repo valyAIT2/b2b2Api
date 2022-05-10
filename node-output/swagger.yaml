@@ -3856,27 +3856,27 @@ components:
           type: string
           description: Trouser Model name
           default: P05
-        front_pockets_name:
+        front_pockets:
           type: string
           description: Trouser front pockets
           default: B
-        back_pockets_name:
+        back_pockets:
           type: string
           description: Trouser back pockets
           default: "2"
-        front_crease_name:
+        front_crease:
           type: string
           description: Trouser front crease name
           default: P1
-        lining_name:
+        lining:
           type: string
           description: Trouser lining
           default: A
-        bottom_finish_name:
+        bottom_finish:
           type: string
           description: Trouser bottom finish
           default: PF3
-        buttons_name:
+        buttons:
           type: string
           description: Trouser Buttons type name
         monogram:
