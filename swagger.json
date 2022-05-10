@@ -4805,13 +4805,13 @@
             "enum" : [ "LIGHT", "STANDARD", "STRAIGHT" ],
             "default" : "STANDARD"
           },
-          "construction_name" : {
+          "construction" : {
             "type" : "string",
             "description" : "(id=Vconstructie; lbl=CONSTRUCTION; param=construction)",
             "enum" : [ "ZERO GRAVITY", "TESK", "PRESTIGE SOFT", "PRESTIGE", "SIES", "SEMI-TRAD SOFT", "SEMI-TRAD", "TRADITIONALA SOFT", "TRADITIONALA", "TESKW45", "TESKW25" ],
             "default" : "PRESTIGE"
           },
-          "sleeve_head_name" : {
+          "sleeve_head" : {
             "type" : "string",
             "description" : "Jacket Sleeve Head name  (id=VcapManeca; lbl=SLEEVE HEAD; param=capmaneca)",
             "enum" : [ "NAS/K", "NAN/0", "NAX/0", "RO/E", "RE/E", "REX/E", "RO/A", "RE/A", "REX/A" ]
@@ -4826,29 +4826,29 @@
             "description" : "Jacket Front name (id=Vmodel; lbl=FRONT; param=Vmodel si modele)",
             "enum" : [ "402", "499", "515", "523", "326", "328", "426", "428", "592", "593", "DB592", "DB542R", "DB541R", "83", "82", "73", "16", "6016", "05", "053", "32", "6032", "58", "581", "42", "59", "591", "DB54", "96", "968", "06", "DB", "WI", "CYR", "IPA", "FR", "42R", "OF", "FO", "TAIL", "CUT", "SHORTER-CUT", "LUCAS", "MAX", "LUCAS59", "MO" ]
           },
-          "interior_name" : {
+          "interior" : {
             "type" : "string",
             "description" : "Jacket interior name  (id=Vinterior; lbl=INTERIOR; param=interieur)",
             "enum" : [ "FL", "FLPF", "HLA", "HLB", "AF1" ]
           },
-          "pockets_name" : {
+          "pockets" : {
             "type" : "string",
             "description" : "Jacket pockets (id=VbuzunareFata, label=POCKETS, param=poches)",
             "enum" : [ "A", "B", "B1", "C", "D", "D1", "J100", "J200", "J300", "J101", "PO", "RU3", "RU2" ],
             "default" : "B"
           },
-          "vents_name" : {
+          "vents" : {
             "type" : "string",
             "description" : "Jacket vents  (id=Vslit; lbl=VENTS; param=fentes)",
             "enum" : [ "2", "1", "5" ],
             "default" : "1"
           },
-          "cuffs_name" : {
+          "cuffs" : {
             "type" : "string",
             "description" : "Jacket cuffs",
             "enum" : [ "BF3", "BO3", "BF4", "BO4", "BF5", "BO5", "BF6", "BO6", "BFU1", "BOU1", "BFC3", "BOC3", "BFC4", "BOC4", "BFC5", "BOC5", "BFC6", "BOC6", "BO0", "B0T" ]
           },
-          "amf_name" : {
+          "amf" : {
             "type" : "string",
             "description" : "Jacket amf",
             "enum" : [ "A1", "A11", "A12", "A5", "A51", "A52", "S2", "S5" ]
@@ -4871,11 +4871,11 @@
               "value" : "22"
             } ]
           },
-          "buttons_name" : {
+          "buttons" : {
             "type" : "string",
             "description" : "Jacket Buttons type name  (id=Vnasturi; lbl=BUTTONS; param=boutons)"
           },
-          "collar_felt_name" : {
+          "collar_felt" : {
             "type" : "string",
             "description" : "Jacket Collar Felt type name  (id=Vguler; lbl=COLLAR FELT; param=feutre)"
           },
@@ -4886,19 +4886,11 @@
             "type" : "array",
             "items" : {
               "type" : "string",
-              "description" : "List of secondary options  (id=Voptions; lbl=secondary_options; param=v_options)"
+              "description" : "List of secondary options"
             },
             "default" : [ "A5", "BXC" ]
           },
-          "alterations" : {
-            "type" : "array",
-            "items" : {
-              "type" : "string",
-              "description" : "List of primary alterations  (id=Valterations; lbl=alterations; param=v_alterations)"
-            },
-            "default" : [ 401, "146BL", "191GL" ]
-          },
-          "bow_tie_fabric_ref_name" : {
+          "bow_tie_fabric" : {
             "type" : "string",
             "description" : "Bow tie frabic reference  (id=PpcodTesatura; lbl=BOWTIE FABRIC REF; param=tissu_papion)"
           },
@@ -4918,7 +4910,7 @@
             "format" : "int32",
             "default" : 0
           },
-          "handkerchief_fabric_name" : {
+          "handkerchief_fabric" : {
             "type" : "string",
             "description" : "Handkerchief frabic reference  (id=BcodTesatura; lbl=HANDKERCHIEF FABRIC; param=tissu_pochette)"
           },
