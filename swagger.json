@@ -139,7 +139,7 @@
         "tags" : [ "Jacket" ],
         "parameters" : [ {
           "in" : "query",
-          "name" : "base_name",
+          "name" : "base",
           "description" : "Filter jacket models by base_name",
           "required" : false,
           "schema" : {
@@ -227,8 +227,8 @@
         "tags" : [ "Jacket" ],
         "parameters" : [ {
           "in" : "query",
-          "name" : "base_name",
-          "description" : "Jacket constructions available for base_name",
+          "name" : "base",
+          "description" : "Jacket constructions available for base",
           "required" : false,
           "schema" : {
             "type" : "string"
@@ -4853,27 +4853,20 @@
             "description" : "Jacket amf",
             "enum" : [ "A1", "A11", "A12", "A5", "A51", "A52", "S2", "S5" ]
           },
-          "linings" : {
-            "type" : "array",
-            "items" : {
-              "$ref" : "#/components/schemas/JacketLining"
-            },
-            "default" : [ {
-              "id" : "A",
-              "value" : "20",
-              "description" : "main lining  (id=VdoublA; lbl=MAIN LINING - A; param=doublure_a)"
-            }, {
-              "id" : "B",
-              "value" : "21",
-              "description" : "sleeve lining  (id=VdoublA; lbl=SLEEVE LINING - B; param=doublure_b)"
-            }, {
-              "id" : "X",
-              "value" : "22"
-            } ]
+          "main_lining" : {
+            "type" : "string",
+            "description" : "main lining (id=VdoublA; lbl=MAIN LINING - A; param=doublure_a)",
+            "enum" : [ "1284", "800", "835", "837", "846", "862", "885", "888", "891", "909", "920", "923", "928", "930", "946", "982", "DOU3098", "DOU4083", "DOU4507", "DOU5212", "DB_S1", "DB_S11", "DB_S13", "DB_S14", "DB_S15", "DB_S16", "DB_S17", "DB_S18", "DB_S20", "DB_S21", "DB_S22", "DB_S23", "DB_S24", "DB_S25", "DB_S26", "DB_S27", "DB_S28", "DB_S3", "DB_S33", "DB_S4", "DB_S5", "DB_S7", "DBL2014", "DBL2006", "DBL2002", "DBL2005", "C1", "C16", "C51", "C53", "C7", "P4003", "P4004", "P4006", "P4018", "P4033", "P4037", "P4042", "2921", "29210", "2922", "2923", "2924", "2925", "2926", "2927", "2928", "2929", "339", "340", "344", "363", "366", "495", "497", "498", "581", "602", "700", "701", "702", "703", "704", "705", "10", "11", "20", "21", "26", "27", "28", "29", "30", "31", "32", "33", "37", "40", "41", "42", "43", "49", "50", "51", "52", "56", "60", "63", "64", "69", "76", "77", "78", "81", "82", "99", "418", "419", "420", "483", "482", "484", "508", "509", "510", "2310-1", "2308-2", "2308-1", "2290-1", "2289-1", "2288-1", "2287-1", "2281-2", "2281-1", "2280-2", "2280-1", "2279-1", "2278-1", "2277-2", "2277-1", "2276-3", "2276-2", "2276-1", "2275-1", "2273-1", "2272-1", "2271-1", "2270-1", "2268-2", "2268-1", "2267-1", "2264-2", "2264-1", "2262-1", "2260-1", "2258-1", "2255-1", "2254-1", "2253-1", "2252-2", "2252-1", "1349-1", "1350-1", "1351-1", "1352-1", "1353-1", "1354-1", "1355-1", "1356-1", "1357-1", "1358-1", "1359-1", "1360-1", "1361-1", "1362-1", "1363-1", "1364-1", "1382-1", "1365-1" ]
+          },
+          "sleeve_lining" : {
+            "type" : "string",
+            "description" : "sleeve_lining (id=VdoublA; lbl=SLEEVE LINING - B; param=doublure_b)",
+            "enum" : [ "1284", "800", "835", "837", "846", "862", "885", "888", "891", "909", "920", "923", "928", "930", "946", "982", "DOU3098", "DOU4083", "DOU4507", "DOU5212", "DB_S1", "DB_S11", "DB_S13", "DB_S14", "DB_S15", "DB_S16", "DB_S17", "DB_S18", "DB_S20", "DB_S21", "DB_S22", "DB_S23", "DB_S24", "DB_S25", "DB_S26", "DB_S27", "DB_S28", "DB_S3", "DB_S33", "DB_S4", "DB_S5", "DB_S7", "DBL2014", "DBL2006", "DBL2002", "DBL2005", "C1", "C16", "C51", "C53", "C7", "P4003", "P4004", "P4006", "P4018", "P4033", "P4037", "P4042", "2921", "29210", "2922", "2923", "2924", "2925", "2926", "2927", "2928", "2929", "339", "340", "344", "363", "366", "495", "497", "498", "581", "602", "700", "701", "702", "703", "704", "705", "10", "11", "20", "21", "26", "27", "28", "29", "30", "31", "32", "33", "37", "40", "41", "42", "43", "49", "50", "51", "52", "56", "60", "63", "64", "69", "76", "77", "78", "81", "82", "99", "418", "419", "420", "483", "482", "484", "508", "509", "510", "2310-1", "2308-2", "2308-1", "2290-1", "2289-1", "2288-1", "2287-1", "2281-2", "2281-1", "2280-2", "2280-1", "2279-1", "2278-1", "2277-2", "2277-1", "2276-3", "2276-2", "2276-1", "2275-1", "2273-1", "2272-1", "2271-1", "2270-1", "2268-2", "2268-1", "2267-1", "2264-2", "2264-1", "2262-1", "2260-1", "2258-1", "2255-1", "2254-1", "2253-1", "2252-2", "2252-1", "1349-1", "1350-1", "1351-1", "1352-1", "1353-1", "1354-1", "1355-1", "1356-1", "1357-1", "1358-1", "1359-1", "1360-1", "1361-1", "1362-1", "1363-1", "1364-1", "1365-1", "1382-1" ]
           },
           "buttons" : {
             "type" : "string",
-            "description" : "Jacket Buttons type name  (id=Vnasturi; lbl=BUTTONS; param=boutons)"
+            "description" : "Jacket Buttons type name  (id=Vnasturi; lbl=BUTTONS; param=boutons)",
+            "enum" : [ "DS2", "DS3", "E1", "E2", "E3", "E4", "F122", "F123", "F24", "F311", "F554", "MFB", "MOP", "MP16", "MP18", "MP20", "MP22", "MP24", "MP58", "MP67", "MP68", "MP73", "MP74", "NAT", "S10", "S29", "S31", "S32", "S33", "S34", "S39", "S40", "S41", "S42", "S99", "SB", "T101", "T107", "T108", "T110", "T111", "T118", "U00", "U02", "U04", "U06", "U86", "U88", "U90", "U92", "U94", "U96", "U98", "138", "139", "140", "142", "143", "145", "147", "148", "149", "150", "152", "154", "156", "157", "159", "160", "164", "166", "167", "200", "239", "242", "423", "B10", "B11", "B12", "B14", "B15", "B20", "B21", "B5", "B50", "B51", "B52", "B53", "B54", "B55", "B6", "B9", "CR31", "CR32", "CR33", "CR99" ]
           },
           "collar_felt" : {
             "type" : "string",
@@ -5233,74 +5226,49 @@
           "quantity" : {
             "type" : "integer",
             "format" : "int32",
-            "description" : "Trousers quantity (id=Pcant; lbl=QTY; param=pantalon_qte)",
             "default" : 1
           },
-          "model" : {
+          "model_name" : {
             "type" : "string",
-            "description" : "Trousers Model(id=Pmodel; lbl=MODEL; param=modele_pantalon)",
+            "description" : "Trouser Model name",
             "default" : "P05"
           },
-          "construction" : {
+          "front_pockets_name" : {
             "type" : "string",
-            "description" : "Trousers Construction (id=Pconstructie; lbl=CONSTRUCTION & MAKING; param=Pconstruction)",
-            "default" : "P05"
-          },
-          "front_pockets" : {
-            "type" : "string",
-            "description" : "Trousers front pockets (id=PbuzunareFata; lbl=FRONT POCKETS; param=poches_devant)",
+            "description" : "Trouser front pockets",
             "default" : "B"
           },
-          "back_pockets" : {
+          "back_pockets_name" : {
             "type" : "string",
-            "description" : "Trousers back pockets (id=PbuzunareSpate; lbl=BACK POCKETS; param=poches_dos)",
+            "description" : "Trouser back pockets",
             "default" : "2"
           },
-          "front_crease" : {
+          "front_crease_name" : {
             "type" : "string",
-            "description" : "Trousers front crease (id=PpliuriFata; lbl=PLEAT; param=plis_devant)",
+            "description" : "Trouser front crease name",
             "default" : "P1"
           },
-          "lining" : {
+          "lining_name" : {
             "type" : "string",
-            "description" : "Trousers lining (id=Pdoubl; lbl=LINING; param=doublure)",
+            "description" : "Trouser lining",
             "default" : "A"
           },
-          "bottom_finish" : {
+          "bottom_finish_name" : {
             "type" : "string",
-            "description" : "Trousers bottom finish (id=Pterminatie; lbl=BOTTOM; param=finition_bas)",
+            "description" : "Trouser bottom finish",
             "default" : "PF3"
           },
-          "buttons" : {
+          "buttons_name" : {
             "type" : "string",
-            "description" : "Trousers Buttons type (id=Pnasturi; lbl=BUTTONS; param=boutons_pant)"
+            "description" : "Trouser Buttons type name"
           },
-          "amf" : {
-            "type" : "string",
-            "description" : "Trousers AMF (id=Pamf; lbl=AMF/TOPSTITCH; param=Pamf)"
-          },
-          "closure_type" : {
-            "type" : "string",
-            "description" : "Trousers Closure type (id=Pclosure; lbl=CLOSURE TYPE; param=Pclosure)"
-          },
-          "waistband" : {
-            "type" : "string",
-            "description" : "Trousers Waistband (id=PWaistband; lbl=WAISTBAND; param=Waistband)"
+          "monogram" : {
+            "$ref" : "#/components/schemas/Monogram"
           },
           "size" : {
             "type" : "string",
-            "description" : "Trousers Size (id=PmarimeIncercata; lbl=SIZE TRIED; param=taillep)",
+            "description" : "Trouser Size",
             "default" : "42"
-          },
-          "satin_color" : {
-            "type" : "string",
-            "description" : "Trousers Satin Color (id=Psatinhidden; lbl=SATIN COLOR; param=Psatin)",
-            "default" : ""
-          },
-          "piping_color" : {
-            "type" : "string",
-            "description" : "Trousers Piping Color (id=Ppippinghidden; lbl=PIPING COLOR; param=Ppipping)",
-            "default" : ""
           },
           "measurements" : {
             "$ref" : "#/components/schemas/TrouserMeasurements"
@@ -5309,7 +5277,7 @@
             "type" : "array",
             "items" : {
               "type" : "string",
-              "description" : "List of secondary options (id=Poptions; lbl=SECONDARY OPTIONS; param=p_options)"
+              "description" : "List of secondary options"
             },
             "default" : [ "AMF", "P0D" ]
           },
@@ -5317,7 +5285,7 @@
             "type" : "array",
             "items" : {
               "type" : "string",
-              "description" : "List of alterations (id=Palterations; lbl=ALTERATIONS; param=p_alterations)"
+              "description" : "List of alterations"
             },
             "default" : [ "381L", "306M", "391GL" ]
           }
@@ -5431,22 +5399,17 @@
         "properties" : {
           "half_waist" : {
             "type" : "number",
-            "description" : "Trouser 1/2 waist (id=PdemiTaille; lbl=1/2 WAIST; param=demi_taille)",
+            "description" : "Trouser 1/2 waist",
             "default" : 38.5
           },
-          "finished_inseam_right" : {
+          "finished_inseam" : {
             "type" : "number",
-            "description" : "Trouser Finished Inseam Right (id=Pentrejambe; lbl=FINISHED INSEAM / RIGHT; param=entrejambe)",
-            "default" : 1
-          },
-          "finished_inseam_left" : {
-            "type" : "number",
-            "description" : "Trouser Finished Inseam Left (id=Pentrejambe_st; lbl=FINISHED INSEAM / LEFT; param=entrejambe_st)",
+            "description" : "Trouser Finished Inseam",
             "default" : 1
           },
           "half_bottom_width" : {
             "type" : "number",
-            "description" : "Trouser 1/2 Bottom Width (id=PdemiBas; lbl=1/2 BOTTOM WIDTH; param=demi_bas)",
+            "description" : "Trouser 1/2 Bottom Width",
             "default" : 1
           }
         }
@@ -5525,57 +5488,40 @@
           },
           "quantity" : {
             "type" : "integer",
-            "description" : "Waistcoat quantity (id=Gcant; lbl=QTY; param=gilet_qte)",
             "format" : "int32",
             "default" : 1
           },
-          "model" : {
+          "model_name" : {
             "type" : "string",
-            "description" : "Waistcoat model (id=Gmodel; lbl=MODEL; param=Gmodel si modele_gilet)",
-            "enum" : [ "10", "15", "20", "30", "CP", "11", "32", "12" ],
-            "default" : "10"
+            "description" : "Waistcoat Model name",
+            "default" : "G10"
           },
-          "fit" : {
+          "pockets_name" : {
             "type" : "string",
-            "description" : "Waistcoat fit (id=Gfit; lbl=FIT; param=g_model_essaye)",
-            "enum" : [ "GDIL", "GIL", "GIU", "GDI", "GU", "GI" ],
-            "default" : "GI"
-          },
-          "pockets" : {
-            "type" : "string",
-            "description" : "Waistcoat pockets (id=GbuzunareFata; lbl=POCKETS; param=poches_gilet)",
-            "enum" : [ "70", "71", "72", "80", "81", "82", "90", "91", "92" ],
+            "description" : "Waistcoat pockets",
             "default" : "70"
           },
-          "back_lining" : {
+          "back_lining_name" : {
             "type" : "string",
-            "description" : "Waistcoat back lining fabric (id=GdoublDos; lbl=BACK LINING; param=doublure_dos)",
+            "description" : "Waistcoat back lining fabric",
             "default" : "20"
           },
-          "inside_lining" : {
+          "inside_lining_name" : {
             "type" : "string",
-            "description" : "Waistcoat inside lining fabric (id=GdoublInterior; lbl=INSIDE LINING; param=doublure_interieur)",
+            "description" : "Waistcoat inside lining fabric",
             "default" : "21"
           },
-          "buttons" : {
+          "buttons_name" : {
             "type" : "string",
-            "description" : "Waistcoat buttons (id=Gnasturi; lbl=BUTTONS; param=boutons_gilet)",
-            "default" : "142"
-          },
-          "satin_color" : {
-            "type" : "string",
-            "description" : "Waistcoat satin color (id=Gsatinhidden; lbl=SATIN COLOR; param=Gsatin)",
+            "description" : "Trouser bottom finish",
             "default" : 142
           },
-          "back_ext_and_buckle" : {
-            "type" : "string",
-            "description" : "Waistcoat back exterior and buckle (id=Gback; lbl=BACK EXTERIOR & BUCKLE; param=g_options)",
-            "enum" : [ "BIF", "BIL" ],
-            "default" : "BIF"
+          "monogram" : {
+            "$ref" : "#/components/schemas/Monogram"
           },
           "size" : {
             "type" : "string",
-            "description" : "Waistcoat size (id=GmarimeIncercata; lbl=SIZE TRIED; param=taille_gilet)",
+            "description" : "Waistcoat Size",
             "default" : "42"
           },
           "measurements" : {
@@ -5585,7 +5531,7 @@
             "type" : "array",
             "items" : {
               "type" : "string",
-              "description" : "List of secondary options (id=Goptions; lbl=SECONDARY OPTIONS; param=g_options)"
+              "description" : "List of secondary options"
             },
             "default" : [ "A11", "PVS" ]
           },
@@ -5593,7 +5539,7 @@
             "type" : "array",
             "items" : {
               "type" : "string",
-              "description" : "List of primary alterations (id=Galterations; lbl=ALTERATIONS; param=g_alterations)"
+              "description" : "List of primary alterations"
             },
             "default" : [ "910A", "941B", "930L" ]
           }
@@ -5659,13 +5605,17 @@
         "properties" : {
           "total_length" : {
             "type" : "number",
-            "description" : "Waistcoat total length (id=GlungimeSpate; lbl=TOTAL LENGTH; param=longueur_dos_gilet)",
+            "description" : "Waistcoat total length",
             "default" : 56
           },
           "opening" : {
             "type" : "number",
-            "description" : "Waistcoat Opening (id=Gouverture; lbl=OPENING; param=ouverture_gilet)",
+            "description" : "Waistcoat Opening",
             "default" : 34.9
+          },
+          "half_waist" : {
+            "type" : "number",
+            "description" : "Waistcoat 1/2 waist"
           }
         }
       },
