@@ -4829,7 +4829,7 @@
           "interior_name" : {
             "type" : "string",
             "description" : "Jacket interior name  (id=Vinterior; lbl=INTERIOR; param=interieur)",
-            "default" : "CONTRAST"
+            "enum" : [ "FL", "FLPF", "HLA", "HLB", "AF1" ]
           },
           "pockets_name" : {
             "type" : "string",
