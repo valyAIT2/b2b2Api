@@ -3449,53 +3449,6 @@ components:
         front_name:
           type: string
           description: Jacket Front name (id=Vmodel; lbl=FRONT; param=Vmodel)
-          enum:
-          - "402"
-          - "499"
-          - "515"
-          - "523"
-          - "326"
-          - "328"
-          - "426"
-          - "428"
-          - "592"
-          - "593"
-          - DB592
-          - DB542R
-          - DB541R
-          - "83"
-          - "82"
-          - "73"
-          - "16"
-          - "6016"
-          - "05"
-          - "053"
-          - "32"
-          - "6032"
-          - "58"
-          - "581"
-          - "42"
-          - "59"
-          - "591"
-          - DB54
-          - "96"
-          - "968"
-          - "06"
-          - DB
-          - WI
-          - CYR
-          - IPA
-          - FR
-          - 42R
-          - OF
-          - FO
-          - TAIL
-          - CUT
-          - SHORTER-CUT
-          - LUCAS
-          - MAX
-          - LUCAS59
-          - MO
         interior:
           type: string
           description: Jacket interior name  (id=Vinterior; lbl=INTERIOR; param=interieur)
@@ -3582,6 +3535,66 @@ components:
             param=feutre)
         monogram:
           $ref: '#/components/schemas/Monogram'
+        cma1:
+          type: boolean
+          description: Sleeves Contrast Buttonhole 1 (id=cma1; lbl=CONTRAST BUTTONHOLES
+            / CONTRAST BUTTONHOLES / Sleeves; param=cma1)
+          default: false
+        cma2:
+          type: boolean
+          description: Sleeves Contrast Buttonhole 2 (id=cma2; lbl=CONTRAST BUTTONHOLES
+            / CONTRAST BUTTONHOLES / Sleeves; param=cma2)
+          default: false
+        cma3:
+          type: boolean
+          description: Sleeves Contrast Buttonhole 3 (id=cma3; lbl=CONTRAST BUTTONHOLES
+            / CONTRAST BUTTONHOLES / Sleeves; param=cma3)
+          default: false
+        cma4:
+          type: boolean
+          description: Sleeves Contrast Buttonhole 4 (id=cma4; lbl=CONTRAST BUTTONHOLES
+            / CONTRAST BUTTONHOLES / Sleeves; param=cma4)
+          default: false
+        cma5:
+          type: boolean
+          description: Sleeves Contrast Buttonhole 5 (id=cma5; lbl=CONTRAST BUTTONHOLES
+            / CONTRAST BUTTONHOLES / Sleeves; param=cma5)
+          default: false
+        cma6:
+          type: boolean
+          description: Sleeves Contrast Buttonhole 6 (id=cma6; lbl=CONTRAST BUTTONHOLES
+            / CONTRAST BUTTONHOLES / Sleeves; param=cma6)
+          default: false
+        cdv1:
+          type: boolean
+          description: Front Contrast Buttonhole 1 (id=cdv1; lbl=CONTRAST BUTTONHOLES
+            / CONTRAST BUTTONHOLES / Front; param=cdv1)
+          default: false
+        cdv2:
+          type: boolean
+          description: Front Contrast Buttonhole 2 (id=cdv2; lbl=CONTRAST BUTTONHOLES
+            / CONTRAST BUTTONHOLES / Front; param=cdv2)
+          default: false
+        cdv3:
+          type: boolean
+          description: Front Contrast Buttonhole 3 (id=cdv3; lbl=CONTRAST BUTTONHOLES
+            / CONTRAST BUTTONHOLES / Front; param=cdv3)
+          default: false
+        cdv4:
+          type: boolean
+          description: Front Contrast Buttonhole 4 (id=cdv4; lbl=CONTRAST BUTTONHOLES
+            / CONTRAST BUTTONHOLES / Front; param=cdv4)
+          default: false
+        cdv5:
+          type: boolean
+          description: Front Contrast Buttonhole 5 (id=cdv5; lbl=CONTRAST BUTTONHOLES
+            / CONTRAST BUTTONHOLES / Front; param=cdv5)
+          default: false
+        cdv6:
+          type: boolean
+          description: Front Contrast Buttonhole 6 (id=cdv6; lbl=CONTRAST BUTTONHOLES
+            / CONTRAST BUTTONHOLES / Front; param=cdv6)
+          default: false
         secondary_options:
           type: array
           items:
@@ -3590,6 +3603,29 @@ components:
           default:
           - A5
           - BXC
+        satin_color:
+          type: string
+          description: satin color (id=Vsatinsel; lbl=SATIN COLOR; param=Vsatin)
+        detachable_inlay_color:
+          type: string
+          description: detachable inlay color (id=Vpippingsel; lbl=DETACHABLE INLAY
+            COLOR; param=Vinlay)
+        color_contrast_color:
+          type: string
+          description: color contrast color (id=Vcollarcontrsel; lbl=COLLAR CONTRAST
+            COLOR; param=Vcollar)
+        piping_color:
+          type: string
+          description: piping color (id=Vpippingsel; lbl=COLLAR CONTRAST COLOR; param=Vpipping)
+        cuff_contrasted:
+          type: string
+          description: cuff constrasted (id=Vccxsel; lbl=CUFF CONTRASTED; param=VcuffColor)
+        fake_handkerchief:
+          type: string
+          description: fake handkerchief (id=Vfpsel; lbl=FAKE HANDKERCHIEF; param=VfpColor)
+        contrast_thread:
+          type: string
+          description: contrast thread (id=VfilContrasti; lbl=CONTRAST THREAD; param=VfilContrast)
         bow_tie_fabric:
           type: string
           description: Bow tie frabic reference  (id=PpcodTesatura; lbl=BOWTIE FABRIC
