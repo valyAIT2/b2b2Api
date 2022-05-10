@@ -3852,7 +3852,7 @@ components:
           type: integer
           format: int32
           default: 1
-        model_name:
+        model:
           type: string
           description: Trouser Model name
           default: P05
