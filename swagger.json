@@ -4807,23 +4807,24 @@
           },
           "construction_name" : {
             "type" : "string",
-            "description" : "Jacket Construction name",
+            "description" : "(id=Vconstructie; lbl=CONSTRUCTION; param=construction)",
+            "enum" : [ "ZERO GRAVITY", "TESK", "PRESTIGE SOFT", "PRESTIGE", "SIES", "SEMI-TRAD SOFT", "SEMI-TRAD", "TRADITIONALA SOFT", "TRADITIONALA", "TESKW45", "TESKW25" ],
             "default" : "PRESTIGE"
           },
           "sleeve_head_name" : {
             "type" : "string",
             "description" : "Jacket Sleeve Head name  (id=VcapManeca; lbl=SLEEVE HEAD; param=capmaneca)",
-            "default" : "RO"
+            "enum" : [ "NAS/K", "NAN/0", "NAX/0", "RO/E", "RE/E", "REX/E", "RO/A", "RE/A", "REX/A" ]
           },
           "base_name" : {
             "type" : "string",
             "description" : "Jacket Base name (id=VmodelIncercat; lbl=BASE; param=modele)",
-            "default" : "SE"
+            "enum" : [ "G", "GA", "GAD", "GD", "GT", "UG" ]
           },
           "front_name" : {
             "type" : "string",
             "description" : "Jacket Front name (id=Vmodel; lbl=FRONT; param=Vmodel si modele)",
-            "default" : "SE"
+            "enum" : [ "402", "499", "515", "523", "326", "328", "426", "428", "592", "593", "DB592", "DB542R", "DB541R", "83", "82", "73", "16", "6016", "05", "053", "32", "6032", "58", "581", "42", "59", "591", "DB54", "96", "968", "06", "DB", "WI", "CYR", "IPA", "FR", "42R", "OF", "FO", "TAIL", "CUT", "SHORTER-CUT", "LUCAS", "MAX", "LUCAS59", "MO" ]
           },
           "interior_name" : {
             "type" : "string",
@@ -4943,11 +4944,6 @@
             "description" : "sleeve right left size  (id=VlungimeManecaDreapta; lbl=SLEEVE LENGTH / RIGHT; param=manche_droite)",
             "format" : "int32",
             "default" : 0
-          },
-          "construction" : {
-            "type" : "string",
-            "description" : "(id=Vconstructie; lbl=CONSTRUCTION; param=construction)",
-            "enum" : [ "UNCONSTRUCTED", "FLOATING CHEST PIECE EXTRA SOFT", "FLOATING CHEST PIECE SOFT", "FLOATING CHEST PIECE STANDARD", "HALF CANVAS EXTRA SOFT", "HALF CANVAS SOFT", "FULL CANVAS SOFT", "FULL CANVAS STANDARD", "FLOATING CHEST PIECE SOFT WASHABLE", "FOATING CHEST PIECE EXTRA SOFT WASHABLE" ]
           }
         }
       },
@@ -5498,32 +5494,31 @@
           "quantity" : {
             "type" : "integer",
             "format" : "int32",
-            "description" : "Waistcoat quantity (id=Gcant; lbl=QTY; param=gilet_qte)",
             "default" : 1
           },
           "model_name" : {
             "type" : "string",
-            "description" : "Waistcoat Model name (id=Gmodel; lbl=MODEL; param=Gmodel)",
+            "description" : "Waistcoat Model name",
             "default" : "G10"
           },
           "pockets_name" : {
             "type" : "string",
-            "description" : "Waistcoat pockets (id=GbuzunareFata; lbl=POCKETS; param=poches_gilet)",
+            "description" : "Waistcoat pockets",
             "default" : "70"
           },
           "back_lining_name" : {
             "type" : "string",
-            "description" : "Waistcoat back lining fabric (id=GdoublDos; lbl=BACK LINING; param=doublure_dos)",
+            "description" : "Waistcoat back lining fabric",
             "default" : "20"
           },
           "inside_lining_name" : {
             "type" : "string",
-            "description" : "Waistcoat inside lining fabric (id=GdoublInterior; lbl=INSIDE LINING; param=doublure_interieur)",
+            "description" : "Waistcoat inside lining fabric",
             "default" : "21"
           },
           "buttons_name" : {
             "type" : "string",
-            "description" : "Waistcoat buttons (id=Gnasturi; lbl=BUTTONS; param=boutons_gilet)",
+            "description" : "Trouser bottom finish",
             "default" : 142
           },
           "monogram" : {
@@ -5531,20 +5526,8 @@
           },
           "size" : {
             "type" : "string",
-            "description" : "Waistcoat Size (id=GmarimeIncercata; lbl=SIZE TRIED; param=taille_gilet)",
+            "description" : "Waistcoat Size",
             "default" : "42"
-          },
-          "back_length" : {
-            "type" : "string",
-            "description" : "Waistcoat back length (id=GlungimeSpate; lbl=TOTAL LENGTH; param=longueur_dos_gilet)"
-          },
-          "opening" : {
-            "type" : "string",
-            "description" : "Waistcoat opening (id=Gouverture; lbl=OPENING; param=ouverture_gilet)"
-          },
-          "satin_color" : {
-            "type" : "string",
-            "description" : "Waistcoat satin color (id=Gsatinhidden; lbl=SATIN COLOR; param=Gsatin)"
           },
           "measurements" : {
             "$ref" : "#/components/schemas/WaistcoatMeasurements"
@@ -5553,7 +5536,7 @@
             "type" : "array",
             "items" : {
               "type" : "string",
-              "description" : "List of secondary options (id=Goptions; lbl=SECONDARY OPTIONS; param=g_options)"
+              "description" : "List of secondary options"
             },
             "default" : [ "A11", "PVS" ]
           },
@@ -5561,7 +5544,7 @@
             "type" : "array",
             "items" : {
               "type" : "string",
-              "description" : "List of primary alterations (id=Galterations; lbl=ALTERATIONS; param=g_alterations)"
+              "description" : "List of primary alterations"
             },
             "default" : [ "910A", "941B", "930L" ]
           }
@@ -5572,7 +5555,7 @@
         "properties" : {
           "name" : {
             "type" : "string",
-            "description" : "Waistcoat model name"
+            "description" : "Waistcoat model name."
           }
         }
       },
@@ -5581,7 +5564,7 @@
         "properties" : {
           "id" : {
             "type" : "string",
-            "description" : "Unique identifier representing a Waistcoat pocket"
+            "description" : "Unique identifier representing a Waistcoat pocket."
           },
           "description" : {
             "type" : "string",
@@ -5594,7 +5577,7 @@
         "properties" : {
           "id" : {
             "type" : "string",
-            "description" : "Unique identifier representing a Waistcoat button"
+            "description" : "Unique identifier representing a Waistcoat button."
           },
           "description" : {
             "type" : "string",
