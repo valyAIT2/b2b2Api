@@ -3399,7 +3399,7 @@ components:
           description: fabric quantity (id=Vcant; lbl=QTY; param=veste_qt)
           format: int32
           default: 1
-        Shoulder_line:
+        shoulder_line:
           type: string
           description: Jacket Shoulder slope  (id=VShSlope; lbl=SHOULDER LINE; param=VShSlope)
           enum:
@@ -3740,40 +3740,47 @@ components:
           $ref: '#/components/schemas/Fabric'
         quantity:
           type: integer
+          description: Trousers quantity (id=Pcant; lbl=QTY; param=pantalon_qte)
           format: int32
           default: 1
+        construction_name:
+          type: string
+          description: Trousers Construction name (id=Pconstructie; lbl=CONSTRUCTION
+            & MAKING; param=Pconstruction)
         model_name:
           type: string
-          description: Trouser Model name
+          description: Trousers Model name (id=Pmodel; lbl=MODEL; param=modele_pantalon)
           default: P05
         front_pockets_name:
           type: string
-          description: Trouser front pockets
+          description: Trousers front pockets (id=PbuzunareFata; lbl=FRONT POCKETS;
+            param=poches_devant)
           default: B
         back_pockets_name:
           type: string
-          description: Trouser back pockets
+          description: Trousers back pockets (id=PbuzunareSpate; lbl=BACK POCKETS;
+            param=poches_dos)
           default: "2"
         front_crease_name:
           type: string
-          description: Trouser front crease name
+          description: Trousers front crease name (id=PpliuriFata; lbl=PLEAT; param=plis_devant)
           default: P1
         lining_name:
           type: string
-          description: Trouser lining
+          description: Trousers lining (id=Pdoubl; lbl=LINING; param=doublure)
           default: A
         bottom_finish_name:
           type: string
-          description: Trouser bottom finish
+          description: Trousers bottom finish (id=Pterminatie; lbl=BOTTOM; param=finition_bas)
           default: PF3
         buttons_name:
           type: string
-          description: Trouser Buttons type name
+          description: Trousers Buttons type name (id=Pnasturi; lbl=BUTTONS; param=boutons_pant)
         monogram:
           $ref: '#/components/schemas/Monogram'
         size:
           type: string
-          description: Trouser Size
+          description: Trousers Size (id=PmarimeIncercata; lbl=SIZE TRIED; param=taillep)
           default: "42"
         measurements:
           $ref: '#/components/schemas/TrouserMeasurements'
@@ -3781,7 +3788,8 @@ components:
           type: array
           items:
             type: string
-            description: List of secondary options
+            description: List of secondary options (id=Poptions; lbl=SECONDARY OPTIONS;
+              param=p_options)
           default:
           - AMF
           - P0D
@@ -3789,7 +3797,7 @@ components:
           type: array
           items:
             type: string
-            description: List of alterations
+            description: List of alterations (id=Palterations; lbl=ALTERATIONS; param=p_alterations)
           default:
           - 381L
           - 306M
@@ -3965,16 +3973,7 @@ components:
         monogram:
           $ref: '#/components/schemas/Monogram'
         size:
-          type: string
-          description: Waistcoat Size (id=GmarimeIncercata; lbl=SIZE TRIED; param=taille_gilet)
-          default: "42"
-        back_length:
-          type: string
-          description: Waistcoat back length (id=GlungimeSpate; lbl=TOTAL LENGTH;
-            param=longueur_dos_gilet)
-        opening:
-          type: string
-          description: Waistcoat opening (id=Gouverture; lbl=OPENING; param=ouverture_gilet)
+          $ref: '#/components/schemas/WaistcoatSize'
         satin_color:
           type: string
           description: Waistcoat satin color (id=Gsatinhidden; lbl=SATIN COLOR; param=Gsatin)
@@ -4035,21 +4034,19 @@ components:
       properties:
         size:
           type: string
-          description: Waistcoat size name.
+          description: Waistcoat size (id=GmarimeIncercata; lbl=SIZE TRIED; param=taille_gilet)
     WaistcoatMeasurements:
       type: object
       properties:
         total_length:
           type: number
-          description: Waistcoat total length
+          description: Waistcoat total length (id=GlungimeSpate; lbl=TOTAL LENGTH;
+            param=ouverture_gilet)
           default: 56
         opening:
           type: number
-          description: Waistcoat Opening
+          description: Waistcoat Opening (id=Gouverture; lbl=OPENING; param=longueur_dos_gilet)
           default: 34.9
-        half_waist:
-          type: number
-          description: Waistcoat 1/2 waist
     WaistcoatPrimaryAlteration:
       type: object
       properties:
