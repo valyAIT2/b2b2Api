@@ -4889,7 +4889,7 @@
           },
           "bow_tie_fabric_ref_name" : {
             "type" : "string",
-            "description" : "Bow tie frabic reference"
+            "description" : "Bow tie frabic reference  (id=PpcodTesatura; lbl=BOWTIE FABRIC REF; param=tissu_papion)"
           },
           "bow_tie_quantity" : {
             "type" : "integer",
@@ -4899,7 +4899,7 @@
           },
           "lavaliere_ref_name" : {
             "type" : "string",
-            "description" : "Lavaliere reference"
+            "description" : "Lavaliere reference  (id=CcodTesatura; lbl=LAVARIERE REF; param=tissu_cravaliere)"
           },
           "lavaliere_quantity" : {
             "type" : "integer",
@@ -4909,7 +4909,7 @@
           },
           "handkerchief_fabric_name" : {
             "type" : "string",
-            "description" : "Handkerchief frabic reference"
+            "description" : "Handkerchief frabic reference  (id=BcodTesatura; lbl=HANDKERCHIEF FABRIC; param=tissu_pochette)"
           },
           "handkerchief_quantity" : {
             "type" : "integer",
