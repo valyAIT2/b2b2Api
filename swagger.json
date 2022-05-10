@@ -4812,7 +4812,7 @@
           },
           "sleeve_head_name" : {
             "type" : "string",
-            "description" : "Jacket Sleeve Head name",
+            "description" : "Jacket Sleeve Head name  (id=VcapManeca; lbl=SLEEVE HEAD; param=capmaneca)",
             "default" : "RO"
           },
           "base_name" : {
@@ -4827,7 +4827,7 @@
           },
           "interior_name" : {
             "type" : "string",
-            "description" : "Jacket interior name",
+            "description" : "Jacket interior name  (id=Vinterior; lbl=INTERIOR; param=interieur)",
             "default" : "CONTRAST"
           },
           "pockets_name" : {
@@ -4857,10 +4857,12 @@
             },
             "default" : [ {
               "id" : "A",
-              "value" : "20"
+              "value" : "20",
+              "description" : "main lining  (id=VdoublA; lbl=MAIN LINING - A; param=doublure_a)"
             }, {
               "id" : "B",
-              "value" : "21"
+              "value" : "21",
+              "description" : "sleeve lining  (id=VdoublA; lbl=SLEEVE LINING - B; param=doublure_b)"
             }, {
               "id" : "X",
               "value" : "22"
@@ -4920,11 +4922,25 @@
           },
           "size_tried" : {
             "type" : "integer",
+            "description" : "size tried (id=VmarimeIncercata; lbl=SIZE TRIED; param=taillev)",
             "format" : "int32",
             "default" : 0
           },
           "total length" : {
             "type" : "integer",
+            "description" : "(id=VlungimeSpate; lbl=TOTAL LENGTH; param=longueur_dos)",
+            "format" : "int32",
+            "default" : 0
+          },
+          "sleeve_length_left_size" : {
+            "type" : "integer",
+            "description" : "sleeve length left size  (id=VlungimeManecaStanga; lbl=SLEEVE LENGTH / LEFT; param=manche_gauche)",
+            "format" : "int32",
+            "default" : 0
+          },
+          "sleeve_length_right_size" : {
+            "type" : "integer",
+            "description" : "sleeve right left size  (id=VlungimeManecaDreapta; lbl=SLEEVE LENGTH / RIGHT; param=manche_droite)",
             "format" : "int32",
             "default" : 0
           }
