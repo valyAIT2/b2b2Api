@@ -9,7 +9,7 @@
     "api_key" : [ ]
   } ],
   "servers" : [ {
-    "url" : "https://node.formens.ro/b2b2"
+    "url" : "https://node.formens.ro/b2b2/"
   } ],
   "paths" : {
     "/fabrics_stock/{name}" : {
@@ -4364,7 +4364,7 @@
         }
       }
     },
-    "/order" : {
+    "/orderTailoring" : {
       "post" : {
         "tags" : [ "Order" ],
         "summary" : "Add a new order",
@@ -4381,14 +4381,14 @@
           "description" : "Order object that needs to be added"
         },
         "responses" : {
-          "201" : {
-            "description" : "item created"
+          "200" : {
+            "description" : "Success"
           },
-          "400" : {
-            "description" : "invalid input, object invalid"
+          "401" : {
+            "description" : "ApiKey is missing"
           },
-          "409" : {
-            "description" : "an existing item already exists"
+          "500" : {
+            "description" : "Internal Server Error"
           }
         }
       }
@@ -4809,20 +4809,20 @@
             "description" : "Jacket Construction name",
             "default" : "PRESTIGE"
           },
-          "sleeve_head_name" : {
-            "type" : "string",
-            "description" : "Jacket Sleeve Head name",
-            "default" : "RO"
-          },
           "base_name" : {
             "type" : "string",
             "description" : "Jacket Base name",
             "default" : "SE"
           },
-          "front_name" : {
+          "model_name" : {
             "type" : "string",
-            "description" : "Jacket Base name",
-            "default" : "SE"
+            "description" : "Jacket Model name",
+            "default" : "SE16"
+          },
+          "sleeve_head_name" : {
+            "type" : "string",
+            "description" : "Jacket Sleeve Head name",
+            "default" : "RO"
           },
           "interior_name" : {
             "type" : "string",
@@ -4831,7 +4831,7 @@
           },
           "pockets_name" : {
             "type" : "string",
-            "description" : "Jacket pockets (id=test, label=vdgd, param=pockets)",
+            "description" : "Jacket pockets",
             "default" : "B"
           },
           "vents_name" : {
@@ -4839,15 +4839,70 @@
             "description" : "Jacket vents",
             "default" : "1"
           },
-          "cuffs_name" : {
+          "lapel_buttonhole_name" : {
             "type" : "string",
-            "description" : "Jacket cuffs",
-            "default" : "-"
+            "description" : "Jacket lapel buttonhole",
+            "default" : "70"
           },
-          "amf_name" : {
-            "type" : "string",
-            "description" : "Jacket amf",
-            "default" : "WITHOUT"
+          "cma1" : {
+            "type" : "boolean",
+            "description" : "Sleeves Contrast Buttonhole 1",
+            "default" : false
+          },
+          "cma2" : {
+            "type" : "boolean",
+            "description" : "Sleeves Contrast Buttonhole 2",
+            "default" : false
+          },
+          "cma3" : {
+            "type" : "boolean",
+            "description" : "Sleeves Contrast Buttonhole 3",
+            "default" : false
+          },
+          "cma4" : {
+            "type" : "boolean",
+            "description" : "Sleeves Contrast Buttonhole 4",
+            "default" : false
+          },
+          "cma5" : {
+            "type" : "boolean",
+            "description" : "Sleeves Contrast Buttonhole 5",
+            "default" : false
+          },
+          "cma6" : {
+            "type" : "boolean",
+            "description" : "Sleeves Contrast Buttonhole 6",
+            "default" : false
+          },
+          "cdv1" : {
+            "type" : "boolean",
+            "description" : "Front Contrast Buttonhole 1",
+            "default" : false
+          },
+          "cdv2" : {
+            "type" : "boolean",
+            "description" : "Front Contrast Buttonhole 2",
+            "default" : false
+          },
+          "cdv3" : {
+            "type" : "boolean",
+            "description" : "Front Contrast Buttonhole 3",
+            "default" : false
+          },
+          "cdv4" : {
+            "type" : "boolean",
+            "description" : "Front Contrast Buttonhole 4",
+            "default" : false
+          },
+          "cdv5" : {
+            "type" : "boolean",
+            "description" : "Front Contrast Buttonhole 5",
+            "default" : false
+          },
+          "cdv6" : {
+            "type" : "boolean",
+            "description" : "Front Contrast Buttonhole 6",
+            "default" : false
           },
           "linings" : {
             "type" : "array",
@@ -4865,6 +4920,9 @@
               "value" : "22"
             } ]
           },
+          "monogram" : {
+            "$ref" : "#/components/schemas/Monogram"
+          },
           "buttons_name" : {
             "type" : "string",
             "description" : "Jacket Buttons type name"
@@ -4873,8 +4931,18 @@
             "type" : "string",
             "description" : "Jacket Collar Felt type name"
           },
-          "monogram" : {
-            "$ref" : "#/components/schemas/Monogram"
+          "elbow_patch_name" : {
+            "type" : "string",
+            "description" : "Jacket Collar Felt type name"
+          },
+          "contrast_thread_name" : {
+            "type" : "string",
+            "description" : "Jacket Contrast Thread type name"
+          },
+          "size" : {
+            "type" : "string",
+            "description" : "Jacket Size",
+            "default" : "44"
           },
           "measurements" : {
             "$ref" : "#/components/schemas/JacketMeasurements"
@@ -4893,7 +4961,7 @@
               "type" : "string",
               "description" : "List of alterations"
             },
-            "default" : [ 401, "146BL", "191GL" ]
+            "default" : [ "146BL", "191GL" ]
           }
         }
       },
@@ -5639,13 +5707,11 @@
           },
           "status" : {
             "type" : "string",
-            "description" : "Order status",
-            "enum" : [ "standby", "new" ]
+            "description" : "Order status (readonly)"
           },
           "mtm_type" : {
             "type" : "string",
-            "description" : "MTM | MTO",
-            "default" : "MTM"
+            "description" : "MTM | MTO"
           },
           "oldorderno" : {
             "type" : "integer",
@@ -5700,6 +5766,42 @@
             "type" : "string",
             "description" : "Orservations about order",
             "default" : "test test test"
+          },
+          "shop" : {
+            "type" : "string",
+            "description" : "Shop Id (readonly)"
+          },
+          "shop_name" : {
+            "type" : "string",
+            "description" : "Shop Name (readonly)"
+          },
+          "shop_address" : {
+            "type" : "string",
+            "description" : "Shop Address (readonly)"
+          },
+          "shop_city" : {
+            "type" : "string",
+            "description" : "Shop City (readonly)"
+          },
+          "shop_company" : {
+            "type" : "string",
+            "description" : "Shop Company (readonly)"
+          },
+          "shop_phone" : {
+            "type" : "string",
+            "description" : "Shop Phone (readonly)"
+          },
+          "shop_email" : {
+            "type" : "string",
+            "description" : "Shop Email (readonly)"
+          },
+          "customer_no" : {
+            "type" : "string",
+            "description" : "Shop Company Id (readonly)"
+          },
+          "customer_email" : {
+            "type" : "string",
+            "description" : "Shop Company Email (readonly)"
           },
           "shipment_address" : {
             "type" : "string",
