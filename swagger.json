@@ -4795,7 +4795,7 @@
           },
           "quantity" : {
             "type" : "integer",
-            "description" : "fabric quantity (id=Vcant; lbl=QTY; param=veste_qt)",
+            "description" : "fabric quantity (id=Vcant; lbl=QTY; param=veste_qte)",
             "format" : "int32",
             "default" : 1
           },
