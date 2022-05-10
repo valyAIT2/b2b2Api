@@ -139,7 +139,7 @@
         "tags" : [ "Jacket" ],
         "parameters" : [ {
           "in" : "query",
-          "name" : "base_name",
+          "name" : "base",
           "description" : "Filter jacket models by base_name",
           "required" : false,
           "schema" : {
@@ -227,8 +227,8 @@
         "tags" : [ "Jacket" ],
         "parameters" : [ {
           "in" : "query",
-          "name" : "base_name",
-          "description" : "Jacket constructions available for base_name",
+          "name" : "base",
+          "description" : "Jacket constructions available for base",
           "required" : false,
           "schema" : {
             "type" : "string"
@@ -4853,23 +4853,13 @@
             "description" : "Jacket amf",
             "enum" : [ "A1", "A11", "A12", "A5", "A51", "A52", "S2", "S5" ]
           },
-          "linings" : {
-            "type" : "array",
-            "items" : {
-              "$ref" : "#/components/schemas/JacketLining"
-            },
-            "default" : [ {
-              "id" : "A",
-              "value" : "20",
-              "description" : "main lining  (id=VdoublA; lbl=MAIN LINING - A; param=doublure_a)"
-            }, {
-              "id" : "B",
-              "value" : "21",
-              "description" : "sleeve lining  (id=VdoublA; lbl=SLEEVE LINING - B; param=doublure_b)"
-            }, {
-              "id" : "X",
-              "value" : "22"
-            } ]
+          "main_lining" : {
+            "type" : "string",
+            "description" : "main lining (id=VdoublA; lbl=MAIN LINING - A; param=doublure_a)"
+          },
+          "sleeve_lining" : {
+            "type" : "string",
+            "description" : "sleeve_lining (id=VdoublA; lbl=SLEEVE LINING - B; param=doublure_b)"
           },
           "buttons" : {
             "type" : "string",
@@ -5235,7 +5225,7 @@
             "format" : "int32",
             "default" : 1
           },
-          "model" : {
+          "model_name" : {
             "type" : "string",
             "description" : "Trouser Model name",
             "default" : "P05"
