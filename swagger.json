@@ -5543,6 +5543,10 @@
             "description" : "Waistcoat buttons (id=Gnasturi; lbl=BUTTONS; param=boutons_gilet)",
             "default" : 142
           },
+          "satin_color" : {
+            "type" : "string",
+            "description" : "Waistcoat satin color (id=Gsatinhidden; lbl=SATIN COLOR; param=Gsatin)"
+          },
           "monogram" : {
             "$ref" : "#/components/schemas/Monogram"
           },
@@ -5550,10 +5554,6 @@
             "type" : "string",
             "description" : "Waistcoat Size (id=GmarimeIncercata; lbl=SIZE TRIED; param=taille_gilet)",
             "default" : "42"
-          },
-          "satin_color" : {
-            "type" : "string",
-            "description" : "Waistcoat satin color (id=Gsatinhidden; lbl=SATIN COLOR; param=Gsatin)"
           },
           "measurements" : {
             "$ref" : "#/components/schemas/WaistcoatMeasurements"
