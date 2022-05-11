@@ -4576,7 +4576,8 @@
           "status" : {
             "type" : "string",
             "description" : "Order status",
-            "enum" : [ "standby", "new" ]
+            "enum" : [ "standby", "new" ],
+            "default" : "standby"
           },
           "mtm_type" : {
             "type" : "string",
@@ -4589,27 +4590,17 @@
           },
           "client_firstname" : {
             "type" : "string",
-            "description" : "Client First Name",
+            "description" : "Client First Name (param=prenom_client)",
             "default" : "John"
           },
           "client_lastname" : {
             "type" : "string",
-            "description" : "Client Last Name",
+            "description" : "Client Last Name (param=nom_client)",
             "default" : "Doe"
-          },
-          "client_email" : {
-            "type" : "string",
-            "description" : "Client email",
-            "default" : ""
-          },
-          "client_phone" : {
-            "type" : "string",
-            "description" : "Client Phone",
-            "default" : ""
           },
           "internal_order_no" : {
             "type" : "string",
-            "description" : "Customer Internal Order Id",
+            "description" : "Customer Internal Order Id (param=externalDocument)",
             "default" : "test00"
           },
           "body_measurements" : {
@@ -4626,13 +4617,8 @@
           },
           "observations" : {
             "type" : "string",
-            "description" : "Observations about order",
+            "description" : "Observations about order (param=observatii)",
             "default" : "this is a comment"
-          },
-          "shipment_address" : {
-            "type" : "string",
-            "description" : "Shipment Address ( default empty, see GET /shipment_addresses )",
-            "default" : ""
           }
         }
       },
