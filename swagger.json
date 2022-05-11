@@ -3758,9 +3758,9 @@
           },
           "secondary_options" : {
             "type" : "array",
+            "description" : "List of secondary options (id=Voptions; lbl=; param=v_options)",
             "items" : {
-              "type" : "string",
-              "description" : "List of secondary options (id=Voptions; lbl=; param=v_options)"
+              "type" : "string"
             }
           },
           "elbow_patch" : {
@@ -4180,6 +4180,19 @@
               "description" : "List of alterations  (id=Palterations; lbl=ALTERATIONS; param=p_alterations)"
             },
             "default" : [ "381L", "306M", "391GL" ]
+          },
+          "pleat" : {
+            "type" : "string",
+            "description" : "pleat (id=PpliuriFata; lbl=PLEAT; param=plis_devant)",
+            "enum" : [ "P0", "PSF", "P1A", "P1B", "P2A", "P2B" ]
+          },
+          "satin_color" : {
+            "type" : "string",
+            "description" : "satin color (id=Psatinsel; lbl=SATIN COLOR; param=Psatin)"
+          },
+          "piping_color" : {
+            "type" : "string",
+            "description" : "piping color (id=Ppippingsel; lbl=PIPING COLOR; param=Ppipping)"
           }
         }
       },
