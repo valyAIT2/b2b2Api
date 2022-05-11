@@ -3222,6 +3222,36 @@ components:
           type: integer
           description: 1/2 bottom    (id=PdemiBas; lbl=1/2 BOTTOM WIDTH; param=demi_bas)
           format: int32
+        closure_type:
+          type: string
+          description: closure type  (id=Pclosure; lbl=CLOSURE TYPE; param=Pclosure
+            si p_options)
+          enum:
+          - ""
+          - PBA
+          - PCA
+          - PC1
+          - PCB
+          - PBB
+          - PBS
+          - PBSB
+          - WB6
+          default: ""
+        amf:
+          type: string
+          description: closure type   (id=Pamf; lbl=AMF/TOPSTITCH; param=Pamf si in
+            p_options)
+          enum:
+          - ""
+          - A1
+          - A11
+          - A12
+          - A5
+          - A51
+          - A52
+          - S2
+          - S5
+          default: ""
     TrouserModel:
       type: object
       properties:
