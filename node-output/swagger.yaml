@@ -3530,9 +3530,11 @@ components:
         text:
           type: string
           description: Monogram Text  (id=monograma; lbl=MONOGRAM; param=monograme)
+          default: ""
         color:
           type: string
           description: Monogram Color  (id=McodContrast; lbl=COLOR; param=cul_monogr)
+          default: ""
     BodyMeasurements:
       type: object
       properties:
