@@ -4877,17 +4877,17 @@
           },
           "cma1" : {
             "type" : "boolean",
-            "description" : "Sleeves Contrast Buttonhole 1 (id=cma1; lbl=CONTRAST BUTTONHOLES / CONTRAST BUTTONHOLES / Sleeves; param=cma1)",
+            "description" : "Sleeves Contrast Buttonhole 1 (id=cma1; lbl=CONTRAST BUTTONHOLES/Sleeve 1; param=cma1)",
             "default" : false
           },
           "cma2" : {
             "type" : "boolean",
-            "description" : "Sleeves Contrast Buttonhole 2 (id=cma2; lbl=CONTRAST BUTTONHOLES / CONTRAST BUTTONHOLES / Sleeves; param=cma2)",
+            "description" : "Sleeves Contrast Buttonhole 2 (id=cma2; lbl=CONTRAST BUTTONHOLES/Sleeve 2; param=cma2)",
             "default" : false
           },
           "cma3" : {
             "type" : "boolean",
-            "description" : "Sleeves Contrast Buttonhole 3 (id=cma3; lbl=CONTRAST BUTTONHOLES / CONTRAST BUTTONHOLES / Sleeves; param=cma3)",
+            "description" : "Sleeves Contrast Buttonhole 3 (id=cma3; lbl=CONTRAST BUTTONHOLES/Sleeve 3; param=cma3)",
             "default" : false
           },
           "cma4" : {
