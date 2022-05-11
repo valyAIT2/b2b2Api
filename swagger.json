@@ -4598,12 +4598,12 @@
           "total_length" : {
             "type" : "number",
             "description" : "Waistcoat total length",
-            "default" : 56
+            "default" : 0
           },
           "opening" : {
             "type" : "number",
             "description" : "Waistcoat Opening",
-            "default" : 34.9
+            "default" : 0
           },
           "half_waist" : {
             "type" : "number",
