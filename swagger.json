@@ -4002,17 +4002,21 @@
       "JacketMeasurements" : {
         "type" : "object",
         "properties" : {
+          "size" : {
+            "type" : "string",
+            "description" : "Jacket size (id=VmarimeIncercata; lbl=SIZE TRIED; param=taillev)"
+          },
           "total_length" : {
             "type" : "number",
-            "description" : "Jacket Total Length"
+            "description" : "Jacket Total Length (id=VlungimeSpate; lbl=TOTAL LENGTH; param=longueur_dos)"
           },
           "left_sleeve_length" : {
             "type" : "number",
-            "description" : "Jacket Left Sleeve Length"
+            "description" : "Jacket Left Sleeve Length (id=VlungimeManecaStanga; lbl=LEFT SLEEVE; param=manche_gauche)"
           },
           "right_sleeve_length" : {
             "type" : "number",
-            "description" : "Jacket Right Sleeve Length"
+            "description" : "Jacket Right Sleeve Length (id=VlungimeManecaDreapta; lbl=RIGHT SLEEVE; param=manche_droite)"
           },
           "posture" : {
             "type" : "string",
@@ -4044,7 +4048,7 @@
             "format" : "double",
             "description" : "first button possition (id=V1ErBouton; lbl=FIRST BUTTON POSITION; param=v_1er_bouton)"
           },
-          "jacket_secondary_alterations" : {
+          "secondary_alterations" : {
             "type" : "array",
             "items" : {
               "type" : "string",
