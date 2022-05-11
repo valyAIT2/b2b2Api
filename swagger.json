@@ -3742,7 +3742,8 @@
           },
           "elbow_patch" : {
             "type" : "string",
-            "description" : "Jacket Collar Felt type name (id=Vcoud; lbl=ALCANTRA COLOR; param=coudieres)"
+            "description" : "Jacket Collar Felt type name (id=Vcoud; lbl=ALCANTRA COLOR; param=coudieres)",
+            "default" : ""
           },
           "satin_color" : {
             "type" : "string",
