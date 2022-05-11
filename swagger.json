@@ -3768,7 +3768,7 @@
             "items" : {
               "type" : "string"
             },
-            "default" : ""
+            "default" : [ "" ]
           },
           "elbow_patch" : {
             "type" : "string",
@@ -4101,7 +4101,7 @@
               "type" : "string",
               "description" : "List of secondary Alterations (id=Voptions; lbl=; param=Valterations)"
             },
-            "default" : ""
+            "default" : [ "" ]
           }
         }
       },
@@ -4564,6 +4564,12 @@
           "fabric_ref" : {
             "type" : "string",
             "description" : "waistcoat fabric refference   (id=GcodTesatura; lbl=WAISTCOAT FABRIC REF; param=tissu_gilet)"
+          },
+          "fit" : {
+            "type" : "string",
+            "description" : "waistcoat fit  (id=Gfit; lbl=; param=modele_gilet)",
+            "enum" : [ "", "GDIL", "GIL", "GIU", "GDI", "GU", "GI" ],
+            "default" : ""
           }
         }
       },
