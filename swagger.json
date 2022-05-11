@@ -12,6 +12,32 @@
     "url" : "https://node.formens.ro/b2b2"
   } ],
   "paths" : {
+    "/orderTailoring" : {
+      "post" : {
+        "tags" : [ "Order" ],
+        "summary" : "Add a new order",
+        "description" : "Add a new order",
+        "operationId" : "addOrder",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/Order"
+              }
+            }
+          },
+          "description" : "Order object that needs to be added"
+        },
+        "responses" : {
+          "201" : {
+            "description" : "item created"
+          },
+          "400" : {
+            "description" : "invalid input, object invalid"
+          }
+        }
+      }
+    },
     "/fabrics_stock/{name}" : {
       "get" : {
         "summary" : "Fabric detail",
@@ -4360,35 +4386,6 @@
                 }
               }
             }
-          }
-        }
-      }
-    },
-    "/orderTailoring" : {
-      "post" : {
-        "tags" : [ "Order" ],
-        "summary" : "Add a new order",
-        "description" : "Add a new order",
-        "operationId" : "addOrder",
-        "requestBody" : {
-          "content" : {
-            "application/json" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/Order"
-              }
-            }
-          },
-          "description" : "Order object that needs to be added"
-        },
-        "responses" : {
-          "201" : {
-            "description" : "item created"
-          },
-          "400" : {
-            "description" : "invalid input, object invalid"
-          },
-          "409" : {
-            "description" : "an existing item already exists"
           }
         }
       }
