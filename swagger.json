@@ -3775,9 +3775,9 @@
             "type" : "string",
             "description" : "detachable inlay color (id=Vpippingsel; lbl=DETACHABLE INLAY COLOR; param=Vinlay)"
           },
-          "color_contrast_color" : {
+          "collar_contrast_color" : {
             "type" : "string",
-            "description" : "color contrast color (id=Vcollarcontrsel; lbl=COLLAR CONTRAST COLOR; param=Vcollar)"
+            "description" : "collar contrast color (id=Vcollarcontrsel; lbl=COLLAR CONTRAST COLOR; param=Vcollar)"
           },
           "piping_color" : {
             "type" : "string",
@@ -3822,30 +3822,6 @@
           "handkerchief_quantity" : {
             "type" : "integer",
             "description" : "Handkerchief quantity  (id=Bcant; lbl=QTY; param=pochette_qte)",
-            "format" : "int32",
-            "default" : 0
-          },
-          "size_tried" : {
-            "type" : "integer",
-            "description" : "size tried (id=VmarimeIncercata; lbl=SIZE TRIED; param=taillev)",
-            "format" : "int32",
-            "default" : 0
-          },
-          "total length" : {
-            "type" : "integer",
-            "description" : "(id=VlungimeSpate; lbl=TOTAL LENGTH; param=longueur_dos)",
-            "format" : "int32",
-            "default" : 0
-          },
-          "sleeve_length_left" : {
-            "type" : "integer",
-            "description" : "sleeve length left size  (id=VlungimeManecaStanga; lbl=SLEEVE LENGTH / LEFT; param=manche_gauche)",
-            "format" : "int32",
-            "default" : 0
-          },
-          "sleeve_length_right" : {
-            "type" : "integer",
-            "description" : "sleeve right left size  (id=VlungimeManecaDreapta; lbl=SLEEVE LENGTH / RIGHT; param=manche_droite)",
             "format" : "int32",
             "default" : 0
           },
@@ -4067,6 +4043,13 @@
             "type" : "number",
             "format" : "double",
             "description" : "first button possition (id=V1ErBouton; lbl=FIRST BUTTON POSITION; param=v_1er_bouton)"
+          },
+          "jacket_secondary_alterations" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "description" : "List of secondary Alterations (id=Voptions; lbl=; param=Valterations)"
+            }
           }
         }
       },
