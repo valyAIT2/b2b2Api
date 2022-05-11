@@ -1383,82 +1383,6 @@
         }
       }
     },
-    "/jacket_primary-alterations" : {
-      "get" : {
-        "summary" : "Jacket Primary Alterations",
-        "description" : "List Jacket Primary Alterations",
-        "tags" : [ "Jacket" ],
-        "responses" : {
-          "200" : {
-            "description" : "An array of jacket Primary Alterations",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "type" : "array",
-                  "items" : {
-                    "$ref" : "#/components/schemas/JacketPrimaryAlteration"
-                  }
-                }
-              }
-            }
-          },
-          "default" : {
-            "description" : "Unexpected error",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/jacket_primary-alterations/{id}" : {
-      "get" : {
-        "summary" : "Jacket Primary Alteration",
-        "description" : "Jacket Primary Alteration",
-        "tags" : [ "Jacket" ],
-        "parameters" : [ {
-          "in" : "path",
-          "name" : "id",
-          "required" : true,
-          "schema" : {
-            "type" : "string",
-            "format" : "string"
-          }
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "successful operation",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/JacketPrimaryAlteration"
-                }
-              }
-            }
-          },
-          "400" : {
-            "description" : "Invalid Jacket Primary Alteration id supplied"
-          },
-          "404" : {
-            "description" : "Jacket Primary Alteration not found"
-          },
-          "default" : {
-            "description" : "Unexpected error",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/jacket_secondary-alterations" : {
       "get" : {
         "summary" : "Jacket Secondary Alterations",
@@ -4810,43 +4734,44 @@
           "sleeve_head" : {
             "type" : "string",
             "description" : "Jacket Sleeve Head name  (id=VcapManeca; lbl=SLEEVE HEAD; param=capmaneca)",
-            "enum" : [ "NAS/K", "NAN/0", "NAX/0", "RO/E", "RE/E", "REX/E", "RO/A", "RE/A", "REX/A" ]
+            "default" : "RO/E"
           },
-          "base_name" : {
+          "base" : {
             "type" : "string",
             "description" : "Jacket Base name (id=VmodelIncercat; lbl=BASE; param=modele)",
-            "enum" : [ "G", "GA", "GAD", "GD", "GT", "UG" ]
+            "default" : "G"
           },
-          "front_name" : {
+          "front" : {
             "type" : "string",
-            "description" : "Jacket Front name (id=Vmodel; lbl=FRONT; param=Vmodel)"
+            "description" : "Jacket Front name (id=Vmodel; lbl=FRONT; param=Vmodel)",
+            "default" : "402"
           },
           "interior" : {
             "type" : "string",
             "description" : "Jacket interior name  (id=Vinterior; lbl=INTERIOR; param=interieur)",
-            "enum" : [ "FL", "FLPF", "HLA", "HLB", "AF1" ]
+            "default" : "FL"
           },
           "pockets" : {
             "type" : "string",
             "description" : "Jacket pockets (id=VbuzunareFata, label=POCKETS, param=poches)",
-            "enum" : [ "A", "B", "B1", "C", "D", "D1", "J100", "J200", "J300", "J101", "PO", "RU3", "RU2" ],
-            "default" : "B"
+            "default" : "A"
           },
           "vents" : {
             "type" : "string",
             "description" : "Jacket vents  (id=Vslit; lbl=VENTS; param=fentes)",
-            "enum" : [ "2", "1", "5" ],
-            "default" : "1"
+            "enum" : [ "2", "1", "S" ],
+            "default" : "2"
           },
           "cuffs" : {
             "type" : "string",
             "description" : "Jacket cuffs",
-            "enum" : [ "BF3", "BO3", "BF4", "BO4", "BF5", "BO5", "BF6", "BO6", "BFU1", "BOU1", "BFC3", "BOC3", "BFC4", "BOC4", "BFC5", "BOC5", "BFC6", "BOC6", "BO0", "B0T" ]
+            "default" : "BO4"
           },
           "amf" : {
             "type" : "string",
             "description" : "Jacket amf",
-            "enum" : [ "A1", "A11", "A12", "A5", "A51", "A52", "S2", "S5" ]
+            "enum" : [ "A1", "A11", "A12", "A5", "A51", "A52", "S2", "S5" ],
+            "default" : "A1"
           },
           "main_lining" : {
             "type" : "string",
@@ -4869,7 +4794,9 @@
           },
           "lapel_buttonhole" : {
             "type" : "string",
-            "description" : "lapel buttonhole (id=VnasturiReversel; lbl= CONTRAST BUTTONHOLES / LAPEL BUTTONHOLE; param=boutonniere_revers)"
+            "description" : "lapel buttonhole (id=VnasturiReversel; lbl= CONTRAST BUTTONHOLES / LAPEL BUTTONHOLE; param=boutonniere_revers)",
+            "enum" : [ "70", "80", "90" ],
+            "default" : "80"
           },
           "cma1" : {
             "type" : "boolean",
@@ -4936,14 +4863,6 @@
             "items" : {
               "type" : "string",
               "description" : "List of secondary options (id=Voptions; lbl=; param=v_options)"
-            },
-            "default" : [ "A5", "BXC" ]
-          },
-          "alterations" : {
-            "type" : "array",
-            "items" : {
-              "type" : "string",
-              "description" : "List of secondary alteration options (id=Valterations; lbl=; param=v_alterations)"
             }
           },
           "elbow_patch" : {
