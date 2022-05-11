@@ -3662,7 +3662,7 @@
           },
           "cuffs" : {
             "type" : "string",
-            "description" : "Jacket cuffs",
+            "description" : "Jacket cuffs (id=VbutoniereManeca; lbl=CUFFS; param=v_options)",
             "default" : "BO4"
           },
           "amf" : {
