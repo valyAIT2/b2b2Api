@@ -3825,9 +3825,6 @@
             "format" : "int32",
             "default" : 0
           },
-          "measurements" : {
-            "$ref" : "#/components/schemas/JacketMeasurements"
-          },
           "size_tried" : {
             "type" : "integer",
             "description" : "size tried (id=VmarimeIncercata; lbl=SIZE TRIED; param=taillev)",
@@ -3851,6 +3848,9 @@
             "description" : "sleeve right left size  (id=VlungimeManecaDreapta; lbl=SLEEVE LENGTH / RIGHT; param=manche_droite)",
             "format" : "int32",
             "default" : 0
+          },
+          "measurements" : {
+            "$ref" : "#/components/schemas/JacketMeasurements"
           }
         }
       },
@@ -4037,14 +4037,6 @@
           "right_sleeve_length" : {
             "type" : "number",
             "description" : "Jacket Right Sleeve Length"
-          },
-          "left_sleeve_interior_length" : {
-            "type" : "number",
-            "description" : "(Optional) Jacket Left Sleeve Inside Length"
-          },
-          "right_sleeve_interior_length" : {
-            "type" : "number",
-            "description" : "(Optional) Jacket Right Sleeve Inside Length"
           },
           "posture" : {
             "type" : "string",
