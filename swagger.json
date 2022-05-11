@@ -4219,6 +4219,10 @@
             "description" : "constructin and making (id=Pconstructie; lbl=CONSTRUCTION & MAKING; param=Pconstruction)",
             "enum" : [ "", "PCSTD", "PCSA", "PCSAWP", "PCSTR" ],
             "default" : ""
+          },
+          "fabric_ref" : {
+            "type" : "string",
+            "description" : "trousers fabric refference  (id=PcodTesatura; lbl=TROUSERS FABRIC REF; param=tissu_pantalon)"
           }
         }
       },
