@@ -4213,9 +4213,11 @@
             "description" : "piping color (id=Ppippingsel; lbl=PIPING COLOR; param=Ppipping)",
             "default" : ""
           },
-          "construction_&_making" : {
+          "construction_and_making" : {
             "type" : "string",
-            "default" : ""
+            "description" : "constructin and making (id=Pconstructie; lbl=CONSTRUCTION & MAKING; param=Pconstruction)",
+            "enum" : [ "PCSTD", "PCSA", "PCSAWP", "PCSTR" ],
+            "default" : "PCSTD"
           }
         }
       },
