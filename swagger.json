@@ -4225,6 +4225,12 @@
             "description" : "trousers fabric refference  (id=PcodTesatura; lbl=TROUSERS FABRIC REF; param=tissu_pantalon)",
             "enum" : [ "", "PcodTesatura", "PcodTesaturaCoupe", "PcodTesaturaCoupeFurniz", "PcodTesaturaCoupeComande", "PcodTesaturaCoupeDataPrev", "PcodTesaturaCoupeIdCatalog", "PcodTesaturaCoupeTip", "PcodTesaturaStock" ],
             "default" : ""
+          },
+          "waistband" : {
+            "type" : "string",
+            "description" : "waistband  (id=PWaistband; lbl=WAISTBAND; param=Waistband si p_options)",
+            "enum" : [ "", "CRM", "CRMP", "CRE", "CROP", "CRP", "WB6", "PBW", "CN", "CB", "CE102", "CE100" ],
+            "default" : ""
           }
         }
       },
