@@ -5817,19 +5817,18 @@
             "default" : "MTM"
           },
           "oldorderno" : {
-            "type" : "integer",
-            "format" : "int64",
-            "description" : "use this id to modify an existing order"
+            "type" : "string",
+            "description" : "use this id to modify an existing order (Ex=W762096)"
           },
           "client_firstname" : {
             "type" : "string",
             "description" : "Client First Name",
-            "default" : "Test"
+            "default" : "John"
           },
           "client_lastname" : {
             "type" : "string",
             "description" : "Client Last Name",
-            "default" : "Test"
+            "default" : "Doe"
           },
           "client_email" : {
             "type" : "string",
@@ -5846,10 +5845,6 @@
             "description" : "Customer Internal Order Id",
             "default" : "test00"
           },
-          "order_date" : {
-            "type" : "string",
-            "format" : "date"
-          },
           "body_measurements" : {
             "$ref" : "#/components/schemas/BodyMeasurements"
           },
@@ -5862,13 +5857,10 @@
           "waistcoat" : {
             "$ref" : "#/components/schemas/Waistcoat"
           },
-          "overcoat" : {
-            "$ref" : "#/components/schemas/Overcoat"
-          },
           "observations" : {
             "type" : "string",
-            "description" : "Orservations about order",
-            "default" : "test test test"
+            "description" : "Observations about order",
+            "default" : "this is a comment"
           },
           "shipment_address" : {
             "type" : "string",
