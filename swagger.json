@@ -4222,7 +4222,8 @@
           },
           "fabric_ref" : {
             "type" : "string",
-            "description" : "trousers fabric refference  (id=PcodTesatura; lbl=TROUSERS FABRIC REF; param=tissu_pantalon)"
+            "description" : "trousers fabric refference  (id=PcodTesatura; lbl=TROUSERS FABRIC REF; param=tissu_pantalon)",
+            "default" : ""
           }
         }
       },
