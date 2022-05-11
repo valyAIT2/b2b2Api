@@ -2507,6 +2507,7 @@ components:
         name:
           type: string
           description: Unique identifier representing a fabric.
+          default: ""
         coupon:
           type: boolean
           description: Fabric is ordered by coupon
@@ -2530,6 +2531,7 @@ components:
         coupon_idcatalog:
           type: string
           description: Fabric id catalog
+          default: ""
     FabricStock:
       type: object
       properties:
@@ -2786,121 +2788,146 @@ components:
         name:
           type: string
           description: Unique identifier representing a jacket base.
+          default: ""
     JacketModel:
       type: object
       properties:
         name:
           type: string
           description: Jacket model name.
+          default: ""
         short_name:
           type: string
           description: Short Jacket model name.
+          default: ""
     JacketConstruction:
       type: object
       properties:
         name:
           type: string
           description: Unique identifier representing a jacket construction.
+          default: ""
         translated_name:
           type: string
           description: Translated jacket construction name.
+          default: ""
     JacketSleeveHead:
       type: object
       properties:
         name:
           type: string
           description: Unique identifier representing a jacket sleeve head.
+          default: ""
         translated_name:
           type: string
           description: Translated jacket sleeve head name.
+          default: ""
     JacketInterior:
       type: object
       properties:
         id:
           type: string
           description: Unique identifier representing a jacket interior.
+          default: ""
         name:
           type: string
           description: Translated jacket interior name.
+          default: ""
     JacketLining:
       type: object
       properties:
         id:
           type: string
           description: Unique identifier representing a jacket lining.
+          default: ""
         value:
           type: string
           description: value for lining.
+          default: ""
     JacketPocket:
       type: object
       properties:
         id:
           type: string
           description: Unique identifier representing a jacket pocket.
+          default: ""
         description:
           type: string
           description: Description of jacket pocket.
+          default: ""
     JacketVent:
       type: object
       properties:
         id:
           type: string
           description: Unique identifier representing a jacket vent.
+          default: ""
         description:
           type: string
           description: Description of jacket vent.
+          default: ""
     JacketButton:
       type: object
       properties:
         name:
           type: string
           description: Unique identifier representing a jacket button.
+          default: ""
     JacketLapelbuttonhole:
       type: object
       properties:
         id:
           type: string
           description: Unique identifier representing a jacket lapel buttonhole.
+          default: ""
         description:
           type: string
           description: Description of jacket lapel buttonhole.
+          default: ""
     JacketCollarFelt:
       type: object
       properties:
         name:
           type: string
           description: Unique identifier representing a jacket collar felt.
+          default: ""
     JacketElbowPatch:
       type: object
       properties:
         name:
           type: string
           description: Unique identifier representing a jacket elbow patch.
+          default: ""
     JacketContrastThread:
       type: object
       properties:
         name:
           type: string
           description: Unique identifier representing a jacket contrast thread.
+          default: ""
     JacketSecondaryOption:
       type: object
       properties:
         description:
           type: string
+          default: ""
         name:
           type: string
+          default: ""
     JacketSize:
       type: object
       properties:
         size:
           type: string
           description: Jacket size name.
+          default: ""
     JacketMeasurements:
       type: object
       properties:
         size:
           type: string
           description: Jacket size (id=VmarimeIncercata; lbl=SIZE TRIED; param=taillev)
+          default: ""
         total_length:
           type: number
           description: Jacket Total Length (id=VlungimeSpate; lbl=TOTAL LENGTH; param=longueur_dos)
@@ -2916,6 +2943,7 @@ components:
           type: string
           description: Body posture (id=VcodeAtitude; lbl=BENT/ERECT POSTURE; param=code_attitude)
           enum:
+          - ""
           - "400"
           - "401"
           - "402"
@@ -2923,19 +2951,23 @@ components:
           - "405"
           - "406"
           - "407"
+          default: ""
         chest:
           type: string
           description: chest (id=VcodePoitrine; lbl=CHEST; param=VcodePoitrine)
           enum:
+          - ""
           - "800"
           - "802"
           - "803"
           - "804"
+          default: ""
         left_shoulder_slope:
           type: string
           description: left shoulder slope (id=VcodUmarStang; lbl=LEFT SHOULDER /
             LOW si / HIGH; param=code_epaule_gauche)
           enum:
+          - ""
           - "500"
           - "505"
           - "506"
@@ -2943,11 +2975,13 @@ components:
           - "501"
           - "502"
           - "503"
+          default: ""
         right_shoulder_slope:
           type: string
           description: left shoulder slope (id=VcodUmarDrept; lbl=RIGHT SHOULDER /
             LOW si / HIGH; param=code_epaule_droite)
           enum:
+          - ""
           - "600"
           - "605"
           - "606"
@@ -2955,6 +2989,7 @@ components:
           - "601"
           - "602"
           - "603"
+          default: ""
         jacket_vents:
           type: number
           description: jacket vents length  (id=Vfente; lbl=VENTS; param=v_fente)
@@ -2974,8 +3009,10 @@ components:
       properties:
         description:
           type: string
+          default: ""
         code:
           type: string
+          default: ""
         alterations:
           type: array
           description: List of variations
@@ -3122,6 +3159,24 @@ components:
           - PcodTesaturaCoupeIdCatalog
           - PcodTesaturaCoupeTip
           - PcodTesaturaStock
+          default: ""
+        waistband:
+          type: string
+          description: waistband  (id=PWaistband; lbl=WAISTBAND; param=Waistband si
+            p_options)
+          enum:
+          - ""
+          - CRM
+          - CRMP
+          - CRE
+          - CROP
+          - CRP
+          - WB6
+          - PBW
+          - CN
+          - CB
+          - CE102
+          - CE100
           default: ""
     TrouserModel:
       type: object
@@ -3420,6 +3475,7 @@ components:
         oldorderno:
           type: string
           description: use this id to modify an existing order (Ex=W762096)
+          default: ""
         client_firstname:
           type: string
           description: Client First Name
@@ -3505,9 +3561,11 @@ components:
         name:
           type: string
           description: Unique identifier representing a shirt base.
+          default: ""
         description:
           type: string
           description: Descrption of a shirt base.
+          default: ""
     ShipmentAddress:
       required:
       - address
