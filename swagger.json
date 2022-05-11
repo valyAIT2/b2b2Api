@@ -3636,7 +3636,7 @@
           },
           "base" : {
             "type" : "string",
-            "description" : "Jacket Base name (id=VmodelIncercat; lbl=BASE; param=modele)",
+            "description" : "Jacket Base name (id=v_model_essaye; lbl=BASE; param=VmodelIncercat)",
             "default" : "G"
           },
           "front" : {
@@ -3662,12 +3662,12 @@
           },
           "cuffs" : {
             "type" : "string",
-            "description" : "Jacket cuffs (id=VbutoniereManeca; lbl=CUFFS; param=v_options)",
+            "description" : "Jacket cuffs",
             "default" : "BO4"
           },
           "amf" : {
             "type" : "string",
-            "description" : "Jacket amf (id=VAMF; lbl=AMF; param=v_options)",
+            "description" : "Jacket amf",
             "enum" : [ "A1", "A11", "A12", "A5", "A51", "A52", "S2", "S5" ],
             "default" : "A1"
           },
@@ -4025,7 +4025,7 @@
           },
           "chest" : {
             "type" : "string",
-            "description" : "chest (id=VcodePoitrine; lbl=CHEST; param=code_poitrine)",
+            "description" : "chest (id=VcodePoitrine; lbl=CHEST; param=VcodePoitrine)",
             "enum" : [ "800", "802", "803", "804" ]
           },
           "left_shoulder_slope" : {
@@ -4116,22 +4116,23 @@
           },
           "quantity" : {
             "type" : "integer",
+            "description" : "trousers quantity (id=Pcant; lbl=QTY; param=pantalon_qte)",
             "format" : "int32",
             "default" : 1
           },
           "model_name" : {
             "type" : "string",
-            "description" : "Trouser Model name",
+            "description" : "Trouser Model name  (id=Pmodel; lbl=MODEL; param=modele_pantalon)",
             "default" : "P05"
           },
           "front_pockets_name" : {
             "type" : "string",
-            "description" : "Trouser front pockets",
+            "description" : "Trouser front pockets  (id=PbuzunareFata; lbl=FRONT POCKETS; param=poches_devant)",
             "default" : "B"
           },
           "back_pockets_name" : {
             "type" : "string",
-            "description" : "Trouser back pockets",
+            "description" : "Trouser back pockets  (id=PbuzunareSpate; lbl=BACK POCKETS; param=poches_dos)",
             "default" : "2"
           },
           "front_crease_name" : {
@@ -4576,8 +4577,7 @@
           "status" : {
             "type" : "string",
             "description" : "Order status",
-            "enum" : [ "standby", "new" ],
-            "default" : "standby"
+            "enum" : [ "standby", "new" ]
           },
           "mtm_type" : {
             "type" : "string",
@@ -4590,17 +4590,27 @@
           },
           "client_firstname" : {
             "type" : "string",
-            "description" : "Client First Name (param=prenom_client)",
+            "description" : "Client First Name",
             "default" : "John"
           },
           "client_lastname" : {
             "type" : "string",
-            "description" : "Client Last Name (param=nom_client)",
+            "description" : "Client Last Name",
             "default" : "Doe"
+          },
+          "client_email" : {
+            "type" : "string",
+            "description" : "Client email",
+            "default" : ""
+          },
+          "client_phone" : {
+            "type" : "string",
+            "description" : "Client Phone",
+            "default" : ""
           },
           "internal_order_no" : {
             "type" : "string",
-            "description" : "Customer Internal Order Id (param=externalDocument)",
+            "description" : "Customer Internal Order Id",
             "default" : "test00"
           },
           "body_measurements" : {
@@ -4617,8 +4627,13 @@
           },
           "observations" : {
             "type" : "string",
-            "description" : "Observations about order (param=observatii)",
+            "description" : "Observations about order",
             "default" : "this is a comment"
+          },
+          "shipment_address" : {
+            "type" : "string",
+            "description" : "Shipment Address ( default empty, see GET /shipment_addresses )",
+            "default" : ""
           }
         }
       },
