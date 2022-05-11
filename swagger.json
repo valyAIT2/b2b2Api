@@ -4873,7 +4873,7 @@
           },
           "lapel_buttonhole" : {
             "type" : "string",
-            "description" : "lapel buttonhole (id=VnasturiReversel; lbl= LAPEL BUTTONHOLE; param=boutonniere_revers)"
+            "description" : "lapel buttonhole (id=VnasturiReversel; lbl=LAPEL BUTTONHOLE; param=boutonniere_revers)"
           },
           "cma1" : {
             "type" : "boolean",
