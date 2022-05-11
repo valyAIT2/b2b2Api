@@ -4785,7 +4785,7 @@
       },
       "Jacket" : {
         "type" : "object",
-        "required" : [ "quantity", "base_name", "model_name", "construction_name", "sleeve_head_name", "interior_name", "pockets_name", "vents_name", "linings", "size", "Shoulder_line" ],
+        "required" : [ "quantity", "base", "model", "construction", "sleeve_head", "shoulder_line", "interior", "pockets", "vents", "linings", "size" ],
         "properties" : {
           "fabric" : {
             "$ref" : "#/components/schemas/Fabric"
@@ -4796,7 +4796,7 @@
             "format" : "int32",
             "default" : 1
           },
-          "Shoulder_line" : {
+          "shoulder_line" : {
             "type" : "string",
             "description" : "Jacket Shoulder slope  (id=VShSlope; lbl=SHOULDER LINE; param=VShSlope)",
             "enum" : [ "LIGHT", "STANDARD", "STRAIGHT" ],
@@ -4805,36 +4805,7 @@
           "construction" : {
             "type" : "string",
             "description" : "(id=Vconstructie; lbl=CONSTRUCTION; param=construction)",
-            "enum" : [ "ZERO GRAVITY", "TESK", "PRESTIGE SOFT", "PRESTIGE", "SIES", "SEMI-TRAD SOFT", "SEMI-TRAD", "TRADITIONALA SOFT", "TRADITIONALA", "TESKW45", "TESKW25" ],
             "default" : "PRESTIGE"
-          },
-          "attitude" : {
-            "type" : "string",
-            "description" : "Stooped position (id=VcodeAtitude; lbl=BENT/ERECT POSTURE; param=code_attitude)",
-            "enum" : [ "401", "402", "403", "405", "406", "407" ]
-          },
-          "poitrine" : {
-            "type" : "string",
-            "description" : "chest (id=VcodePoitrine; lbl=CHEST; param=code_poitrine)",
-            "enum" : [ "802", "803", "804" ]
-          },
-          "umar_stang" : {
-            "type" : "string",
-            "description" : "umar stang (id=VcodUmarStang; lbl=LEFT SHOULDER / LOW si / HIGH; param=code_epaule_gauche)",
-            "enum" : [ "505", "506", "507", "501", "502", "503" ]
-          },
-          "umar_drept" : {
-            "type" : "string",
-            "description" : "umar drept (id=VcodUmarDrept; lbl=RIGHT SHOULDER / LOW si / HIGH; param=code_epaule_droite)",
-            "enum" : [ "605", "606", "607", "601", "602", "603" ]
-          },
-          "jacket_vents" : {
-            "type" : "string",
-            "description" : "jacket vents  (id=Vfente; lbl=VENTS; param=v_fente)"
-          },
-          "first_button" : {
-            "type" : "string",
-            "description" : "first button (id=V1ErBouton; lbl=FIRST BUTTON POSITION; param=v_1er_bouton)"
           },
           "sleeve_head" : {
             "type" : "string",
@@ -5258,35 +5229,35 @@
             "type" : "number",
             "description" : "(Optional) Jacket Right Sleeve Inside Length"
           },
-          "first_button_position" : {
+          "posture" : {
+            "type" : "string",
+            "description" : "Body posture (id=VcodeAtitude; lbl=BENT/ERECT POSTURE; param=code_attitude)",
+            "enum" : [ "400", "401", "402", "403", "405", "406", "407" ]
+          },
+          "chest" : {
+            "type" : "string",
+            "description" : "chest (id=VcodePoitrine; lbl=CHEST; param=code_poitrine)",
+            "enum" : [ "800", "802", "803", "804" ]
+          },
+          "left_shoulder_slope" : {
+            "type" : "string",
+            "description" : "left shoulder slope (id=VcodUmarStang; lbl=LEFT SHOULDER / LOW si / HIGH; param=code_epaule_gauche)",
+            "enum" : [ "500", "505", "506", "507", "501", "502", "503" ]
+          },
+          "right_shoulder_slope" : {
+            "type" : "string",
+            "description" : "left shoulder slope (id=VcodUmarDrept; lbl=RIGHT SHOULDER / LOW si / HIGH; param=code_epaule_droite)",
+            "enum" : [ "600", "605", "606", "607", "601", "602", "603" ]
+          },
+          "jacket_vents" : {
             "type" : "number",
-            "description" : "Jacket first button position"
+            "format" : "double",
+            "description" : "jacket vents length  (id=Vfente; lbl=VENTS; param=v_fente)"
           },
-          "vents" : {
+          "first_button" : {
             "type" : "number",
-            "description" : "Jacket vents length"
-          },
-          "half_waist" : {
-            "type" : "number",
-            "description" : "Jacket 1/2 waist"
-          }
-        }
-      },
-      "JacketPrimaryAlteration" : {
-        "type" : "object",
-        "properties" : {
-          "description" : {
-            "type" : "string"
-          },
-          "code" : {
-            "type" : "string"
-          },
-          "alterations" : {
-            "description" : "List of variations",
-            "type" : "array",
-            "items" : {
-              "type" : "object"
-            }
+            "format" : "double",
+            "description" : "first button possition (id=V1ErBouton; lbl=FIRST BUTTON POSITION; param=v_1er_bouton)"
           }
         }
       },
