@@ -4168,37 +4168,37 @@
             "type" : "integer",
             "description" : "trousers quantity (id=Pcant; lbl=QTY; param=pantalon_qte)",
             "format" : "int32",
-            "default" : 1
+            "default" : 0
           },
           "model" : {
             "type" : "string",
             "description" : "Trouser Model name  (id=Pmodel; lbl=MODEL; param=modele_pantalon)",
-            "default" : "P05"
+            "default" : ""
           },
           "front_pockets" : {
             "type" : "string",
             "description" : "Trouser front pockets  (id=PbuzunareFata; lbl=FRONT POCKETS; param=poches_devant)",
-            "default" : "B"
+            "default" : ""
           },
           "back_pockets" : {
             "type" : "string",
             "description" : "Trouser back pockets  (id=PbuzunareSpate; lbl=BACK POCKETS; param=poches_dos)",
-            "default" : "2"
+            "default" : ""
           },
           "front_crease" : {
             "type" : "string",
             "description" : "Trouser front crease name",
-            "default" : "P1"
+            "default" : ""
           },
           "lining" : {
             "type" : "string",
             "description" : "Trouser lining  (id=Pdoubl; lbl=LINING; param=doublure)",
-            "default" : "A"
+            "default" : ""
           },
           "bottom_finish" : {
             "type" : "string",
             "description" : "Trouser bottom finish  (id=Pterminatie; lbl=BOTTOM; param=finition_bas)",
-            "default" : "PF3"
+            "default" : ""
           },
           "buttons" : {
             "type" : "string",
@@ -4211,7 +4211,7 @@
           "size" : {
             "type" : "string",
             "description" : "Trouser Size",
-            "default" : "42"
+            "default" : ""
           },
           "measurements" : {
             "$ref" : "#/components/schemas/TrouserMeasurements"
@@ -4222,7 +4222,7 @@
               "type" : "string",
               "description" : "List of secondary options  (id=Poptions; lbl=SECONDARY OPTIONS; param=p_options)"
             },
-            "default" : [ "AMF", "P0D" ]
+            "default" : [ "" ]
           },
           "alterations" : {
             "type" : "array",
@@ -4230,12 +4230,11 @@
               "type" : "string",
               "description" : "List of alterations  (id=Palterations; lbl=ALTERATIONS; param=p_alterations)"
             },
-            "default" : [ "381L", "306M", "391GL" ]
+            "default" : [ "" ]
           },
           "pleat" : {
             "type" : "string",
             "description" : "pleat (id=PpliuriFata; lbl=PLEAT; param=plis_devant)",
-            "enum" : [ "", "P0", "PSF", "P1A", "P1B", "P2A", "P2B" ],
             "default" : ""
           },
           "satin_color" : {
@@ -4251,7 +4250,6 @@
           "construction_and_making" : {
             "type" : "string",
             "description" : "constructin and making (id=Pconstructie; lbl=CONSTRUCTION & MAKING; param=Pconstruction)",
-            "enum" : [ "", "PCSTD", "PCSA", "PCSAWP", "PCSTR" ],
             "default" : ""
           },
           "fabric_ref" : {
@@ -4261,14 +4259,11 @@
           "waistband" : {
             "type" : "string",
             "description" : "waistband  (id=PWaistband; lbl=WAISTBAND; param=Waistband si p_options)",
-            "enum" : [ "", "CRM", "CRMP", "CRE", "CROP", "CRP", "WB6", "PBW", "CN", "CB", "CE102", "CE100" ],
             "default" : ""
           },
           "size_tried" : {
-            "type" : "integer",
-            "format" : "int32",
-            "description" : "size tried  (id=PmarimeIncercata; lbl=SIZE TRIED; param=taillep)",
-            "enum" : [ 0, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76 ]
+            "type" : "string",
+            "description" : "size tried  (id=PmarimeIncercata; lbl=SIZE TRIED; param=taillep)"
           },
           "finished_inseam_right" : {
             "type" : "integer",
