@@ -2624,16 +2624,20 @@ components:
         main_lining:
           type: string
           description: main lining (id=VdoublA; lbl=MAIN LINING - A; param=doublure_a)
+          default: ""
         sleeve_lining:
           type: string
           description: sleeve_lining (id=VdoublA; lbl=SLEEVE LINING - B; param=doublure_b)
+          default: ""
         buttons:
           type: string
           description: Jacket Buttons type name  (id=Vnasturi; lbl=BUTTONS; param=boutons)
+          default: ""
         collar_felt:
           type: string
           description: Jacket Collar Felt type name  (id=Vguler; lbl=COLLAR FELT;
             param=feutre)
+          default: ""
         monogram:
           $ref: '#/components/schemas/Monogram'
         lapel_buttonhole:
@@ -2714,33 +2718,42 @@ components:
           type: string
           description: Jacket Collar Felt type name (id=Vcoud; lbl=ALCANTRA COLOR;
             param=coudieres)
+          default: ""
         satin_color:
           type: string
           description: satin color (id=Vsatinsel; lbl=SATIN COLOR; param=Vsatin)
+          default: ""
         detachable_inlay_color:
           type: string
           description: detachable inlay color (id=Vpippingsel; lbl=DETACHABLE INLAY
             COLOR; param=Vinlay)
+          default: ""
         collar_contrast_color:
           type: string
           description: collar contrast color (id=Vcollarcontrsel; lbl=COLLAR CONTRAST
             COLOR; param=Vcollar)
+          default: ""
         piping_color:
           type: string
           description: piping color (id=Vpippingsel; lbl=COLLAR CONTRAST COLOR; param=Vpipping)
+          default: ""
         cuff_contrasted:
           type: string
           description: cuff constrasted (id=Vccxsel; lbl=CUFF CONTRASTED; param=VcuffColor)
+          default: ""
         fake_handkerchief:
           type: string
           description: fake handkerchief (id=Vfpsel; lbl=FAKE HANDKERCHIEF; param=VfpColor)
+          default: ""
         contrast_thread:
           type: string
           description: contrast thread (id=VfilContrasti; lbl=CONTRAST THREAD; param=VfilContrast)
+          default: ""
         bow_tie_fabric:
           type: string
           description: Bow tie frabic reference  (id=PpcodTesatura; lbl=BOWTIE FABRIC
             REF; param=tissu_papion)
+          default: ""
         bow_tie_quantity:
           type: integer
           description: Bow tie quantity(id=Ppcant; lbl=QTY; param=papion_qte)
@@ -2749,6 +2762,7 @@ components:
         lavaliere_ref_name:
           type: string
           description: Lavaliere reference  (id=CcodTesatura; lbl=LAVARIERE REF; param=tissu_cravaliere)
+          default: ""
         lavaliere_quantity:
           type: integer
           description: Lavaliere quantity  (id=Ccant; lbl=QTY; param=cravaliere_qte)
@@ -2758,6 +2772,7 @@ components:
           type: string
           description: Handkerchief frabic reference  (id=BcodTesatura; lbl=HANDKERCHIEF
             FABRIC; param=tissu_pochette)
+          default: ""
         handkerchief_quantity:
           type: integer
           description: Handkerchief quantity  (id=Bcant; lbl=QTY; param=pochette_qte)
@@ -3035,6 +3050,7 @@ components:
         buttons:
           type: string
           description: Trouser Buttons type name  (id=Pnasturi; lbl=BUTTONS; param=boutons_pant)
+          default: ""
         monogram:
           $ref: '#/components/schemas/Monogram'
         size:
@@ -3074,9 +3090,14 @@ components:
         satin_color:
           type: string
           description: satin color (id=Psatinsel; lbl=SATIN COLOR; param=Psatin)
+          default: ""
         piping_color:
           type: string
           description: piping color (id=Ppippingsel; lbl=PIPING COLOR; param=Ppipping)
+          default: ""
+        construction_&_making:
+          type: string
+          default: ""
     TrouserModel:
       type: object
       properties:
