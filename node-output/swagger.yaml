@@ -3108,6 +3108,11 @@ components:
           - PCSAWP
           - PCSTR
           default: ""
+        fabric_ref:
+          type: string
+          description: trousers fabric refference  (id=PcodTesatura; lbl=TROUSERS
+            FABRIC REF; param=tissu_pantalon)
+          default: ""
     TrouserModel:
       type: object
       properties:
