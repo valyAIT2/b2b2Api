@@ -4223,6 +4223,7 @@
           "fabric_ref" : {
             "type" : "string",
             "description" : "trousers fabric refference  (id=PcodTesatura; lbl=TROUSERS FABRIC REF; param=tissu_pantalon)",
+            "enum" : [ "", "PcodTesatura", "PcodTesaturaCoupe", "PcodTesaturaCoupeFurniz", "PcodTesaturaCoupeComande", "PcodTesaturaCoupeDataPrev", "PcodTesaturaCoupeIdCatalog", "PcodTesaturaCoupeTip", "PcodTesaturaStock" ],
             "default" : ""
           }
         }
