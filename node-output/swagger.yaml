@@ -3181,6 +3181,7 @@ components:
         size_tried:
           type: integer
           description: size tried  (id=PmarimeIncercata; lbl=SIZE TRIED; param=taillep)
+          format: int32
           enum:
           - 0
           - 38
@@ -3203,7 +3204,16 @@ components:
           - 72
           - 74
           - 76
-          default: 0
+        finished_inseam_right:
+          type: integer
+          description: finished inseam right  (id=Pentrejambe; lbl=FINISHED INSEAM
+            / RIGHT; param=entrejambe)
+          format: int32
+        finished_inseam_left:
+          type: integer
+          description: finished inseam left  (id=Pentrejambe_st; lbl=FINISHED INSEAM
+            / LEFT; param=entrejambe_st)
+          format: int32
     TrouserModel:
       type: object
       properties:
