@@ -4811,6 +4811,34 @@
             "enum" : [ "ZERO GRAVITY", "TESK", "PRESTIGE SOFT", "PRESTIGE", "SIES", "SEMI-TRAD SOFT", "SEMI-TRAD", "TRADITIONALA SOFT", "TRADITIONALA", "TESKW45", "TESKW25" ],
             "default" : "PRESTIGE"
           },
+          "attitude" : {
+            "type" : "string",
+            "description" : "Stooped position (id=VcodeAtitude; lbl=BENT/ERECT POSTURE; param=code_attitude)",
+            "enum" : [ "401", "402", "403", "405", "406", "407" ]
+          },
+          "poitrine" : {
+            "type" : "string",
+            "description" : "chest (id=VcodePoitrine; lbl=CHEST; param=code_poitrine)",
+            "enum" : [ "802", "803", "804" ]
+          },
+          "umar_stang" : {
+            "type" : "string",
+            "description" : "umar stang (id=VcodUmarStang; lbl=LEFT SHOULDER / LOW si / HIGH; param=code_epaule_gauche)",
+            "enum" : [ "505", "506", "507", "501", "502", "503" ]
+          },
+          "umar_drept" : {
+            "type" : "string",
+            "description" : "umar drept (id=VcodUmarDrept; lbl=RIGHT SHOULDER / LOW si / HIGH; param=code_epaule_droite)",
+            "enum" : [ "605", "606", "607", "601", "602", "603" ]
+          },
+          "jacket_vents" : {
+            "type" : "string",
+            "description" : "jacket vents  (id=Vfente; lbl=VENTS; param=v_fente)"
+          },
+          "first_button" : {
+            "type" : "string",
+            "description" : "first button (id=V1ErBouton; lbl=FIRST BUTTON POSITION; param=v_1er_bouton)"
+          },
           "sleeve_head" : {
             "type" : "string",
             "description" : "Jacket Sleeve Head name  (id=VcapManeca; lbl=SLEEVE HEAD; param=capmaneca)",
@@ -4873,21 +4901,21 @@
           },
           "lapel_buttonhole" : {
             "type" : "string",
-            "description" : "lapel buttonhole (id=VnasturiReversel; lbl=LAPEL BUTTONHOLE; param=boutonniere_revers)"
+            "description" : "lapel buttonhole (id=VnasturiReversel; lbl= CONTRAST BUTTONHOLES / LAPEL BUTTONHOLE; param=boutonniere_revers)"
           },
           "cma1" : {
             "type" : "boolean",
-            "description" : "Sleeves Contrast Buttonhole 1 (id=cma1; lbl=CONTRAST BUTTONHOLES/Sleeve 1; param=cma1)",
+            "description" : "Sleeves Contrast Buttonhole 1 (id=cma1; lbl=CONTRAST BUTTONHOLES / CONTRAST BUTTONHOLES / Sleeves; param=cma1)",
             "default" : false
           },
           "cma2" : {
             "type" : "boolean",
-            "description" : "Sleeves Contrast Buttonhole 2 (id=cma2; lbl=CONTRAST BUTTONHOLES/Sleeve 2; param=cma2)",
+            "description" : "Sleeves Contrast Buttonhole 2 (id=cma2; lbl=CONTRAST BUTTONHOLES / CONTRAST BUTTONHOLES / Sleeves; param=cma2)",
             "default" : false
           },
           "cma3" : {
             "type" : "boolean",
-            "description" : "Sleeves Contrast Buttonhole 3 (id=cma3; lbl=CONTRAST BUTTONHOLES/Sleeve 3; param=cma3)",
+            "description" : "Sleeves Contrast Buttonhole 3 (id=cma3; lbl=CONTRAST BUTTONHOLES / CONTRAST BUTTONHOLES / Sleeves; param=cma3)",
             "default" : false
           },
           "cma4" : {
@@ -4939,9 +4967,20 @@
             "type" : "array",
             "items" : {
               "type" : "string",
-              "description" : "List of secondary options"
+              "description" : "List of secondary options (id=Voptions; lbl=; param=v_options)"
             },
             "default" : [ "A5", "BXC" ]
+          },
+          "alterations" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "description" : "List of secondary alteration options (id=Valterations; lbl=; param=v_alterations)"
+            }
+          },
+          "elbow_patch" : {
+            "type" : "string",
+            "description" : "Jacket Collar Felt type name (id=Vcoud; lbl=ALCANTRA COLOR; param=coudieres)"
           },
           "satin_color" : {
             "type" : "string",
@@ -5016,13 +5055,13 @@
             "format" : "int32",
             "default" : 0
           },
-          "sleeve_length_left_size" : {
+          "sleeve_length_left" : {
             "type" : "integer",
             "description" : "sleeve length left size  (id=VlungimeManecaStanga; lbl=SLEEVE LENGTH / LEFT; param=manche_gauche)",
             "format" : "int32",
             "default" : 0
           },
-          "sleeve_length_right_size" : {
+          "sleeve_length_right" : {
             "type" : "integer",
             "description" : "sleeve right left size  (id=VlungimeManecaDreapta; lbl=SLEEVE LENGTH / RIGHT; param=manche_droite)",
             "format" : "int32",
