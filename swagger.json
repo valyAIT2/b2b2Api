@@ -3636,7 +3636,7 @@
           },
           "base" : {
             "type" : "string",
-            "description" : "Jacket Base name (id=v_model_essaye; lbl=BASE; param=VmodelIncercat)",
+            "description" : "Jacket Base name (id=VmodelIncercat; lbl=BASE; param=modele)",
             "default" : "G"
           },
           "front" : {
@@ -3662,12 +3662,12 @@
           },
           "cuffs" : {
             "type" : "string",
-            "description" : "Jacket cuffs",
+            "description" : "Jacket cuffs (id=VbutoniereManeca; lbl=CUFFS; param=v_options)",
             "default" : "BO4"
           },
           "amf" : {
             "type" : "string",
-            "description" : "Jacket amf",
+            "description" : "Jacket amf (id=VAMF; lbl=AMF; param=v_options)",
             "enum" : [ "A1", "A11", "A12", "A5", "A51", "A52", "S2", "S5" ],
             "default" : "A1"
           },
@@ -3758,9 +3758,9 @@
           },
           "secondary_options" : {
             "type" : "array",
-            "description" : "List of secondary options (id=Voptions; lbl=; param=v_options)",
             "items" : {
-              "type" : "string"
+              "type" : "string",
+              "description" : "List of secondary options (id=Voptions; lbl=; param=v_options)"
             }
           },
           "elbow_patch" : {
@@ -4025,7 +4025,7 @@
           },
           "chest" : {
             "type" : "string",
-            "description" : "chest (id=VcodePoitrine; lbl=CHEST; param=VcodePoitrine)",
+            "description" : "chest (id=VcodePoitrine; lbl=CHEST; param=code_poitrine)",
             "enum" : [ "800", "802", "803", "804" ]
           },
           "left_shoulder_slope" : {
@@ -4109,50 +4109,49 @@
       },
       "Trousers" : {
         "type" : "object",
-        "required" : [ "quantity", "model", "front_pockets", "back_pockets", "front_crease", "lining", "bottom_finish", "size" ],
+        "required" : [ "quantity", "model_name", "front_pockets_name", "back_pockets_name", "front_crease_name", "lining_name", "bottom_finish_name", "size" ],
         "properties" : {
           "fabric" : {
             "$ref" : "#/components/schemas/Fabric"
           },
           "quantity" : {
             "type" : "integer",
-            "description" : "trousers quantity (id=Pcant; lbl=QTY; param=pantalon_qte)",
             "format" : "int32",
-            "default" : 1
+            "default" : 0
           },
-          "model" : {
+          "model_name" : {
             "type" : "string",
-            "description" : "Trouser Model name  (id=Pmodel; lbl=MODEL; param=modele_pantalon)",
+            "description" : "Trouser Model name",
             "default" : "P05"
           },
-          "front_pockets" : {
+          "front_pockets_name" : {
             "type" : "string",
-            "description" : "Trouser front pockets  (id=PbuzunareFata; lbl=FRONT POCKETS; param=poches_devant)",
+            "description" : "Trouser front pockets",
             "default" : "B"
           },
-          "back_pockets" : {
+          "back_pockets_name" : {
             "type" : "string",
-            "description" : "Trouser back pockets  (id=PbuzunareSpate; lbl=BACK POCKETS; param=poches_dos)",
+            "description" : "Trouser back pockets",
             "default" : "2"
           },
-          "front_crease" : {
+          "front_crease_name" : {
             "type" : "string",
             "description" : "Trouser front crease name",
             "default" : "P1"
           },
-          "lining" : {
+          "lining_name" : {
             "type" : "string",
-            "description" : "Trouser lining  (id=Pdoubl; lbl=LINING; param=doublure)",
+            "description" : "Trouser lining",
             "default" : "A"
           },
-          "bottom_finish" : {
+          "bottom_finish_name" : {
             "type" : "string",
-            "description" : "Trouser bottom finish  (id=Pterminatie; lbl=BOTTOM; param=finition_bas)",
+            "description" : "Trouser bottom finish",
             "default" : "PF3"
           },
-          "buttons" : {
+          "buttons_name" : {
             "type" : "string",
-            "description" : "Trouser Buttons type name  (id=Pnasturi; lbl=BUTTONS; param=boutons_pant)"
+            "description" : "Trouser Buttons type name"
           },
           "monogram" : {
             "$ref" : "#/components/schemas/Monogram"
@@ -4169,7 +4168,7 @@
             "type" : "array",
             "items" : {
               "type" : "string",
-              "description" : "List of secondary options  (id=Poptions; lbl=SECONDARY OPTIONS; param=p_options)"
+              "description" : "List of secondary options"
             },
             "default" : [ "AMF", "P0D" ]
           },
@@ -4177,22 +4176,9 @@
             "type" : "array",
             "items" : {
               "type" : "string",
-              "description" : "List of alterations  (id=Palterations; lbl=ALTERATIONS; param=p_alterations)"
+              "description" : "List of alterations"
             },
             "default" : [ "381L", "306M", "391GL" ]
-          },
-          "pleat" : {
-            "type" : "string",
-            "description" : "pleat (id=PpliuriFata; lbl=PLEAT; param=plis_devant)",
-            "enum" : [ "P0", "PSF", "P1A", "P1B", "P2A", "P2B" ]
-          },
-          "satin_color" : {
-            "type" : "string",
-            "description" : "satin color (id=Psatinsel; lbl=SATIN COLOR; param=Psatin)"
-          },
-          "piping_color" : {
-            "type" : "string",
-            "description" : "piping color (id=Ppippingsel; lbl=PIPING COLOR; param=Ppipping)"
           }
         }
       },
@@ -4394,7 +4380,7 @@
           "quantity" : {
             "type" : "integer",
             "format" : "int32",
-            "default" : 1
+            "default" : 0
           },
           "model_name" : {
             "type" : "string",
@@ -4590,7 +4576,8 @@
           "status" : {
             "type" : "string",
             "description" : "Order status",
-            "enum" : [ "standby", "new" ]
+            "enum" : [ "standby", "new" ],
+            "default" : "standby"
           },
           "mtm_type" : {
             "type" : "string",
@@ -4603,27 +4590,17 @@
           },
           "client_firstname" : {
             "type" : "string",
-            "description" : "Client First Name",
+            "description" : "Client First Name (param=prenom_client)",
             "default" : "John"
           },
           "client_lastname" : {
             "type" : "string",
-            "description" : "Client Last Name",
+            "description" : "Client Last Name (param=nom_client)",
             "default" : "Doe"
-          },
-          "client_email" : {
-            "type" : "string",
-            "description" : "Client email",
-            "default" : ""
-          },
-          "client_phone" : {
-            "type" : "string",
-            "description" : "Client Phone",
-            "default" : ""
           },
           "internal_order_no" : {
             "type" : "string",
-            "description" : "Customer Internal Order Id",
+            "description" : "Customer Internal Order Id (param=externalDocument)",
             "default" : "test00"
           },
           "body_measurements" : {
@@ -4640,13 +4617,8 @@
           },
           "observations" : {
             "type" : "string",
-            "description" : "Observations about order",
+            "description" : "Observations about order (param=observatii)",
             "default" : "this is a comment"
-          },
-          "shipment_address" : {
-            "type" : "string",
-            "description" : "Shipment Address ( default empty, see GET /shipment_addresses )",
-            "default" : ""
           }
         }
       },
