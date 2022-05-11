@@ -4281,6 +4281,16 @@
             "type" : "integer",
             "format" : "int32",
             "description" : "finished inseam left  (id=Pentrejambe_st; lbl=FINISHED INSEAM / LEFT; param=entrejambe_st)"
+          },
+          "1/2_waist" : {
+            "type" : "integer",
+            "format" : "int32",
+            "description" : "1/2 waist   (id=PdemiTaille; lbl=1/2 WAIST; param=demi_taille)"
+          },
+          "1/2_bottom" : {
+            "type" : "integer",
+            "format" : "int32",
+            "description" : "1/2 bottom    (id=PdemiBas; lbl=1/2 BOTTOM WIDTH; param=demi_bas)"
           }
         }
       },
