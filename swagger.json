@@ -4142,17 +4142,17 @@
           },
           "lining" : {
             "type" : "string",
-            "description" : "Trouser lining",
+            "description" : "Trouser lining  (id=Pdoubl; lbl=LINING; param=doublure)",
             "default" : "A"
           },
           "bottom_finish" : {
             "type" : "string",
-            "description" : "Trouser bottom finish",
+            "description" : "Trouser bottom finish  (id=Pterminatie; lbl=BOTTOM; param=finition_bas)",
             "default" : "PF3"
           },
           "buttons" : {
             "type" : "string",
-            "description" : "Trouser Buttons type name"
+            "description" : "Trouser Buttons type name  (id=Pnasturi; lbl=BUTTONS; param=boutons_pant)"
           },
           "monogram" : {
             "$ref" : "#/components/schemas/Monogram"
@@ -4169,7 +4169,7 @@
             "type" : "array",
             "items" : {
               "type" : "string",
-              "description" : "List of secondary options"
+              "description" : "List of secondary options  (id=Poptions; lbl=SECONDARY OPTIONS; param=p_options)"
             },
             "default" : [ "AMF", "P0D" ]
           },
@@ -4177,7 +4177,7 @@
             "type" : "array",
             "items" : {
               "type" : "string",
-              "description" : "List of alterations"
+              "description" : "List of alterations  (id=Palterations; lbl=ALTERATIONS; param=p_alterations)"
             },
             "default" : [ "381L", "306M", "391GL" ]
           }
