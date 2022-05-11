@@ -3081,12 +3081,14 @@ components:
           type: string
           description: pleat (id=PpliuriFata; lbl=PLEAT; param=plis_devant)
           enum:
+          - ""
           - P0
           - PSF
           - P1A
           - P1B
           - P2A
           - P2B
+          default: ""
         satin_color:
           type: string
           description: satin color (id=Psatinsel; lbl=SATIN COLOR; param=Psatin)
@@ -3095,8 +3097,16 @@ components:
           type: string
           description: piping color (id=Ppippingsel; lbl=PIPING COLOR; param=Ppipping)
           default: ""
-        construction_&_making:
+        construction_and_making:
           type: string
+          description: constructin and making (id=Pconstructie; lbl=CONSTRUCTION &
+            MAKING; param=Pconstruction)
+          enum:
+          - ""
+          - PCSTD
+          - PCSA
+          - PCSAWP
+          - PCSTR
           default: ""
     TrouserModel:
       type: object
