@@ -4932,6 +4932,27 @@
             "type" : "string"
           }
         }
+      },
+      "Saveorder" : {
+        "type" : "object",
+        "properties" : {
+          "status" : {
+            "type" : "integer",
+            "format" : "int32",
+            "description" : "1=success, 0=failed"
+          },
+          "code" : {
+            "type" : "string",
+            "description" : "W order number"
+          },
+          "orderid" : {
+            "type" : "string"
+          },
+          "debug" : {
+            "type" : "string",
+            "description" : "null if all ok, a warning mesage if something is wrong"
+          }
+        }
       }
     }
   }
