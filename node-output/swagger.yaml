@@ -3214,6 +3214,14 @@ components:
           description: finished inseam left  (id=Pentrejambe_st; lbl=FINISHED INSEAM
             / LEFT; param=entrejambe_st)
           format: int32
+        "1/2_waist":
+          type: integer
+          description: 1/2 waist   (id=PdemiTaille; lbl=1/2 WAIST; param=demi_taille)
+          format: int32
+        "1/2_bottom":
+          type: integer
+          description: 1/2 bottom    (id=PdemiBas; lbl=1/2 BOTTOM WIDTH; param=demi_bas)
+          format: int32
     TrouserModel:
       type: object
       properties:
