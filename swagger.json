@@ -3300,29 +3300,6 @@
         }
       }
     },
-    "/orders_dateexport" : {
-      "post" : {
-        "tags" : [ "Order" ],
-        "summary" : "Estimate export date for a new order",
-        "description" : "",
-        "operationId" : "estimateOrder",
-        "requestBody" : {
-          "content" : {
-            "application/json" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/Order"
-              }
-            }
-          },
-          "description" : "Order object that needs to be estimated"
-        },
-        "responses" : {
-          "405" : {
-            "description" : "Invalid input"
-          }
-        }
-      }
-    },
     "/shipment_addresses" : {
       "get" : {
         "summary" : "Shipment Addresses",
