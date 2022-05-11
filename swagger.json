@@ -3555,7 +3555,8 @@
         "properties" : {
           "name" : {
             "type" : "string",
-            "description" : "Unique identifier representing a fabric."
+            "description" : "Unique identifier representing a fabric.",
+            "default" : ""
           },
           "coupon" : {
             "type" : "boolean",
@@ -3584,7 +3585,8 @@
           },
           "coupon_idcatalog" : {
             "type" : "string",
-            "description" : "Fabric id catalog"
+            "description" : "Fabric id catalog",
+            "default" : ""
           }
         }
       },
@@ -3851,7 +3853,8 @@
         "properties" : {
           "name" : {
             "type" : "string",
-            "description" : "Unique identifier representing a jacket base."
+            "description" : "Unique identifier representing a jacket base.",
+            "default" : ""
           }
         }
       },
@@ -3860,11 +3863,13 @@
         "properties" : {
           "name" : {
             "type" : "string",
-            "description" : "Jacket model name."
+            "description" : "Jacket model name.",
+            "default" : ""
           },
           "short_name" : {
             "type" : "string",
-            "description" : "Short Jacket model name."
+            "description" : "Short Jacket model name.",
+            "default" : ""
           }
         }
       },
@@ -3873,11 +3878,13 @@
         "properties" : {
           "name" : {
             "type" : "string",
-            "description" : "Unique identifier representing a jacket construction."
+            "description" : "Unique identifier representing a jacket construction.",
+            "default" : ""
           },
           "translated_name" : {
             "type" : "string",
-            "description" : "Translated jacket construction name."
+            "description" : "Translated jacket construction name.",
+            "default" : ""
           }
         }
       },
@@ -3886,11 +3893,13 @@
         "properties" : {
           "name" : {
             "type" : "string",
-            "description" : "Unique identifier representing a jacket sleeve head."
+            "description" : "Unique identifier representing a jacket sleeve head.",
+            "default" : ""
           },
           "translated_name" : {
             "type" : "string",
-            "description" : "Translated jacket sleeve head name."
+            "description" : "Translated jacket sleeve head name.",
+            "default" : ""
           }
         }
       },
@@ -3899,11 +3908,13 @@
         "properties" : {
           "id" : {
             "type" : "string",
-            "description" : "Unique identifier representing a jacket interior."
+            "description" : "Unique identifier representing a jacket interior.",
+            "default" : ""
           },
           "name" : {
             "type" : "string",
-            "description" : "Translated jacket interior name."
+            "description" : "Translated jacket interior name.",
+            "default" : ""
           }
         }
       },
@@ -3912,11 +3923,13 @@
         "properties" : {
           "id" : {
             "type" : "string",
-            "description" : "Unique identifier representing a jacket lining."
+            "description" : "Unique identifier representing a jacket lining.",
+            "default" : ""
           },
           "value" : {
             "type" : "string",
-            "description" : "value for lining."
+            "description" : "value for lining.",
+            "default" : ""
           }
         }
       },
@@ -3925,11 +3938,13 @@
         "properties" : {
           "id" : {
             "type" : "string",
-            "description" : "Unique identifier representing a jacket pocket."
+            "description" : "Unique identifier representing a jacket pocket.",
+            "default" : ""
           },
           "description" : {
             "type" : "string",
-            "description" : "Description of jacket pocket."
+            "description" : "Description of jacket pocket.",
+            "default" : ""
           }
         }
       },
@@ -3938,11 +3953,13 @@
         "properties" : {
           "id" : {
             "type" : "string",
-            "description" : "Unique identifier representing a jacket vent."
+            "description" : "Unique identifier representing a jacket vent.",
+            "default" : ""
           },
           "description" : {
             "type" : "string",
-            "description" : "Description of jacket vent."
+            "description" : "Description of jacket vent.",
+            "default" : ""
           }
         }
       },
@@ -3951,7 +3968,8 @@
         "properties" : {
           "name" : {
             "type" : "string",
-            "description" : "Unique identifier representing a jacket button."
+            "description" : "Unique identifier representing a jacket button.",
+            "default" : ""
           }
         }
       },
@@ -3960,11 +3978,13 @@
         "properties" : {
           "id" : {
             "type" : "string",
-            "description" : "Unique identifier representing a jacket lapel buttonhole."
+            "description" : "Unique identifier representing a jacket lapel buttonhole.",
+            "default" : ""
           },
           "description" : {
             "type" : "string",
-            "description" : "Description of jacket lapel buttonhole."
+            "description" : "Description of jacket lapel buttonhole.",
+            "default" : ""
           }
         }
       },
@@ -3973,7 +3993,8 @@
         "properties" : {
           "name" : {
             "type" : "string",
-            "description" : "Unique identifier representing a jacket collar felt."
+            "description" : "Unique identifier representing a jacket collar felt.",
+            "default" : ""
           }
         }
       },
@@ -3982,7 +4003,8 @@
         "properties" : {
           "name" : {
             "type" : "string",
-            "description" : "Unique identifier representing a jacket elbow patch."
+            "description" : "Unique identifier representing a jacket elbow patch.",
+            "default" : ""
           }
         }
       },
@@ -3991,7 +4013,8 @@
         "properties" : {
           "name" : {
             "type" : "string",
-            "description" : "Unique identifier representing a jacket contrast thread."
+            "description" : "Unique identifier representing a jacket contrast thread.",
+            "default" : ""
           }
         }
       },
@@ -3999,10 +4022,12 @@
         "type" : "object",
         "properties" : {
           "description" : {
-            "type" : "string"
+            "type" : "string",
+            "default" : ""
           },
           "name" : {
-            "type" : "string"
+            "type" : "string",
+            "default" : ""
           }
         }
       },
@@ -4011,7 +4036,8 @@
         "properties" : {
           "size" : {
             "type" : "string",
-            "description" : "Jacket size name."
+            "description" : "Jacket size name.",
+            "default" : ""
           }
         }
       },
@@ -4020,7 +4046,8 @@
         "properties" : {
           "size" : {
             "type" : "string",
-            "description" : "Jacket size (id=VmarimeIncercata; lbl=SIZE TRIED; param=taillev)"
+            "description" : "Jacket size (id=VmarimeIncercata; lbl=SIZE TRIED; param=taillev)",
+            "default" : ""
           },
           "total_length" : {
             "type" : "number",
@@ -4037,22 +4064,26 @@
           "posture" : {
             "type" : "string",
             "description" : "Body posture (id=VcodeAtitude; lbl=BENT/ERECT POSTURE; param=code_attitude)",
-            "enum" : [ "400", "401", "402", "403", "405", "406", "407" ]
+            "default" : "",
+            "enum" : [ "", "400", "401", "402", "403", "405", "406", "407" ]
           },
           "chest" : {
             "type" : "string",
             "description" : "chest (id=VcodePoitrine; lbl=CHEST; param=VcodePoitrine)",
-            "enum" : [ "800", "802", "803", "804" ]
+            "enum" : [ "", "800", "802", "803", "804" ],
+            "default" : ""
           },
           "left_shoulder_slope" : {
             "type" : "string",
             "description" : "left shoulder slope (id=VcodUmarStang; lbl=LEFT SHOULDER / LOW si / HIGH; param=code_epaule_gauche)",
-            "enum" : [ "500", "505", "506", "507", "501", "502", "503" ]
+            "enum" : [ "", "500", "505", "506", "507", "501", "502", "503" ],
+            "default" : ""
           },
           "right_shoulder_slope" : {
             "type" : "string",
             "description" : "left shoulder slope (id=VcodUmarDrept; lbl=RIGHT SHOULDER / LOW si / HIGH; param=code_epaule_droite)",
-            "enum" : [ "600", "605", "606", "607", "601", "602", "603" ]
+            "enum" : [ "", "600", "605", "606", "607", "601", "602", "603" ],
+            "default" : ""
           },
           "jacket_vents" : {
             "type" : "number",
@@ -4069,7 +4100,8 @@
             "items" : {
               "type" : "string",
               "description" : "List of secondary Alterations (id=Voptions; lbl=; param=Valterations)"
-            }
+            },
+            "default" : ""
           }
         }
       },
@@ -4077,10 +4109,12 @@
         "type" : "object",
         "properties" : {
           "description" : {
-            "type" : "string"
+            "type" : "string",
+            "default" : ""
           },
           "code" : {
-            "type" : "string"
+            "type" : "string",
+            "default" : ""
           },
           "alterations" : {
             "description" : "List of variations",
@@ -4637,7 +4671,8 @@
           },
           "oldorderno" : {
             "type" : "string",
-            "description" : "use this id to modify an existing order (Ex=W762096)"
+            "description" : "use this id to modify an existing order (Ex=W762096)",
+            "default" : ""
           },
           "client_firstname" : {
             "type" : "string",
@@ -4756,11 +4791,13 @@
         "properties" : {
           "name" : {
             "type" : "string",
-            "description" : "Unique identifier representing a shirt base."
+            "description" : "Unique identifier representing a shirt base.",
+            "default" : ""
           },
           "description" : {
             "type" : "string",
-            "description" : "Descrption of a shirt base."
+            "description" : "Descrption of a shirt base.",
+            "default" : ""
           }
         }
       },
