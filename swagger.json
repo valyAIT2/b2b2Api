@@ -3300,6 +3300,29 @@
         }
       }
     },
+    "/orders_dateexport" : {
+      "post" : {
+        "tags" : [ "Order" ],
+        "summary" : "Estimate export date for a new order",
+        "description" : "",
+        "operationId" : "estimateOrder",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/Order"
+              }
+            }
+          },
+          "description" : "Order object that needs to be estimated"
+        },
+        "responses" : {
+          "405" : {
+            "description" : "Invalid input"
+          }
+        }
+      }
+    },
     "/shipment_addresses" : {
       "get" : {
         "summary" : "Shipment Addresses",
@@ -3613,7 +3636,7 @@
           },
           "base" : {
             "type" : "string",
-            "description" : "Jacket Base name (id=VmodelIncercat; lbl=BASE; param=modele)",
+            "description" : "Jacket Base name (id=v_model_essaye; lbl=BASE; param=VmodelIncercat)",
             "default" : "G"
           },
           "front" : {
@@ -3639,30 +3662,34 @@
           },
           "cuffs" : {
             "type" : "string",
-            "description" : "Jacket cuffs (id=VbutoniereManeca; lbl=CUFFS; param=v_options)",
+            "description" : "Jacket cuffs",
             "default" : "BO4"
           },
           "amf" : {
             "type" : "string",
-            "description" : "Jacket amf (id=VAMF; lbl=AMF; param=v_options)",
+            "description" : "Jacket amf",
             "enum" : [ "A1", "A11", "A12", "A5", "A51", "A52", "S2", "S5" ],
             "default" : "A1"
           },
           "main_lining" : {
             "type" : "string",
-            "description" : "main lining (id=VdoublA; lbl=MAIN LINING - A; param=doublure_a)"
+            "description" : "main lining (id=VdoublA; lbl=MAIN LINING - A; param=doublure_a)",
+            "default" : ""
           },
           "sleeve_lining" : {
             "type" : "string",
-            "description" : "sleeve_lining (id=VdoublA; lbl=SLEEVE LINING - B; param=doublure_b)"
+            "description" : "sleeve_lining (id=VdoublA; lbl=SLEEVE LINING - B; param=doublure_b)",
+            "default" : ""
           },
           "buttons" : {
             "type" : "string",
-            "description" : "Jacket Buttons type name  (id=Vnasturi; lbl=BUTTONS; param=boutons)"
+            "description" : "Jacket Buttons type name  (id=Vnasturi; lbl=BUTTONS; param=boutons)",
+            "default" : ""
           },
           "collar_felt" : {
             "type" : "string",
-            "description" : "Jacket Collar Felt type name  (id=Vguler; lbl=COLLAR FELT; param=feutre)"
+            "description" : "Jacket Collar Felt type name  (id=Vguler; lbl=COLLAR FELT; param=feutre)",
+            "default" : ""
           },
           "monogram" : {
             "$ref" : "#/components/schemas/Monogram"
@@ -3735,10 +3762,11 @@
           },
           "secondary_options" : {
             "type" : "array",
+            "description" : "List of secondary options (id=Voptions; lbl=; param=v_options)",
             "items" : {
-              "type" : "string",
-              "description" : "List of secondary options (id=Voptions; lbl=; param=v_options)"
-            }
+              "type" : "string"
+            },
+            "default" : ""
           },
           "elbow_patch" : {
             "type" : "string",
@@ -3747,35 +3775,43 @@
           },
           "satin_color" : {
             "type" : "string",
-            "description" : "satin color (id=Vsatinsel; lbl=SATIN COLOR; param=Vsatin)"
+            "description" : "satin color (id=Vsatinsel; lbl=SATIN COLOR; param=Vsatin)",
+            "default" : ""
           },
           "detachable_inlay_color" : {
             "type" : "string",
-            "description" : "detachable inlay color (id=Vpippingsel; lbl=DETACHABLE INLAY COLOR; param=Vinlay)"
+            "description" : "detachable inlay color (id=Vpippingsel; lbl=DETACHABLE INLAY COLOR; param=Vinlay)",
+            "default" : ""
           },
           "collar_contrast_color" : {
             "type" : "string",
-            "description" : "collar contrast color (id=Vcollarcontrsel; lbl=COLLAR CONTRAST COLOR; param=Vcollar)"
+            "description" : "collar contrast color (id=Vcollarcontrsel; lbl=COLLAR CONTRAST COLOR; param=Vcollar)",
+            "default" : ""
           },
           "piping_color" : {
             "type" : "string",
-            "description" : "piping color (id=Vpippingsel; lbl=COLLAR CONTRAST COLOR; param=Vpipping)"
+            "description" : "piping color (id=Vpippingsel; lbl=COLLAR CONTRAST COLOR; param=Vpipping)",
+            "default" : ""
           },
           "cuff_contrasted" : {
             "type" : "string",
-            "description" : "cuff constrasted (id=Vccxsel; lbl=CUFF CONTRASTED; param=VcuffColor)"
+            "description" : "cuff constrasted (id=Vccxsel; lbl=CUFF CONTRASTED; param=VcuffColor)",
+            "default" : ""
           },
           "fake_handkerchief" : {
             "type" : "string",
-            "description" : "fake handkerchief (id=Vfpsel; lbl=FAKE HANDKERCHIEF; param=VfpColor)"
+            "description" : "fake handkerchief (id=Vfpsel; lbl=FAKE HANDKERCHIEF; param=VfpColor)",
+            "default" : ""
           },
           "contrast_thread" : {
             "type" : "string",
-            "description" : "contrast thread (id=VfilContrasti; lbl=CONTRAST THREAD; param=VfilContrast)"
+            "description" : "contrast thread (id=VfilContrasti; lbl=CONTRAST THREAD; param=VfilContrast)",
+            "default" : ""
           },
           "bow_tie_fabric" : {
             "type" : "string",
-            "description" : "Bow tie frabic reference  (id=PpcodTesatura; lbl=BOWTIE FABRIC REF; param=tissu_papion)"
+            "description" : "Bow tie frabic reference  (id=PpcodTesatura; lbl=BOWTIE FABRIC REF; param=tissu_papion)",
+            "default" : ""
           },
           "bow_tie_quantity" : {
             "type" : "integer",
@@ -3785,7 +3821,8 @@
           },
           "lavaliere_ref_name" : {
             "type" : "string",
-            "description" : "Lavaliere reference  (id=CcodTesatura; lbl=LAVARIERE REF; param=tissu_cravaliere)"
+            "description" : "Lavaliere reference  (id=CcodTesatura; lbl=LAVARIERE REF; param=tissu_cravaliere)",
+            "default" : ""
           },
           "lavaliere_quantity" : {
             "type" : "integer",
@@ -3795,7 +3832,8 @@
           },
           "handkerchief_fabric" : {
             "type" : "string",
-            "description" : "Handkerchief frabic reference  (id=BcodTesatura; lbl=HANDKERCHIEF FABRIC; param=tissu_pochette)"
+            "description" : "Handkerchief frabic reference  (id=BcodTesatura; lbl=HANDKERCHIEF FABRIC; param=tissu_pochette)",
+            "default" : ""
           },
           "handkerchief_quantity" : {
             "type" : "integer",
@@ -4003,7 +4041,7 @@
           },
           "chest" : {
             "type" : "string",
-            "description" : "chest (id=VcodePoitrine; lbl=CHEST; param=code_poitrine)",
+            "description" : "chest (id=VcodePoitrine; lbl=CHEST; param=VcodePoitrine)",
             "enum" : [ "800", "802", "803", "804" ]
           },
           "left_shoulder_slope" : {
@@ -4087,49 +4125,51 @@
       },
       "Trousers" : {
         "type" : "object",
-        "required" : [ "quantity", "model_name", "front_pockets_name", "back_pockets_name", "front_crease_name", "lining_name", "bottom_finish_name", "size" ],
+        "required" : [ "quantity", "model", "front_pockets", "back_pockets", "front_crease", "lining", "bottom_finish", "size" ],
         "properties" : {
           "fabric" : {
             "$ref" : "#/components/schemas/Fabric"
           },
           "quantity" : {
             "type" : "integer",
+            "description" : "trousers quantity (id=Pcant; lbl=QTY; param=pantalon_qte)",
             "format" : "int32",
-            "default" : 0
+            "default" : 1
           },
-          "model_name" : {
+          "model" : {
             "type" : "string",
-            "description" : "Trouser Model name",
+            "description" : "Trouser Model name  (id=Pmodel; lbl=MODEL; param=modele_pantalon)",
             "default" : "P05"
           },
-          "front_pockets_name" : {
+          "front_pockets" : {
             "type" : "string",
-            "description" : "Trouser front pockets",
+            "description" : "Trouser front pockets  (id=PbuzunareFata; lbl=FRONT POCKETS; param=poches_devant)",
             "default" : "B"
           },
-          "back_pockets_name" : {
+          "back_pockets" : {
             "type" : "string",
-            "description" : "Trouser back pockets",
+            "description" : "Trouser back pockets  (id=PbuzunareSpate; lbl=BACK POCKETS; param=poches_dos)",
             "default" : "2"
           },
-          "front_crease_name" : {
+          "front_crease" : {
             "type" : "string",
             "description" : "Trouser front crease name",
             "default" : "P1"
           },
-          "lining_name" : {
+          "lining" : {
             "type" : "string",
-            "description" : "Trouser lining",
+            "description" : "Trouser lining  (id=Pdoubl; lbl=LINING; param=doublure)",
             "default" : "A"
           },
-          "bottom_finish_name" : {
+          "bottom_finish" : {
             "type" : "string",
-            "description" : "Trouser bottom finish",
+            "description" : "Trouser bottom finish  (id=Pterminatie; lbl=BOTTOM; param=finition_bas)",
             "default" : "PF3"
           },
-          "buttons_name" : {
+          "buttons" : {
             "type" : "string",
-            "description" : "Trouser Buttons type name"
+            "description" : "Trouser Buttons type name  (id=Pnasturi; lbl=BUTTONS; param=boutons_pant)",
+            "default" : ""
           },
           "monogram" : {
             "$ref" : "#/components/schemas/Monogram"
@@ -4146,7 +4186,7 @@
             "type" : "array",
             "items" : {
               "type" : "string",
-              "description" : "List of secondary options"
+              "description" : "List of secondary options  (id=Poptions; lbl=SECONDARY OPTIONS; param=p_options)"
             },
             "default" : [ "AMF", "P0D" ]
           },
@@ -4154,9 +4194,28 @@
             "type" : "array",
             "items" : {
               "type" : "string",
-              "description" : "List of alterations"
+              "description" : "List of alterations  (id=Palterations; lbl=ALTERATIONS; param=p_alterations)"
             },
             "default" : [ "381L", "306M", "391GL" ]
+          },
+          "pleat" : {
+            "type" : "string",
+            "description" : "pleat (id=PpliuriFata; lbl=PLEAT; param=plis_devant)",
+            "enum" : [ "P0", "PSF", "P1A", "P1B", "P2A", "P2B" ]
+          },
+          "satin_color" : {
+            "type" : "string",
+            "description" : "satin color (id=Psatinsel; lbl=SATIN COLOR; param=Psatin)",
+            "default" : ""
+          },
+          "piping_color" : {
+            "type" : "string",
+            "description" : "piping color (id=Ppippingsel; lbl=PIPING COLOR; param=Ppipping)",
+            "default" : ""
+          },
+          "construction_&_making" : {
+            "type" : "string",
+            "default" : ""
           }
         }
       },
@@ -4358,7 +4417,7 @@
           "quantity" : {
             "type" : "integer",
             "format" : "int32",
-            "default" : 0
+            "default" : 1
           },
           "model_name" : {
             "type" : "string",
@@ -4554,8 +4613,7 @@
           "status" : {
             "type" : "string",
             "description" : "Order status",
-            "enum" : [ "standby", "new" ],
-            "default" : "standby"
+            "enum" : [ "standby", "new" ]
           },
           "mtm_type" : {
             "type" : "string",
@@ -4568,17 +4626,27 @@
           },
           "client_firstname" : {
             "type" : "string",
-            "description" : "Client First Name (param=prenom_client)",
+            "description" : "Client First Name",
             "default" : "John"
           },
           "client_lastname" : {
             "type" : "string",
-            "description" : "Client Last Name (param=nom_client)",
+            "description" : "Client Last Name",
             "default" : "Doe"
+          },
+          "client_email" : {
+            "type" : "string",
+            "description" : "Client email",
+            "default" : ""
+          },
+          "client_phone" : {
+            "type" : "string",
+            "description" : "Client Phone",
+            "default" : ""
           },
           "internal_order_no" : {
             "type" : "string",
-            "description" : "Customer Internal Order Id (param=externalDocument)",
+            "description" : "Customer Internal Order Id",
             "default" : "test00"
           },
           "body_measurements" : {
@@ -4595,8 +4663,13 @@
           },
           "observations" : {
             "type" : "string",
-            "description" : "Observations about order (param=observatii)",
+            "description" : "Observations about order",
             "default" : "this is a comment"
+          },
+          "shipment_address" : {
+            "type" : "string",
+            "description" : "Shipment Address ( default empty, see GET /shipment_addresses )",
+            "default" : ""
           }
         }
       },
