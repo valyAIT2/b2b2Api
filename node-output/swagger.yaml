@@ -2989,12 +2989,12 @@ components:
           $ref: '#/components/schemas/Measurement'
     Trousers:
       required:
-      - back_pockets_name
-      - bottom_finish_name
-      - front_crease_name
-      - front_pockets_name
-      - lining_name
-      - model_name
+      - back_pockets
+      - bottom_finish
+      - front_crease
+      - front_pockets
+      - lining
+      - model
       - quantity
       - size
       type: object
@@ -3006,33 +3006,33 @@ components:
           description: trousers quantity (id=Pcant; lbl=QTY; param=pantalon_qte)
           format: int32
           default: 1
-        model_name:
+        model:
           type: string
           description: Trouser Model name  (id=Pmodel; lbl=MODEL; param=modele_pantalon)
           default: P05
-        front_pockets_name:
+        front_pockets:
           type: string
           description: Trouser front pockets  (id=PbuzunareFata; lbl=FRONT POCKETS;
             param=poches_devant)
           default: B
-        back_pockets_name:
+        back_pockets:
           type: string
           description: Trouser back pockets  (id=PbuzunareSpate; lbl=BACK POCKETS;
             param=poches_dos)
           default: "2"
-        front_crease_name:
+        front_crease:
           type: string
           description: Trouser front crease name
           default: P1
-        lining_name:
+        lining:
           type: string
           description: Trouser lining
           default: A
-        bottom_finish_name:
+        bottom_finish:
           type: string
           description: Trouser bottom finish
           default: PF3
-        buttons_name:
+        buttons:
           type: string
           description: Trouser Buttons type name
         monogram:
