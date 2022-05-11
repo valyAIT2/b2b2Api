@@ -4483,32 +4483,32 @@
           "quantity" : {
             "type" : "integer",
             "format" : "int32",
-            "default" : 1
+            "default" : 0
           },
           "model_name" : {
             "type" : "string",
             "description" : "Waistcoat Model name",
-            "default" : "G10"
+            "default" : ""
           },
           "pockets_name" : {
             "type" : "string",
             "description" : "Waistcoat pockets",
-            "default" : "70"
+            "default" : ""
           },
           "back_lining_name" : {
             "type" : "string",
             "description" : "Waistcoat back lining fabric",
-            "default" : "20"
+            "default" : ""
           },
           "inside_lining_name" : {
             "type" : "string",
             "description" : "Waistcoat inside lining fabric",
-            "default" : "21"
+            "default" : ""
           },
           "buttons_name" : {
             "type" : "string",
-            "description" : "Trouser bottom finish",
-            "default" : 142
+            "description" : "Waistcoat buttons",
+            "default" : ""
           },
           "monogram" : {
             "$ref" : "#/components/schemas/Monogram"
@@ -4516,7 +4516,7 @@
           "size" : {
             "type" : "string",
             "description" : "Waistcoat Size",
-            "default" : "42"
+            "default" : ""
           },
           "measurements" : {
             "$ref" : "#/components/schemas/WaistcoatMeasurements"
@@ -4526,16 +4526,14 @@
             "items" : {
               "type" : "string",
               "description" : "List of secondary options"
-            },
-            "default" : [ "A11", "PVS" ]
+            }
           },
           "alterations" : {
             "type" : "array",
             "items" : {
               "type" : "string",
               "description" : "List of primary alterations"
-            },
-            "default" : [ "910A", "941B", "930L" ]
+            }
           }
         }
       },
