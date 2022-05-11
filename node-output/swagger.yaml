@@ -3179,32 +3179,31 @@ components:
           - CE100
           default: ""
         size_tried:
-          type: string
+          type: integer
           description: size tried  (id=PmarimeIncercata; lbl=SIZE TRIED; param=taillep)
           enum:
-          - ""
-          - "0"
-          - "38"
-          - "40"
-          - "42"
-          - "44"
-          - "46"
-          - "48"
-          - "50"
-          - "52"
-          - "54"
-          - "56"
-          - "58"
-          - "60"
-          - "62"
-          - "64"
-          - "66"
-          - "68"
-          - "70"
-          - "72"
-          - "74"
-          - "76"
-          default: ""
+          - 0
+          - 38
+          - 40
+          - 42
+          - 44
+          - 46
+          - 48
+          - 50
+          - 52
+          - 54
+          - 56
+          - 58
+          - 60
+          - 62
+          - 64
+          - 66
+          - 68
+          - 70
+          - 72
+          - 74
+          - 76
+          default: 0
     TrouserModel:
       type: object
       properties:
