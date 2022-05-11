@@ -3149,17 +3149,6 @@ components:
           type: string
           description: trousers fabric refference  (id=PcodTesatura; lbl=TROUSERS
             FABRIC REF; param=tissu_pantalon)
-          enum:
-          - ""
-          - PcodTesatura
-          - PcodTesaturaCoupe
-          - PcodTesaturaCoupeFurniz
-          - PcodTesaturaCoupeComande
-          - PcodTesaturaCoupeDataPrev
-          - PcodTesaturaCoupeIdCatalog
-          - PcodTesaturaCoupeTip
-          - PcodTesaturaStock
-          default: ""
         waistband:
           type: string
           description: waistband  (id=PWaistband; lbl=WAISTBAND; param=Waistband si
@@ -3395,6 +3384,7 @@ components:
           $ref: '#/components/schemas/Fabric'
         quantity:
           type: integer
+          description: waistcoat quantity  (id=Gcant; lbl=QTY; param=gilet_qte)
           format: int32
           default: 1
         model_name:
@@ -3442,6 +3432,13 @@ components:
           - 910A
           - 941B
           - 930L
+        satin_color:
+          type: string
+          description: satin color  (id=Gsatinhidden; lbl=SATIN COLOR; param=Gsatin)
+        fabric_ref:
+          type: string
+          description: waistcoat fabric refference   (id=GcodTesatura; lbl=WAISTCOAT
+            FABRIC REF; param=tissu_gilet)
     WaistcoatModel:
       type: object
       properties:
