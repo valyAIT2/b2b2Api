@@ -3638,7 +3638,7 @@
           },
           "base" : {
             "type" : "string",
-            "description" : "Jacket Base name (id=v_model_essaye; lbl=BASE; param=VmodelIncercat)",
+            "description" : "Jacket Base name (id=VmodelIncercat; lbl=BASE; param=v_model_essaye)",
             "default" : "G"
           },
           "front" : {
