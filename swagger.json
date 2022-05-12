@@ -4382,6 +4382,16 @@
             "description" : "Trouser Finished Inseam",
             "default" : 0
           },
+          "finished_outseam_left" : {
+            "type" : "number",
+            "description" : "Trouser Finished Outseam - use instead of inseam if preferable",
+            "default" : 0
+          },
+          "finished_outseam_right" : {
+            "type" : "number",
+            "description" : "Trouser Finished Outseam - use instead of inseam if preferable",
+            "default" : 0
+          },
           "half_bottom_width" : {
             "type" : "number",
             "description" : "Trouser 1/2 Bottom Width",
