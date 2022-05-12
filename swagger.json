@@ -4362,20 +4362,25 @@
       "TrouserMeasurements" : {
         "type" : "object",
         "properties" : {
+          "size" : {
+            "type" : "string",
+            "description" : "Trouser size name.",
+            "default" : ""
+          },
           "half_waist" : {
             "type" : "number",
             "description" : "Trouser 1/2 waist",
-            "default" : 38.5
+            "default" : 0
           },
           "finished_inseam" : {
             "type" : "number",
             "description" : "Trouser Finished Inseam",
-            "default" : 1
+            "default" : 0
           },
           "half_bottom_width" : {
             "type" : "number",
             "description" : "Trouser 1/2 Bottom Width",
-            "default" : 1
+            "default" : 0
           }
         }
       },
