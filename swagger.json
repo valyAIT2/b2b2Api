@@ -4372,7 +4372,12 @@
             "description" : "Trouser 1/2 waist",
             "default" : 0
           },
-          "finished_inseam" : {
+          "finished_inseam_left" : {
+            "type" : "number",
+            "description" : "Trouser Finished Inseam",
+            "default" : 0
+          },
+          "finished_inseam_right" : {
             "type" : "number",
             "description" : "Trouser Finished Inseam",
             "default" : 0
