@@ -4099,7 +4099,7 @@
             "type" : "array",
             "items" : {
               "type" : "string",
-              "description" : "List of secondary Alterations (id=Voptions; lbl=; param=Valterations)"
+              "description" : "List of secondary Alterations (id=Voptions; lbl=; param=v_alterations)"
             },
             "default" : [ "" ]
           }
