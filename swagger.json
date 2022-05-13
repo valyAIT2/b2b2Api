@@ -4245,14 +4245,6 @@
           },
           "measurements" : {
             "$ref" : "#/components/schemas/TrouserMeasurements"
-          },
-          "alterations" : {
-            "type" : "array",
-            "items" : {
-              "type" : "string",
-              "description" : "List of alterations  (id=Palterations; lbl=ALTERATIONS; param=p_alterations)"
-            },
-            "default" : [ "" ]
           }
         }
       },
@@ -4396,6 +4388,14 @@
             "type" : "number",
             "description" : "Trouser 1/2 Bottom Width",
             "default" : 0
+          },
+          "secondary_alterations" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "description" : "List of alterations  (id=Palterations; lbl=ALTERATIONS; param=p_alterations)"
+            },
+            "default" : [ "" ]
           }
         }
       },
