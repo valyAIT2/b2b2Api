@@ -4522,7 +4522,8 @@
           },
           "satin_color" : {
             "type" : "string",
-            "description" : "satin color  (id=Gsatinhidden; lbl=SATIN COLOR; param=Gsatin)"
+            "description" : "satin color  (id=Gsatinhidden; lbl=SATIN COLOR; param=Gsatin)",
+            "default" : ""
           },
           "measurements" : {
             "$ref" : "#/components/schemas/WaistcoatMeasurements"
