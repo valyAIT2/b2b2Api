@@ -4475,43 +4475,42 @@
             "type" : "integer",
             "description" : "waistcoat quantity  (id=Gcant; lbl=QTY; param=gilet_qte)",
             "format" : "int32",
-            "default" : 1
+            "default" : 0
           },
-          "model_name" : {
+          "fit" : {
             "type" : "string",
-            "description" : "Waistcoat Model name",
-            "default" : "G10"
+            "description" : "Waistcoat Base Fit (param=g_model_essaye)",
+            "default" : ""
           },
-          "pockets_name" : {
+          "model" : {
             "type" : "string",
-            "description" : "Waistcoat pockets",
-            "default" : "70"
+            "description" : "Waistcoat Model name (param=Gmodel)",
+            "default" : ""
           },
-          "back_lining_name" : {
+          "exterior_buckle" : {
             "type" : "string",
-            "description" : "Waistcoat back lining fabric",
-            "default" : "20"
+            "description" : "Waistcoat Exterior and buckle (param=goptions_)",
+            "default" : ""
           },
-          "inside_lining_name" : {
+          "pockets" : {
             "type" : "string",
-            "description" : "Waistcoat inside lining fabric",
-            "default" : "21"
+            "description" : "Waistcoat pockets (param=poches_gilet)",
+            "default" : ""
           },
-          "buttons_name" : {
+          "back_lining" : {
             "type" : "string",
-            "description" : "Trouser bottom finish",
-            "default" : 142
+            "description" : "Waistcoat back lining fabric (param=doublure_dos)",
+            "default" : ""
           },
-          "monogram" : {
-            "$ref" : "#/components/schemas/Monogram"
-          },
-          "size" : {
+          "inside_lining" : {
             "type" : "string",
-            "description" : "Waistcoat Size",
-            "default" : "42"
+            "description" : "Waistcoat inside lining fabric (param=doublure_interieur)",
+            "default" : ""
           },
-          "measurements" : {
-            "$ref" : "#/components/schemas/WaistcoatMeasurements"
+          "buttons" : {
+            "type" : "string",
+            "description" : "Waistcoat buttons (param=boutons_gilet)",
+            "default" : ""
           },
           "secondary_options" : {
             "type" : "array",
@@ -4519,29 +4518,14 @@
               "type" : "string",
               "description" : "List of secondary options"
             },
-            "default" : [ "A11", "PVS" ]
-          },
-          "alterations" : {
-            "type" : "array",
-            "items" : {
-              "type" : "string",
-              "description" : "List of primary alterations"
-            },
-            "default" : [ "910A", "941B", "930L" ]
+            "default" : [ "" ]
           },
           "satin_color" : {
             "type" : "string",
             "description" : "satin color  (id=Gsatinhidden; lbl=SATIN COLOR; param=Gsatin)"
           },
-          "fabric_ref" : {
-            "type" : "string",
-            "description" : "waistcoat fabric refference   (id=GcodTesatura; lbl=WAISTCOAT FABRIC REF; param=tissu_gilet)"
-          },
-          "fit" : {
-            "type" : "string",
-            "description" : "waistcoat fit  (id=Gfit; lbl=; param=modele_gilet)",
-            "enum" : [ "", "GDIL", "GIL", "GIU", "GDI", "GU", "GI" ],
-            "default" : ""
+          "measurements" : {
+            "$ref" : "#/components/schemas/WaistcoatMeasurements"
           }
         }
       },
@@ -4603,19 +4587,20 @@
       "WaistcoatMeasurements" : {
         "type" : "object",
         "properties" : {
+          "size" : {
+            "type" : "string",
+            "description" : "Waistcoat Size",
+            "default" : ""
+          },
           "total_length" : {
             "type" : "number",
             "description" : "Waistcoat total length",
-            "default" : 56
+            "default" : 0
           },
           "opening" : {
             "type" : "number",
             "description" : "Waistcoat Opening",
-            "default" : 34.9
-          },
-          "half_waist" : {
-            "type" : "number",
-            "description" : "Waistcoat 1/2 waist"
+            "default" : 0
           }
         }
       },
