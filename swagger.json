@@ -4601,6 +4601,14 @@
             "type" : "number",
             "description" : "Waistcoat Opening",
             "default" : 0
+          },
+          "secondary_alterations" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "description" : "List of alterations"
+            },
+            "default" : [ "" ]
           }
         }
       },
