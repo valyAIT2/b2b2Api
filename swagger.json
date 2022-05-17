@@ -3608,7 +3608,7 @@
       },
       "Jacket" : {
         "type" : "object",
-        "required" : [ "quantity", "base", "front", "construction", "sleeve_head", "shoulder_line", "interior", "pockets", "vents", "lining", "size" ],
+        "required" : [ "quantity", "base", "front", "construction", "sleeve_head", "shoulder_line", "interior", "pockets", "vents", "main_lining", "sleeve_lining", "size" ],
         "properties" : {
           "fabric" : {
             "$ref" : "#/components/schemas/Fabric"
