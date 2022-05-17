@@ -4466,7 +4466,7 @@
       },
       "Waistcoat" : {
         "type" : "object",
-        "required" : [ "quantity", "model_name", "pockets_name", "back_lining_name", "inside_lining_name", "buttons_name", "size" ],
+        "required" : [ "quantity", "model", "pockets", "back_lining", "inside_lining", "buttons", "size" ],
         "properties" : {
           "fabric" : {
             "$ref" : "#/components/schemas/Fabric"
