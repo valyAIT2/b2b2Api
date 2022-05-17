@@ -4043,6 +4043,7 @@
       },
       "JacketMeasurements" : {
         "type" : "object",
+        "required" : [ "size", "total_length", "left_sleeve_length", "right_sleeve_length" ],
         "properties" : {
           "size" : {
             "type" : "string",
