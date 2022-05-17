@@ -4159,7 +4159,7 @@
       },
       "Trousers" : {
         "type" : "object",
-        "required" : [ "quantity", "model", "front_pockets", "back_pockets", "front_crease", "lining", "bottom_finish", "size" ],
+        "required" : [ "quantity", "model", "front_pockets", "back_pockets", "pleat", "lining", "bottom_finish" ],
         "properties" : {
           "fabric" : {
             "$ref" : "#/components/schemas/Fabric"
