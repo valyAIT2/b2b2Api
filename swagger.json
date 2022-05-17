@@ -3608,7 +3608,7 @@
       },
       "Jacket" : {
         "type" : "object",
-        "required" : [ "quantity", "base", "front", "construction", "sleeve_head", "shoulder_line", "interior", "pockets", "vents", "main_lining", "sleeve_lining", "size" ],
+        "required" : [ "quantity", "base", "front", "construction", "sleeve_head", "shoulder_line", "interior", "pockets", "vents", "main_lining", "sleeve_lining" ],
         "properties" : {
           "fabric" : {
             "$ref" : "#/components/schemas/Fabric"
@@ -4465,7 +4465,7 @@
       },
       "Waistcoat" : {
         "type" : "object",
-        "required" : [ "quantity", "model", "pockets", "back_lining", "inside_lining", "buttons", "size" ],
+        "required" : [ "quantity", "model", "pockets", "back_lining", "inside_lining", "buttons" ],
         "properties" : {
           "fabric" : {
             "$ref" : "#/components/schemas/Fabric"
