@@ -4586,6 +4586,7 @@
       },
       "WaistcoatMeasurements" : {
         "type" : "object",
+        "required" : [ "size" ],
         "properties" : {
           "size" : {
             "type" : "string",
