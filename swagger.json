@@ -3256,14 +3256,14 @@
         }
       }
     },
-    "/orders_tracking/{vte_order}" : {
+    "/orders_tracking/{orderID}" : {
       "get" : {
         "summary" : "Order tracking",
         "description" : "Order tracking",
         "tags" : [ "Order" ],
         "parameters" : [ {
           "in" : "path",
-          "name" : "vte_order",
+          "name" : "orderID",
           "required" : true,
           "schema" : {
             "type" : "string",
@@ -3272,30 +3272,13 @@
         } ],
         "responses" : {
           "200" : {
-            "description" : "successful operation",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/PagedOrders"
-                }
-              }
-            }
+            "description" : "successful operation"
           },
           "400" : {
             "description" : "Invalid/incomplete Order reference supplied"
           },
           "404" : {
             "description" : "Order reference not found"
-          },
-          "default" : {
-            "description" : "Unexpected error",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/Error"
-                }
-              }
-            }
           }
         }
       }
