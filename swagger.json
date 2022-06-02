@@ -3833,7 +3833,7 @@
       },
       "Outerwear" : {
         "type" : "object",
-        "required" : [ "quantity", "base", "front", "construction", "sleeve_head", "shoulder_line", "interior", "pockets", "vents", "main_lining", "sleeve_lining" ],
+        "required" : [ "quantity" ],
         "properties" : {
           "fabric" : {
             "$ref" : "#/components/schemas/Fabric"
@@ -3844,228 +3844,13 @@
             "format" : "int32",
             "default" : 1
           },
-          "shoulder_line" : {
+          "configobj" : {
             "type" : "string",
-            "description" : "Jacket Shoulder slope  (id=VShSlope; lbl=SHOULDER LINE; param=VShSlope)",
-            "enum" : [ "LIGHT", "STANDARD", "STRAIGHT" ],
-            "default" : "STANDARD"
+            "description" : "ConfigObject as string  (id=configobj; lbl=configobj; param=configobj)"
           },
-          "construction" : {
+          "configid" : {
             "type" : "string",
-            "description" : "(id=Vconstructie; lbl=CONSTRUCTION; param=construction)",
-            "default" : "PRESTIGE"
-          },
-          "sleeve_head" : {
-            "type" : "string",
-            "description" : "Jacket Sleeve Head name  (id=VcapManeca; lbl=SLEEVE HEAD; param=capmaneca)",
-            "default" : "RO/E"
-          },
-          "base" : {
-            "type" : "string",
-            "description" : "Jacket Base name (id=VmodelIncercat; lbl=BASE; param=v_model_essaye)",
-            "default" : "G"
-          },
-          "front" : {
-            "type" : "string",
-            "description" : "Jacket Front name (id=Vmodel; lbl=FRONT; param=Vmodel)",
-            "default" : "402"
-          },
-          "interior" : {
-            "type" : "string",
-            "description" : "Jacket interior name  (id=Vinterior; lbl=INTERIOR; param=interieur)",
-            "default" : "FL"
-          },
-          "pockets" : {
-            "type" : "string",
-            "description" : "Jacket pockets (id=VbuzunareFata, label=POCKETS, param=poches)",
-            "default" : "A"
-          },
-          "vents" : {
-            "type" : "string",
-            "description" : "Jacket vents  (id=Vslit; lbl=VENTS; param=fentes)",
-            "enum" : [ "2", "1", "S" ],
-            "default" : "2"
-          },
-          "cuffs" : {
-            "type" : "string",
-            "description" : "Jacket cuffs",
-            "default" : "BO4"
-          },
-          "amf" : {
-            "type" : "string",
-            "description" : "Jacket amf",
-            "enum" : [ "A1", "A11", "A12", "A5", "A51", "A52", "S2", "S5" ],
-            "default" : "A1"
-          },
-          "main_lining" : {
-            "type" : "string",
-            "description" : "main lining (id=VdoublA; lbl=MAIN LINING - A; param=doublure_a)",
-            "default" : ""
-          },
-          "sleeve_lining" : {
-            "type" : "string",
-            "description" : "sleeve_lining (id=VdoublA; lbl=SLEEVE LINING - B; param=doublure_b)",
-            "default" : ""
-          },
-          "buttons" : {
-            "type" : "string",
-            "description" : "Jacket Buttons type name  (id=Vnasturi; lbl=BUTTONS; param=boutons)",
-            "default" : ""
-          },
-          "collar_felt" : {
-            "type" : "string",
-            "description" : "Jacket Collar Felt type name  (id=Vguler; lbl=COLLAR FELT; param=feutre)",
-            "default" : ""
-          },
-          "monogram" : {
-            "$ref" : "#/components/schemas/Monogram"
-          },
-          "lapel_buttonhole" : {
-            "type" : "string",
-            "description" : "lapel buttonhole (id=VnasturiReversel; lbl= CONTRAST BUTTONHOLES / LAPEL BUTTONHOLE; param=boutonniere_revers)",
-            "enum" : [ "70", "80", "90" ],
-            "default" : "80"
-          },
-          "cma1" : {
-            "type" : "boolean",
-            "description" : "Sleeves Contrast Buttonhole 1 (id=cma1; lbl=CONTRAST BUTTONHOLES / CONTRAST BUTTONHOLES / Sleeves; param=cma1)",
-            "default" : false
-          },
-          "cma2" : {
-            "type" : "boolean",
-            "description" : "Sleeves Contrast Buttonhole 2 (id=cma2; lbl=CONTRAST BUTTONHOLES / CONTRAST BUTTONHOLES / Sleeves; param=cma2)",
-            "default" : false
-          },
-          "cma3" : {
-            "type" : "boolean",
-            "description" : "Sleeves Contrast Buttonhole 3 (id=cma3; lbl=CONTRAST BUTTONHOLES / CONTRAST BUTTONHOLES / Sleeves; param=cma3)",
-            "default" : false
-          },
-          "cma4" : {
-            "type" : "boolean",
-            "description" : "Sleeves Contrast Buttonhole 4 (id=cma4; lbl=CONTRAST BUTTONHOLES / CONTRAST BUTTONHOLES / Sleeves; param=cma4)",
-            "default" : false
-          },
-          "cma5" : {
-            "type" : "boolean",
-            "description" : "Sleeves Contrast Buttonhole 5 (id=cma5; lbl=CONTRAST BUTTONHOLES / CONTRAST BUTTONHOLES / Sleeves; param=cma5)",
-            "default" : false
-          },
-          "cma6" : {
-            "type" : "boolean",
-            "description" : "Sleeves Contrast Buttonhole 6 (id=cma6; lbl=CONTRAST BUTTONHOLES / CONTRAST BUTTONHOLES / Sleeves; param=cma6)",
-            "default" : false
-          },
-          "cdv1" : {
-            "type" : "boolean",
-            "description" : "Front Contrast Buttonhole 1 (id=cdv1; lbl=CONTRAST BUTTONHOLES / CONTRAST BUTTONHOLES / Front; param=cdv1)",
-            "default" : false
-          },
-          "cdv2" : {
-            "type" : "boolean",
-            "description" : "Front Contrast Buttonhole 2 (id=cdv2; lbl=CONTRAST BUTTONHOLES / CONTRAST BUTTONHOLES / Front; param=cdv2)",
-            "default" : false
-          },
-          "cdv3" : {
-            "type" : "boolean",
-            "description" : "Front Contrast Buttonhole 3 (id=cdv3; lbl=CONTRAST BUTTONHOLES / CONTRAST BUTTONHOLES / Front; param=cdv3)",
-            "default" : false
-          },
-          "cdv4" : {
-            "type" : "boolean",
-            "description" : "Front Contrast Buttonhole 4 (id=cdv4; lbl=CONTRAST BUTTONHOLES / CONTRAST BUTTONHOLES / Front; param=cdv4)",
-            "default" : false
-          },
-          "cdv5" : {
-            "type" : "boolean",
-            "description" : "Front Contrast Buttonhole 5 (id=cdv5; lbl=CONTRAST BUTTONHOLES / CONTRAST BUTTONHOLES / Front; param=cdv5)",
-            "default" : false
-          },
-          "cdv6" : {
-            "type" : "boolean",
-            "description" : "Front Contrast Buttonhole 6 (id=cdv6; lbl=CONTRAST BUTTONHOLES / CONTRAST BUTTONHOLES / Front; param=cdv6)",
-            "default" : false
-          },
-          "secondary_options" : {
-            "type" : "array",
-            "description" : "List of secondary options (id=Voptions; lbl=; param=v_options)",
-            "items" : {
-              "type" : "string"
-            },
-            "default" : [ "" ]
-          },
-          "elbow_patch" : {
-            "type" : "string",
-            "description" : "Jacket Collar Felt type name (id=Vcoud; lbl=ALCANTRA COLOR; param=coudieres)",
-            "default" : ""
-          },
-          "satin_color" : {
-            "type" : "string",
-            "description" : "satin color (id=Vsatinsel; lbl=SATIN COLOR; param=Vsatin)",
-            "default" : ""
-          },
-          "detachable_inlay_color" : {
-            "type" : "string",
-            "description" : "detachable inlay color (id=Vpippingsel; lbl=DETACHABLE INLAY COLOR; param=Vinlay)",
-            "default" : ""
-          },
-          "collar_contrast_color" : {
-            "type" : "string",
-            "description" : "collar contrast color (id=Vcollarcontrsel; lbl=COLLAR CONTRAST COLOR; param=Vcollar)",
-            "default" : ""
-          },
-          "piping_color" : {
-            "type" : "string",
-            "description" : "piping color (id=Vpippingsel; lbl=COLLAR CONTRAST COLOR; param=Vpipping)",
-            "default" : ""
-          },
-          "cuff_contrasted" : {
-            "type" : "string",
-            "description" : "cuff constrasted (id=Vccxsel; lbl=CUFF CONTRASTED; param=VcuffColor)",
-            "default" : ""
-          },
-          "fake_handkerchief" : {
-            "type" : "string",
-            "description" : "fake handkerchief (id=Vfpsel; lbl=FAKE HANDKERCHIEF; param=VfpColor)",
-            "default" : ""
-          },
-          "contrast_thread" : {
-            "type" : "string",
-            "description" : "contrast thread (id=VfilContrasti; lbl=CONTRAST THREAD; param=VfilContrast)",
-            "default" : ""
-          },
-          "bow_tie_fabric" : {
-            "type" : "string",
-            "description" : "Bow tie frabic reference  (id=PpcodTesatura; lbl=BOWTIE FABRIC REF; param=tissu_papion)",
-            "default" : ""
-          },
-          "bow_tie_quantity" : {
-            "type" : "integer",
-            "description" : "Bow tie quantity(id=Ppcant; lbl=QTY; param=papion_qte)",
-            "format" : "int32",
-            "default" : 0
-          },
-          "lavaliere_ref_name" : {
-            "type" : "string",
-            "description" : "Lavaliere reference  (id=CcodTesatura; lbl=LAVARIERE REF; param=tissu_cravaliere)",
-            "default" : ""
-          },
-          "lavaliere_quantity" : {
-            "type" : "integer",
-            "description" : "Lavaliere quantity  (id=Ccant; lbl=QTY; param=cravaliere_qte)",
-            "format" : "int32",
-            "default" : 0
-          },
-          "handkerchief_fabric" : {
-            "type" : "string",
-            "description" : "Handkerchief frabic reference  (id=BcodTesatura; lbl=HANDKERCHIEF FABRIC; param=tissu_pochette)",
-            "default" : ""
-          },
-          "handkerchief_quantity" : {
-            "type" : "integer",
-            "description" : "Handkerchief quantity  (id=Bcant; lbl=QTY; param=pochette_qte)",
-            "format" : "int32",
-            "default" : 0
+            "description" : "Configurator ID  (id=configid; lbl=configid; param=configid)"
           },
           "measurements" : {
             "$ref" : "#/components/schemas/JacketMeasurements"
@@ -4266,6 +4051,71 @@
         }
       },
       "JacketMeasurements" : {
+        "type" : "object",
+        "required" : [ "size", "total_length", "left_sleeve_length", "right_sleeve_length" ],
+        "properties" : {
+          "size" : {
+            "type" : "string",
+            "description" : "Jacket size (id=VmarimeIncercata; lbl=SIZE TRIED; param=taillev)",
+            "default" : ""
+          },
+          "total_length" : {
+            "type" : "number",
+            "description" : "Jacket Total Length (id=VlungimeSpate; lbl=TOTAL LENGTH; param=longueur_dos)"
+          },
+          "left_sleeve_length" : {
+            "type" : "number",
+            "description" : "Jacket Left Sleeve Length (id=VlungimeManecaStanga; lbl=LEFT SLEEVE; param=manche_gauche)"
+          },
+          "right_sleeve_length" : {
+            "type" : "number",
+            "description" : "Jacket Right Sleeve Length (id=VlungimeManecaDreapta; lbl=RIGHT SLEEVE; param=manche_droite)"
+          },
+          "posture" : {
+            "type" : "string",
+            "description" : "Body posture (id=VcodeAtitude; lbl=BENT/ERECT POSTURE; param=code_attitude)",
+            "default" : "",
+            "enum" : [ "", "400", "401", "402", "403", "405", "406", "407" ]
+          },
+          "chest" : {
+            "type" : "string",
+            "description" : "chest (id=VcodePoitrine; lbl=CHEST; param=code_poitrine)",
+            "enum" : [ "", "800", "802", "803", "804" ],
+            "default" : ""
+          },
+          "left_shoulder_slope" : {
+            "type" : "string",
+            "description" : "left shoulder slope (id=VcodUmarStang; lbl=LEFT SHOULDER / LOW si / HIGH; param=code_epaule_gauche)",
+            "enum" : [ "", "500", "505", "506", "507", "501", "502", "503" ],
+            "default" : ""
+          },
+          "right_shoulder_slope" : {
+            "type" : "string",
+            "description" : "left shoulder slope (id=VcodUmarDrept; lbl=RIGHT SHOULDER / LOW si / HIGH; param=code_epaule_droite)",
+            "enum" : [ "", "600", "605", "606", "607", "601", "602", "603" ],
+            "default" : ""
+          },
+          "jacket_vents" : {
+            "type" : "number",
+            "format" : "double",
+            "description" : "jacket vents length  (id=Vfente; lbl=VENTS; param=v_fente)"
+          },
+          "first_button" : {
+            "type" : "number",
+            "format" : "double",
+            "description" : "first button possition (id=V1ErBouton; lbl=FIRST BUTTON POSITION; param=v_1er_bouton)"
+          },
+          "secondary_alterations" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "description" : "List of secondary Alterations (id=Voptions; lbl=; param=v_alterations)"
+            },
+            "default" : [ "" ]
+          }
+        }
+      },
+      "OWMeasurements" : {
         "type" : "object",
         "required" : [ "size", "total_length", "left_sleeve_length", "right_sleeve_length" ],
         "properties" : {
