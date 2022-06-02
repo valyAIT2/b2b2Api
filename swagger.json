@@ -3831,6 +3831,247 @@
           }
         }
       },
+      "Outerwear" : {
+        "type" : "object",
+        "required" : [ "quantity", "base", "front", "construction", "sleeve_head", "shoulder_line", "interior", "pockets", "vents", "main_lining", "sleeve_lining" ],
+        "properties" : {
+          "fabric" : {
+            "$ref" : "#/components/schemas/Fabric"
+          },
+          "quantity" : {
+            "type" : "integer",
+            "description" : "fabric quantity (id=Vcant; lbl=QTY; param=veste_qte)",
+            "format" : "int32",
+            "default" : 1
+          },
+          "shoulder_line" : {
+            "type" : "string",
+            "description" : "Jacket Shoulder slope  (id=VShSlope; lbl=SHOULDER LINE; param=VShSlope)",
+            "enum" : [ "LIGHT", "STANDARD", "STRAIGHT" ],
+            "default" : "STANDARD"
+          },
+          "construction" : {
+            "type" : "string",
+            "description" : "(id=Vconstructie; lbl=CONSTRUCTION; param=construction)",
+            "default" : "PRESTIGE"
+          },
+          "sleeve_head" : {
+            "type" : "string",
+            "description" : "Jacket Sleeve Head name  (id=VcapManeca; lbl=SLEEVE HEAD; param=capmaneca)",
+            "default" : "RO/E"
+          },
+          "base" : {
+            "type" : "string",
+            "description" : "Jacket Base name (id=VmodelIncercat; lbl=BASE; param=v_model_essaye)",
+            "default" : "G"
+          },
+          "front" : {
+            "type" : "string",
+            "description" : "Jacket Front name (id=Vmodel; lbl=FRONT; param=Vmodel)",
+            "default" : "402"
+          },
+          "interior" : {
+            "type" : "string",
+            "description" : "Jacket interior name  (id=Vinterior; lbl=INTERIOR; param=interieur)",
+            "default" : "FL"
+          },
+          "pockets" : {
+            "type" : "string",
+            "description" : "Jacket pockets (id=VbuzunareFata, label=POCKETS, param=poches)",
+            "default" : "A"
+          },
+          "vents" : {
+            "type" : "string",
+            "description" : "Jacket vents  (id=Vslit; lbl=VENTS; param=fentes)",
+            "enum" : [ "2", "1", "S" ],
+            "default" : "2"
+          },
+          "cuffs" : {
+            "type" : "string",
+            "description" : "Jacket cuffs",
+            "default" : "BO4"
+          },
+          "amf" : {
+            "type" : "string",
+            "description" : "Jacket amf",
+            "enum" : [ "A1", "A11", "A12", "A5", "A51", "A52", "S2", "S5" ],
+            "default" : "A1"
+          },
+          "main_lining" : {
+            "type" : "string",
+            "description" : "main lining (id=VdoublA; lbl=MAIN LINING - A; param=doublure_a)",
+            "default" : ""
+          },
+          "sleeve_lining" : {
+            "type" : "string",
+            "description" : "sleeve_lining (id=VdoublA; lbl=SLEEVE LINING - B; param=doublure_b)",
+            "default" : ""
+          },
+          "buttons" : {
+            "type" : "string",
+            "description" : "Jacket Buttons type name  (id=Vnasturi; lbl=BUTTONS; param=boutons)",
+            "default" : ""
+          },
+          "collar_felt" : {
+            "type" : "string",
+            "description" : "Jacket Collar Felt type name  (id=Vguler; lbl=COLLAR FELT; param=feutre)",
+            "default" : ""
+          },
+          "monogram" : {
+            "$ref" : "#/components/schemas/Monogram"
+          },
+          "lapel_buttonhole" : {
+            "type" : "string",
+            "description" : "lapel buttonhole (id=VnasturiReversel; lbl= CONTRAST BUTTONHOLES / LAPEL BUTTONHOLE; param=boutonniere_revers)",
+            "enum" : [ "70", "80", "90" ],
+            "default" : "80"
+          },
+          "cma1" : {
+            "type" : "boolean",
+            "description" : "Sleeves Contrast Buttonhole 1 (id=cma1; lbl=CONTRAST BUTTONHOLES / CONTRAST BUTTONHOLES / Sleeves; param=cma1)",
+            "default" : false
+          },
+          "cma2" : {
+            "type" : "boolean",
+            "description" : "Sleeves Contrast Buttonhole 2 (id=cma2; lbl=CONTRAST BUTTONHOLES / CONTRAST BUTTONHOLES / Sleeves; param=cma2)",
+            "default" : false
+          },
+          "cma3" : {
+            "type" : "boolean",
+            "description" : "Sleeves Contrast Buttonhole 3 (id=cma3; lbl=CONTRAST BUTTONHOLES / CONTRAST BUTTONHOLES / Sleeves; param=cma3)",
+            "default" : false
+          },
+          "cma4" : {
+            "type" : "boolean",
+            "description" : "Sleeves Contrast Buttonhole 4 (id=cma4; lbl=CONTRAST BUTTONHOLES / CONTRAST BUTTONHOLES / Sleeves; param=cma4)",
+            "default" : false
+          },
+          "cma5" : {
+            "type" : "boolean",
+            "description" : "Sleeves Contrast Buttonhole 5 (id=cma5; lbl=CONTRAST BUTTONHOLES / CONTRAST BUTTONHOLES / Sleeves; param=cma5)",
+            "default" : false
+          },
+          "cma6" : {
+            "type" : "boolean",
+            "description" : "Sleeves Contrast Buttonhole 6 (id=cma6; lbl=CONTRAST BUTTONHOLES / CONTRAST BUTTONHOLES / Sleeves; param=cma6)",
+            "default" : false
+          },
+          "cdv1" : {
+            "type" : "boolean",
+            "description" : "Front Contrast Buttonhole 1 (id=cdv1; lbl=CONTRAST BUTTONHOLES / CONTRAST BUTTONHOLES / Front; param=cdv1)",
+            "default" : false
+          },
+          "cdv2" : {
+            "type" : "boolean",
+            "description" : "Front Contrast Buttonhole 2 (id=cdv2; lbl=CONTRAST BUTTONHOLES / CONTRAST BUTTONHOLES / Front; param=cdv2)",
+            "default" : false
+          },
+          "cdv3" : {
+            "type" : "boolean",
+            "description" : "Front Contrast Buttonhole 3 (id=cdv3; lbl=CONTRAST BUTTONHOLES / CONTRAST BUTTONHOLES / Front; param=cdv3)",
+            "default" : false
+          },
+          "cdv4" : {
+            "type" : "boolean",
+            "description" : "Front Contrast Buttonhole 4 (id=cdv4; lbl=CONTRAST BUTTONHOLES / CONTRAST BUTTONHOLES / Front; param=cdv4)",
+            "default" : false
+          },
+          "cdv5" : {
+            "type" : "boolean",
+            "description" : "Front Contrast Buttonhole 5 (id=cdv5; lbl=CONTRAST BUTTONHOLES / CONTRAST BUTTONHOLES / Front; param=cdv5)",
+            "default" : false
+          },
+          "cdv6" : {
+            "type" : "boolean",
+            "description" : "Front Contrast Buttonhole 6 (id=cdv6; lbl=CONTRAST BUTTONHOLES / CONTRAST BUTTONHOLES / Front; param=cdv6)",
+            "default" : false
+          },
+          "secondary_options" : {
+            "type" : "array",
+            "description" : "List of secondary options (id=Voptions; lbl=; param=v_options)",
+            "items" : {
+              "type" : "string"
+            },
+            "default" : [ "" ]
+          },
+          "elbow_patch" : {
+            "type" : "string",
+            "description" : "Jacket Collar Felt type name (id=Vcoud; lbl=ALCANTRA COLOR; param=coudieres)",
+            "default" : ""
+          },
+          "satin_color" : {
+            "type" : "string",
+            "description" : "satin color (id=Vsatinsel; lbl=SATIN COLOR; param=Vsatin)",
+            "default" : ""
+          },
+          "detachable_inlay_color" : {
+            "type" : "string",
+            "description" : "detachable inlay color (id=Vpippingsel; lbl=DETACHABLE INLAY COLOR; param=Vinlay)",
+            "default" : ""
+          },
+          "collar_contrast_color" : {
+            "type" : "string",
+            "description" : "collar contrast color (id=Vcollarcontrsel; lbl=COLLAR CONTRAST COLOR; param=Vcollar)",
+            "default" : ""
+          },
+          "piping_color" : {
+            "type" : "string",
+            "description" : "piping color (id=Vpippingsel; lbl=COLLAR CONTRAST COLOR; param=Vpipping)",
+            "default" : ""
+          },
+          "cuff_contrasted" : {
+            "type" : "string",
+            "description" : "cuff constrasted (id=Vccxsel; lbl=CUFF CONTRASTED; param=VcuffColor)",
+            "default" : ""
+          },
+          "fake_handkerchief" : {
+            "type" : "string",
+            "description" : "fake handkerchief (id=Vfpsel; lbl=FAKE HANDKERCHIEF; param=VfpColor)",
+            "default" : ""
+          },
+          "contrast_thread" : {
+            "type" : "string",
+            "description" : "contrast thread (id=VfilContrasti; lbl=CONTRAST THREAD; param=VfilContrast)",
+            "default" : ""
+          },
+          "bow_tie_fabric" : {
+            "type" : "string",
+            "description" : "Bow tie frabic reference  (id=PpcodTesatura; lbl=BOWTIE FABRIC REF; param=tissu_papion)",
+            "default" : ""
+          },
+          "bow_tie_quantity" : {
+            "type" : "integer",
+            "description" : "Bow tie quantity(id=Ppcant; lbl=QTY; param=papion_qte)",
+            "format" : "int32",
+            "default" : 0
+          },
+          "lavaliere_ref_name" : {
+            "type" : "string",
+            "description" : "Lavaliere reference  (id=CcodTesatura; lbl=LAVARIERE REF; param=tissu_cravaliere)",
+            "default" : ""
+          },
+          "lavaliere_quantity" : {
+            "type" : "integer",
+            "description" : "Lavaliere quantity  (id=Ccant; lbl=QTY; param=cravaliere_qte)",
+            "format" : "int32",
+            "default" : 0
+          },
+          "handkerchief_fabric" : {
+            "type" : "string",
+            "description" : "Handkerchief frabic reference  (id=BcodTesatura; lbl=HANDKERCHIEF FABRIC; param=tissu_pochette)",
+            "default" : ""
+          },
+          "handkerchief_quantity" : {
+            "type" : "integer",
+            "description" : "Handkerchief quantity  (id=Bcant; lbl=QTY; param=pochette_qte)",
+            "format" : "int32",
+            "default" : 0
+          },
+          "measurements" : {
+            "$ref" : "#/components/schemas/JacketMeasurements"
+          }
+        }
+      },
       "JacketBase" : {
         "type" : "object",
         "properties" : {
@@ -4656,6 +4897,77 @@
         }
       },
       "Order" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "status" : {
+            "type" : "string",
+            "description" : "Order status",
+            "enum" : [ "standby", "new" ]
+          },
+          "mtm_type" : {
+            "type" : "string",
+            "description" : "MTM | MTO",
+            "default" : "MTM"
+          },
+          "oldorderno" : {
+            "type" : "string",
+            "description" : "use this id to modify an existing order (Ex=W762096)",
+            "default" : ""
+          },
+          "client_firstname" : {
+            "type" : "string",
+            "description" : "Client First Name",
+            "default" : "John"
+          },
+          "client_lastname" : {
+            "type" : "string",
+            "description" : "Client Last Name",
+            "default" : "Doe"
+          },
+          "client_email" : {
+            "type" : "string",
+            "description" : "Client email",
+            "default" : ""
+          },
+          "client_phone" : {
+            "type" : "string",
+            "description" : "Client Phone",
+            "default" : ""
+          },
+          "internal_order_no" : {
+            "type" : "string",
+            "description" : "Customer Internal Order Id",
+            "default" : "test00"
+          },
+          "body_measurements" : {
+            "$ref" : "#/components/schemas/BodyMeasurements"
+          },
+          "jacket" : {
+            "$ref" : "#/components/schemas/Jacket"
+          },
+          "trousers" : {
+            "$ref" : "#/components/schemas/Trousers"
+          },
+          "waistcoat" : {
+            "$ref" : "#/components/schemas/Waistcoat"
+          },
+          "observations" : {
+            "type" : "string",
+            "description" : "Observations about order",
+            "default" : "this is a comment"
+          },
+          "shipment_address" : {
+            "type" : "string",
+            "description" : "Shipment Address ( default empty, see GET /shipment_addresses )",
+            "default" : ""
+          }
+        }
+      },
+      "OrderOW" : {
         "type" : "object",
         "properties" : {
           "id" : {
