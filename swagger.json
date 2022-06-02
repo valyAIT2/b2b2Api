@@ -3853,7 +3853,7 @@
             "description" : "Configurator ID  (id=configid; lbl=configid; param=configid)"
           },
           "measurements" : {
-            "$ref" : "#/components/schemas/JacketMeasurements"
+            "$ref" : "#/components/schemas/OWMeasurements"
           }
         }
       },
@@ -4119,64 +4119,60 @@
         "type" : "object",
         "required" : [ "size", "total_length", "left_sleeve_length", "right_sleeve_length" ],
         "properties" : {
-          "size" : {
+          "MeasurementsType" : {
             "type" : "string",
-            "description" : "Jacket size (id=VmarimeIncercata; lbl=SIZE TRIED; param=taillev)",
-            "default" : ""
+            "description" : "Measurement type, (id=OrderType; lbl=ORDER TYPE; param=OWordertype)",
+            "default" : "fm",
+            "enum" : [ "VTE", "W", "base", "tryon", "FitAp", "fm" ]
           },
-          "total_length" : {
+          "WearOption" : {
             "type" : "number",
-            "description" : "Jacket Total Length (id=VlungimeSpate; lbl=TOTAL LENGTH; param=longueur_dos)"
+            "description" : "0=Wear without jacket, 1=Wear over the jacket (id=vwear; lbl=WEAR OPTION; param=OWwear)",
+            "default" : 0
           },
-          "left_sleeve_length" : {
+          "fmChest" : {
             "type" : "number",
-            "description" : "Jacket Left Sleeve Length (id=VlungimeManecaStanga; lbl=LEFT SLEEVE; param=manche_gauche)"
+            "description" : "US-Jacket Chest measurement (param=MVchest)"
           },
-          "right_sleeve_length" : {
+          "MVwaist" : {
             "type" : "number",
-            "description" : "Jacket Right Sleeve Length (id=VlungimeManecaDreapta; lbl=RIGHT SLEEVE; param=manche_droite)"
+            "description" : "US-Jacket Waist measurement (param=MVwaist)"
           },
-          "posture" : {
-            "type" : "string",
-            "description" : "Body posture (id=VcodeAtitude; lbl=BENT/ERECT POSTURE; param=code_attitude)",
-            "default" : "",
-            "enum" : [ "", "400", "401", "402", "403", "405", "406", "407" ]
-          },
-          "chest" : {
-            "type" : "string",
-            "description" : "chest (id=VcodePoitrine; lbl=CHEST; param=code_poitrine)",
-            "enum" : [ "", "800", "802", "803", "804" ],
-            "default" : ""
-          },
-          "left_shoulder_slope" : {
-            "type" : "string",
-            "description" : "left shoulder slope (id=VcodUmarStang; lbl=LEFT SHOULDER / LOW si / HIGH; param=code_epaule_gauche)",
-            "enum" : [ "", "500", "505", "506", "507", "501", "502", "503" ],
-            "default" : ""
-          },
-          "right_shoulder_slope" : {
-            "type" : "string",
-            "description" : "left shoulder slope (id=VcodUmarDrept; lbl=RIGHT SHOULDER / LOW si / HIGH; param=code_epaule_droite)",
-            "enum" : [ "", "600", "605", "606", "607", "601", "602", "603" ],
-            "default" : ""
-          },
-          "jacket_vents" : {
+          "MVseat" : {
             "type" : "number",
-            "format" : "double",
-            "description" : "jacket vents length  (id=Vfente; lbl=VENTS; param=v_fente)"
+            "description" : "US-Jacket Seat measurement (param=MVseat)"
           },
-          "first_button" : {
+          "MVbiceps" : {
             "type" : "number",
-            "format" : "double",
-            "description" : "first button possition (id=V1ErBouton; lbl=FIRST BUTTON POSITION; param=v_1er_bouton)"
+            "description" : "US-Jacket Biceps measurement (param=MVbiceps)"
           },
-          "secondary_alterations" : {
-            "type" : "array",
-            "items" : {
-              "type" : "string",
-              "description" : "List of secondary Alterations (id=Voptions; lbl=; param=v_alterations)"
-            },
-            "default" : [ "" ]
+          "MVneck" : {
+            "type" : "number",
+            "description" : "US-Jacket Neck measurement (param=MVneck)"
+          },
+          "MVshoulder" : {
+            "type" : "number",
+            "description" : "US-Jacket Shoulder measurement (param=MVshoulder)"
+          },
+          "MVsleeveleft" : {
+            "type" : "number",
+            "description" : "US-Jacket Sleeve left measurement (param=MVsleeveleft)"
+          },
+          "MVsleeveright" : {
+            "type" : "number",
+            "description" : "US-Jacket Sleeve right measurement (param=MVsleeveright)"
+          },
+          "MVwaistbtnpos" : {
+            "type" : "number",
+            "description" : "US-Jacket Waist button pos measurement (param=MVwaistbtnpos)"
+          },
+          "MVbacklength" : {
+            "type" : "number",
+            "description" : "US-Jacket Back Length measurement (param=MVbacklength)"
+          },
+          "MVsleeveopening" : {
+            "type" : "number",
+            "description" : "US-Jacket Sleeve opening measurement (param=MVsleeveopening)"
           }
         }
       },
