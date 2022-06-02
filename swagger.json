@@ -4886,17 +4886,8 @@
             "description" : "Customer Internal Order Id",
             "default" : "test00"
           },
-          "body_measurements" : {
-            "$ref" : "#/components/schemas/BodyMeasurements"
-          },
-          "jacket" : {
-            "$ref" : "#/components/schemas/Jacket"
-          },
-          "trousers" : {
-            "$ref" : "#/components/schemas/Trousers"
-          },
-          "waistcoat" : {
-            "$ref" : "#/components/schemas/Waistcoat"
+          "outerwear" : {
+            "$ref" : "#/components/schemas/Outerwear"
           },
           "observations" : {
             "type" : "string",
