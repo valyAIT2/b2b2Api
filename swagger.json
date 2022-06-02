@@ -38,6 +38,32 @@
         }
       }
     },
+    "/orderOuterwear" : {
+      "post" : {
+        "tags" : [ "Order" ],
+        "summary" : "Add a new order",
+        "description" : "Add a new order",
+        "operationId" : "addOrderOW",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/OrderOW"
+              }
+            }
+          },
+          "description" : "Order object that needs to be added"
+        },
+        "responses" : {
+          "201" : {
+            "description" : "item created"
+          },
+          "400" : {
+            "description" : "invalid input, object invalid"
+          }
+        }
+      }
+    },
     "/fabrics_stock/{name}" : {
       "get" : {
         "summary" : "Fabric detail",
