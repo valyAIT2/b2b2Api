@@ -4903,6 +4903,11 @@
             "type" : "string",
             "description" : "Shipment Address ( default empty, see GET /shipment_addresses )",
             "default" : ""
+          },
+          "shopID" : {
+            "type" : "string",
+            "description" : "Shop ID if different account ( default empty, fill only if different account )",
+            "default" : ""
           }
         }
       },
