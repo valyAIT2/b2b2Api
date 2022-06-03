@@ -4839,7 +4839,7 @@
           },
           "shopID" : {
             "type" : "string",
-            "description" : "Shop ID if different account ( default empty )",
+            "description" : "Shop ID if different account ( default empty, fill only if different account )",
             "default" : ""
           }
         }
