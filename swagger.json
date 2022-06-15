@@ -3309,6 +3309,43 @@
         }
       }
     },
+    "/order_price/{w_order}" : {
+      "get" : {
+        "summary" : "Get order price details for specific order",
+        "description" : "Order price",
+        "tags" : [ "Order" ],
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "w_order",
+          "required" : true,
+          "schema" : {
+            "type" : "string",
+            "format" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation"
+          },
+          "400" : {
+            "description" : "Invalid/incomplete Order reference supplied"
+          },
+          "404" : {
+            "description" : "Order reference not found"
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/orders_dateexport" : {
       "post" : {
         "tags" : [ "Order" ],
