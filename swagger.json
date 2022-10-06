@@ -4186,7 +4186,7 @@
             "type" : "string",
             "description" : "Measurement type, (id=OrderType; lbl=ORDER TYPE; param=OWordertype)",
             "default" : "fm",
-            "enum" : [ "VTE", "W", "base", "tryon", "FitAp", "fm" ]
+            "enum" : [ "VTE", "W", "base", "tryon", "FitAp", "fm", "fgm" ]
           },
           "WearOption" : {
             "type" : "number",
@@ -4236,6 +4236,50 @@
           "MVsleeveopening" : {
             "type" : "number",
             "description" : "US-Jacket Sleeve opening measurement (param=MVsleeveopening)"
+          },
+          "gfm_Size" : {
+            "type" : "string",
+            "description" : "Outerwear Size (param=VmarimeIncercata)"
+          },
+          "gfm_Waist" : {
+            "type" : "number",
+            "description" : "US-OW Waist measurement-inch (param=TabMasTAILLEFIN)"
+          },
+          "gfm_BackLength" : {
+            "type" : "number",
+            "description" : "US-OW Back length measurement-inch (param=VlungimeSpate)"
+          },
+          "gfm_SleeveLenghLeft" : {
+            "type" : "number",
+            "description" : "US-OW Left Sleeve Length measurement-inch (param=VlungimeManecaStanga)"
+          },
+          "gfm_SleeveLenghRight" : {
+            "type" : "number",
+            "description" : "US-OW Right Sleeve Length measurement-inch (param=VlungimeManecaDreapta)"
+          },
+          "gfm_CrossShoulders" : {
+            "type" : "number",
+            "description" : "US-OW Cross shoulders measurement-inch (param=TabMasTRAPEZFIN)"
+          },
+          "gfm_BackWidth" : {
+            "type" : "number",
+            "description" : "US-OW Back Width measurement-inch (param=TabMasCARRUREFIN)"
+          },
+          "gfm_Biceps" : {
+            "type" : "number",
+            "description" : "US-OW Biceps measurement-inch (param=TabMasBICEPSFIN)"
+          },
+          "gfm_FrontLength" : {
+            "type" : "number",
+            "description" : "US-OW Front length measurement-inch (param=TabMasFRONTFIN)"
+          },
+          "secondary_alterations" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "description" : "List of secondary Alterations (id=Voptions; lbl=; param=v_alterations)"
+            },
+            "default" : [ "" ]
           }
         }
       },
