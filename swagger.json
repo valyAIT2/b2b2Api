@@ -4866,6 +4866,11 @@
             "description" : "MTM | MTO",
             "default" : "MTM"
           },
+          "express" : {
+            "type" : "boolean",
+            "description" : "Express delivery (extra charges)",
+            "default" : false
+          },
           "oldorderno" : {
             "type" : "string",
             "description" : "use this id to modify an existing order (Ex=W762096)",
@@ -4941,6 +4946,11 @@
             "type" : "string",
             "description" : "MTM | MTO",
             "default" : "MTM"
+          },
+          "express" : {
+            "type" : "boolean",
+            "description" : "Express delivery (extra charges)",
+            "default" : false
           },
           "oldorderno" : {
             "type" : "string",
