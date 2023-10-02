@@ -4403,6 +4403,11 @@
             "description" : "Trouser Buttons type name  (id=Pnasturi; lbl=BUTTONS; param=boutons_pant)",
             "default" : ""
           },
+          "pocketing" : {
+            "type" : "string",
+            "description" : "Trouser pocketing  (id=Psac; lbl=POCKETING; param=Psac)",
+            "default" : ""
+          },
           "secondary_options" : {
             "type" : "array",
             "items" : {
