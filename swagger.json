@@ -3949,6 +3949,44 @@
             "type" : "string",
             "description" : "to do"
           },
+          "front" : {
+            "type" : "string"
+          },
+          "bottom" : {
+            "type" : "string"
+          },
+          "contrast_fabric" : {
+            "type" : "string",
+            "default" : ""
+          },
+          "contrast_buttonholes" : {
+            "type" : "string",
+            "default" : "-"
+          },
+          "contrast_buttonthread" : {
+            "type" : "string",
+            "default" : "-"
+          },
+          "contrast_stitching" : {
+            "type" : "string",
+            "default" : "-"
+          },
+          "buttons" : {
+            "type" : "string"
+          },
+          "collar_stays" : {
+            "type" : "string"
+          },
+          "stitching" : {
+            "type" : "string"
+          },
+          "pockets_number" : {
+            "type" : "string",
+            "default" : "-"
+          },
+          "pockets" : {
+            "type" : "string"
+          },
           "secondary_options" : {
             "type" : "array",
             "description" : "List of secondary options (id=Voptions; lbl=; param=v_options)",
