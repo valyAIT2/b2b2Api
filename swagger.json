@@ -3937,6 +3937,18 @@
             "type" : "string",
             "description" : "to do"
           },
+          "collar_construction" : {
+            "type" : "string",
+            "description" : "to do"
+          },
+          "collar" : {
+            "type" : "string",
+            "description" : "to do"
+          },
+          "cuffs" : {
+            "type" : "string",
+            "description" : "to do"
+          },
           "secondary_options" : {
             "type" : "array",
             "description" : "List of secondary options (id=Voptions; lbl=; param=v_options)",
