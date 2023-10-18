@@ -3996,7 +3996,7 @@
             "default" : [ "" ]
           },
           "measurements" : {
-            "$ref" : "#/components/schemas/JacketMeasurements"
+            "$ref" : "#/components/schemas/ShirtMeasurements"
           }
         }
       },
@@ -4273,6 +4273,69 @@
             "type" : "number",
             "format" : "double",
             "description" : "first button possition (id=V1ErBouton; lbl=FIRST BUTTON POSITION; param=v_1er_bouton)"
+          },
+          "secondary_alterations" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "description" : "List of secondary Alterations (id=Voptions; lbl=; param=v_alterations)"
+            },
+            "default" : [ "" ]
+          }
+        }
+      },
+      "ShirtMeasurements" : {
+        "type" : "object",
+        "required" : [ "size", "total_length", "left_sleeve_length", "right_sleeve_length" ],
+        "properties" : {
+          "size" : {
+            "type" : "string",
+            "description" : "Shirt size",
+            "default" : ""
+          },
+          "half_chest" : {
+            "type" : "number",
+            "description" : "The measurement of half waist."
+          },
+          "half_waist" : {
+            "type" : "number",
+            "description" : "The measurement of half waist."
+          },
+          "half_seat" : {
+            "type" : "number",
+            "description" : "The measurement of half seat."
+          },
+          "left_sleeve_length" : {
+            "type" : "number",
+            "description" : "The length of the left sleeve."
+          },
+          "right_sleeve_length" : {
+            "type" : "number",
+            "description" : "The length of the right sleeve."
+          },
+          "total_length" : {
+            "type" : "number",
+            "description" : "The total length measurement."
+          },
+          "back_width" : {
+            "type" : "number",
+            "description" : "The measurement of back width."
+          },
+          "half_biceps" : {
+            "type" : "number",
+            "description" : "The measurement of half biceps."
+          },
+          "collar" : {
+            "type" : "number",
+            "description" : "The measurement of collar size."
+          },
+          "left_half_cuffs" : {
+            "type" : "number",
+            "description" : "The measurement of left half cuffs."
+          },
+          "rigth_half_cuffs" : {
+            "type" : "number",
+            "description" : "The measurement of right half cuffs."
           },
           "secondary_alterations" : {
             "type" : "array",
