@@ -3987,6 +3987,9 @@
           "pockets" : {
             "type" : "string"
           },
+          "monogram" : {
+            "$ref" : "#/components/schemas/Monogram"
+          },
           "secondary_options" : {
             "type" : "array",
             "description" : "List of secondary options (id=Voptions; lbl=; param=v_options)",
