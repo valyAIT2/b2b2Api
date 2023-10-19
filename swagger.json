@@ -5306,6 +5306,31 @@
           }
         }
       },
+      "ShirtMonogram" : {
+        "type" : "object",
+        "properties" : {
+          "text" : {
+            "type" : "string",
+            "description" : "Monogram Text",
+            "default" : ""
+          },
+          "color" : {
+            "type" : "string",
+            "description" : "Monogram Color",
+            "default" : ""
+          },
+          "font" : {
+            "type" : "string",
+            "description" : "Monogram Position",
+            "default" : ""
+          },
+          "position" : {
+            "type" : "string",
+            "description" : "Monogram Position",
+            "default" : ""
+          }
+        }
+      },
       "BodyMeasurements" : {
         "type" : "object",
         "properties" : {
