@@ -5367,10 +5367,6 @@
             "type" : "number",
             "description" : "Waist measurement"
           },
-          "belt" : {
-            "type" : "number",
-            "description" : "Belt measurement"
-          },
           "seat" : {
             "type" : "number",
             "description" : "Seat measurement"
