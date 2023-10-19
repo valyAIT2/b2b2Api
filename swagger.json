@@ -3988,7 +3988,7 @@
             "type" : "string"
           },
           "monogram" : {
-            "$ref" : "#/components/schemas/Monogram"
+            "$ref" : "#/components/schemas/ShirtMonogram"
           },
           "secondary_options" : {
             "type" : "array",
