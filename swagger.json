@@ -5184,7 +5184,7 @@
             "default" : "test00"
           },
           "body_measurements" : {
-            "$ref" : "#/components/schemas/BodyMeasurements"
+            "$ref" : "#/components/schemas/ShirtBodyMeasurements"
           },
           "shirt" : {
             "$ref" : "#/components/schemas/Shirt"
