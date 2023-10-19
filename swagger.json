@@ -5327,6 +5327,31 @@
           }
         }
       },
+      "ShirtBodyMeasurements" : {
+        "type" : "object",
+        "properties" : {
+          "neck" : {
+            "type" : "number",
+            "description" : "Neck measurement"
+          },
+          "chest" : {
+            "type" : "number",
+            "description" : "Chest measurement"
+          },
+          "waist" : {
+            "type" : "number",
+            "description" : "Waist measurement"
+          },
+          "belt" : {
+            "type" : "number",
+            "description" : "Belt measurement"
+          },
+          "seat" : {
+            "type" : "number",
+            "description" : "Seat measurement"
+          }
+        }
+      },
       "Measurement" : {
         "type" : "object",
         "properties" : {
